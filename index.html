@@ -17,7 +17,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 /* ── MAIN WHITE NAV ── */
 .nav{position:sticky;top:0;z-index:200;height:60px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 48px}
 .nav-logo{display:flex;align-items:center;gap:8px;margin-right:40px;cursor:pointer}
-.nav-logo-text{font-family:var(--mono);font-weight:700;font-size:17px;letter-spacing:-1px}
+.nav-logo-text{font-family:var(--mono);font-weight:700;font-size:17px;letter-spacing:-1px;color:var(--teal)}
 .nav-links{display:flex;align-items:center;gap:32px;flex:1}
 .nav-link{font-size:13px;color:#555;font-weight:500;transition:color .15s;cursor:pointer}
 .nav-link:hover{color:var(--teal)}
@@ -297,8 +297,8 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
 <!-- ══ WHITE TOPBAR (always visible, unchanged) ══ -->
 <nav class="nav">
   <div class="nav-logo" onclick="goHome()">
-    <svg width="20" height="20" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="nc"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#nc)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="38" cy="18" r="8"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/><circle cx="10" cy="42" r="6"/><circle cx="44" cy="6" r="6"/><circle cx="74" cy="20" r="5"/><circle cx="28" cy="76" r="5"/><circle cx="66" cy="76" r="5"/><circle cx="76" cy="54" r="5"/><circle cx="8" cy="28" r="5"/><circle cx="48" cy="62" r="6"/><circle cx="24" cy="36" r="6"/><circle cx="52" cy="10" r="4"/><circle cx="8" cy="55" r="4"/><circle cx="74" cy="65" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="42" cy="78" r="3"/></g></svg>
     <span class="nav-logo-text">KREW</span>
+    <svg width="20" height="20" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="nc"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#nc)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="38" cy="18" r="8"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/><circle cx="10" cy="42" r="6"/><circle cx="44" cy="6" r="6"/><circle cx="74" cy="20" r="5"/><circle cx="28" cy="76" r="5"/><circle cx="66" cy="76" r="5"/><circle cx="76" cy="54" r="5"/><circle cx="8" cy="28" r="5"/><circle cx="48" cy="62" r="6"/><circle cx="24" cy="36" r="6"/><circle cx="52" cy="10" r="4"/><circle cx="8" cy="55" r="4"/><circle cx="74" cy="65" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="42" cy="78" r="3"/></g></svg>
   </div>
   <div class="nav-links">
     <span class="nav-link" onclick="scrollToSection('home-platform')">Platform</span>
@@ -777,8 +777,8 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
     <div class="cg" style="grid-template-columns:1fr 1fr;margin-bottom:2px">
       <div style="background:var(--black);padding:48px;display:flex;flex-direction:column;align-items:flex-start;gap:16px">
         <div style="display:flex;align-items:center;gap:14px">
-          <svg viewBox="0 0 80 80" width="72" height="72" fill="#00FFB2"><defs><clipPath id="ac"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#ac)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="38" cy="18" r="8"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/><circle cx="10" cy="42" r="6"/><circle cx="44" cy="6" r="6"/><circle cx="74" cy="20" r="5"/><circle cx="28" cy="76" r="5"/><circle cx="66" cy="76" r="5"/><circle cx="76" cy="54" r="5"/><circle cx="8" cy="28" r="5"/><circle cx="48" cy="62" r="6"/><circle cx="24" cy="36" r="6"/><circle cx="52" cy="10" r="4"/><circle cx="8" cy="55" r="4"/><circle cx="74" cy="65" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="42" cy="78" r="3"/></g></svg>
           <span style="font-family:var(--mono);font-weight:700;font-size:52px;letter-spacing:-3px;color:#fff;line-height:1">KREW</span>
+          <svg viewBox="0 0 80 80" width="72" height="72" fill="#00FFB2"><defs><clipPath id="ac"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#ac)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="38" cy="18" r="8"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/><circle cx="10" cy="42" r="6"/><circle cx="44" cy="6" r="6"/><circle cx="74" cy="20" r="5"/><circle cx="28" cy="76" r="5"/><circle cx="66" cy="76" r="5"/><circle cx="76" cy="54" r="5"/><circle cx="8" cy="28" r="5"/><circle cx="48" cy="62" r="6"/><circle cx="24" cy="36" r="6"/><circle cx="52" cy="10" r="4"/><circle cx="8" cy="55" r="4"/><circle cx="74" cy="65" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="42" cy="78" r="3"/></g></svg>
         </div>
         <div style="font-family:var(--mono);font-size:12px;color:#555;letter-spacing:1px;text-transform:uppercase">Agents for hire &middot; krew.cloud</div>
       </div>
@@ -1545,8 +1545,8 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
   <div class="ft">
     <div>
       <div class="flogo">
+        <span class="flogot">KREW</span>
         <svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="fc"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#fc)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="38" cy="18" r="8"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/><circle cx="10" cy="42" r="6"/><circle cx="44" cy="6" r="6"/><circle cx="74" cy="20" r="5"/><circle cx="28" cy="76" r="5"/><circle cx="66" cy="76" r="5"/><circle cx="76" cy="54" r="5"/><circle cx="8" cy="28" r="5"/><circle cx="48" cy="62" r="6"/><circle cx="24" cy="36" r="6"/><circle cx="52" cy="10" r="4"/><circle cx="8" cy="55" r="4"/><circle cx="74" cy="65" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="42" cy="78" r="3"/></g></svg>
-        <span class="flogo-text">KREW</span>
       </div>
       <div class="fclbl" style="margin-top:16px;margin-bottom:24px">Agents for hire</div>
       <div style="font-family:var(--mono);font-size:9px;color:#00FFB2;letter-spacing:.5px;margin-bottom:2px">Powered by</div>
