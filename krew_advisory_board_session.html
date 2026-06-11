@@ -1,0 +1,325 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+:root{--bg:#060A0F;--s1:#080C12;--s2:#0A0E14;--b1:#0D1520;--b2:#141E28;--b3:#1A2530;--t1:#E0ECF8;--t2:#B8C8D8;--m1:#4A6070;--m2:#667788;--teal:#00FFB2;--amber:#FFB800;--red:#FF4D6D;--blue:#4DA6FF;--purple:#B266FF;--cyan:#67E8F9}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Mono',monospace;background:var(--bg);color:var(--t1);line-height:1.5;padding:0}
+.app{max-width:1140px;margin:0 auto;padding:0 20px 64px}
+.xbar{background:rgba(255,184,0,0.05);border-bottom:1px solid rgba(255,184,0,0.18);padding:7px 20px;font-size:9px;color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin:0 -20px}
+.hdr{padding:20px 0;border-bottom:1px solid var(--b2);display:flex;align-items:center;justify-content:space-between}
+.hdr-l{display:flex;align-items:baseline;gap:10px}
+.hdr-name{font-size:20px;font-weight:700;letter-spacing:-0.5px}
+.hdr-acc{color:var(--teal)}
+.hdr-sub{font-size:9px;color:var(--m2);letter-spacing:2.5px;text-transform:uppercase}
+.hdr-r{font-size:9px;color:var(--m1);letter-spacing:1.5px;text-transform:uppercase}
+.hdr-r em{color:var(--t2);font-style:normal}
+.hero{display:grid;grid-template-columns:1fr 300px;gap:40px;padding:44px 0 32px;border-bottom:1px solid var(--b2);align-items:start}
+.htitle{font-size:52px;font-weight:700;letter-spacing:-3px;line-height:.9;margin-bottom:20px}
+.htitle .acc{color:var(--teal)}
+.htag{font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;color:var(--t2);line-height:1.75;max-width:430px;margin-bottom:28px;font-weight:300}
+.hkpis{display:flex;gap:32px;margin-bottom:22px}
+.kv{font-size:30px;font-weight:700;color:var(--teal);letter-spacing:-1.5px;line-height:1}
+.kl{font-size:8px;color:var(--m1);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.hhl{border-left:2px solid var(--amber);padding:9px 14px;background:rgba(255,184,0,0.04);font-size:11px;color:var(--t2);line-height:1.7;font-family:'IBM Plex Sans',sans-serif}
+.hhl strong{color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:3px}
+.mpanel{border:1px solid var(--b2);background:var(--s1)}
+.mph{padding:10px 14px;border-bottom:1px solid var(--b2);font-size:8px;color:var(--teal);letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.mr{padding:11px 14px;border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between}
+.mr:last-child{border-bottom:none}
+.mk{font-size:8px;color:var(--m2);letter-spacing:1.5px;text-transform:uppercase}
+.mv{font-size:12px;color:var(--t2);font-weight:500}
+.mv.big{font-size:21px;font-weight:700;color:var(--teal);letter-spacing:-1px}
+.mv.tl{color:var(--teal)}
+.tabs-s{padding:20px 0;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.tl{font-size:8px;color:var(--m1);letter-spacing:2.5px;text-transform:uppercase;white-space:nowrap}
+.tr{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.tab{padding:6px 11px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:transparent;border:1px solid var(--b2);color:var(--m2);cursor:pointer;transition:all .1s}
+.tab:hover{border-color:var(--b3);color:var(--t2)}
+.tab.on{background:var(--teal);border-color:var(--teal);color:var(--bg);font-weight:700}
+.launch{padding:14px 0;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--b2)}
+.btn{padding:9px 22px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--teal);color:var(--bg);border:none;cursor:pointer;transition:background .1s;white-space:nowrap}
+.btn:hover:not(:disabled){background:#00e6a0}
+.btn:disabled{background:var(--b2);color:var(--m1);cursor:not-allowed}
+.linfo{font-size:10px;color:var(--m1)}
+.linfo em{color:var(--t2);font-style:normal}
+.board{padding:22px 0 0}
+.bhdr{font-size:8px;color:var(--m1);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px}
+.bhdr em{color:var(--t2);font-style:normal}
+.cwrap{margin-bottom:10px}
+.cwrap .card{border-top:2px solid var(--teal)}
+.cwrap .cbody{min-height:130px}
+.cwrap .cempty{min-height:110px}
+.bgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.bgrid .card:nth-child(1){grid-column:span 2}
+.bgrid .card:nth-child(2){grid-column:span 2}
+.bgrid .card:nth-child(3){grid-column:span 2}
+.bgrid .card:nth-child(4){grid-column:span 3}
+.bgrid .card:nth-child(5){grid-column:span 3}
+.card{border:1px solid var(--b2);background:var(--s1);display:flex;flex-direction:column;overflow:hidden}
+.ch{padding:10px 13px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:9px;flex-shrink:0}
+.cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.ci{flex:1;min-width:0}
+.ctitle{font-size:10px;font-weight:600;color:var(--t1);letter-spacing:.3px}
+.csub{font-size:8px;color:var(--m2);letter-spacing:1px;margin-top:2px}
+.cstat{font-size:8px;color:var(--m1);letter-spacing:1px;text-transform:uppercase;flex-shrink:0;white-space:nowrap}
+.cstat.loading{color:var(--amber);animation:bl 1s step-end infinite}
+.cstat.done{color:var(--teal)}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+.cbody{padding:13px;flex:1;min-height:190px;position:relative;overflow:hidden}
+.cempty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 12px;gap:8px}
+.ei{opacity:.07}
+.et{font-size:8px;color:var(--m1);letter-spacing:2px;text-transform:uppercase}
+.sw{position:absolute;top:0;left:0;width:100%;height:2px;overflow:hidden;display:none}
+.sw.on{display:block}
+.swb{position:absolute;top:0;left:-60%;width:60%;height:100%;animation:swp 1.4s ease-in-out infinite}
+@keyframes swp{to{left:140%}}
+.resp{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--t2);line-height:1.82;white-space:pre-wrap;display:none}
+.resp.show{display:block;animation:scan .9s ease-out forwards}
+@keyframes scan{from{clip-path:inset(0 0 100% 0);opacity:.3}to{clip-path:inset(0 0 0% 0);opacity:1}}
+.ft{padding:22px 0;border-top:1px solid var(--b2);margin-top:36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ftl{font-size:9px;color:var(--m1);letter-spacing:1.5px}
+.ftl strong{color:var(--t2);font-weight:500}
+.ftr{font-size:8px;color:var(--m1);letter-spacing:1px;text-transform:uppercase}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.mpanel{display:none}.htitle{font-size:38px;letter-spacing:-2px}.bgrid{grid-template-columns:1fr}.bgrid .card{grid-column:span 1!important}}
+</style>
+<h2 class="sr-only">KREW Advisory Board — AI-powered boardroom session with 6 expert agents analyzing the KREW staffing concept</h2>
+<div class="app">
+<div class="xbar">
+  <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#FFB800"/></svg>
+  X RULE — KREW contains no X. Consider: KREX or SAGA.KREX for brand compliance
+</div>
+<header class="hdr">
+  <div class="hdr-l">
+    <span class="hdr-name">KREW<span class="hdr-acc">●</span></span>
+    <span class="hdr-sub">by SAGA.WORX</span>
+  </div>
+  <div class="hdr-r">Advisory Board Session <em>● LIVE</em></div>
+</header>
+<section class="hero">
+  <div>
+    <h1 class="htitle">Agents<br>for all<br>tasks<span class="acc">●</span></h1>
+    <p class="htag">KREW deploys professionally trained AI agents as staff to any organisation. They work 7 days a week, 24 hours a day. Your human team works 5 days a week, 8 hours a day. The math is simple. The implications are not.</p>
+    <div class="hkpis">
+      <div><div class="kv">4.2×</div><div class="kl">Productivity<br>Multiplier</div></div>
+      <div><div class="kv">168h</div><div class="kl">Agent Weekly<br>Availability</div></div>
+      <div><div class="kv">∞</div><div class="kl">Roles in<br>Catalog</div></div>
+    </div>
+    <div class="hhl">
+      <strong>The Punchline</strong>
+      One KREW agent. 168 hours of capacity per week. One human equivalent: 40. Same role. 4.2× the coverage. And every hour the agent works, it learns more about your business — compounding its value while compounding your switching cost.
+    </div>
+  </div>
+  <div class="mpanel">
+    <div class="mph"><svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="#00FFB2"/></svg> THE MATH</div>
+    <div class="mr"><span class="mk">Human Capacity</span><span class="mv">5×8h = 40h/wk</span></div>
+    <div class="mr"><span class="mk">Agent Capacity</span><span class="mv">7×24h = 168h/wk</span></div>
+    <div class="mr"><span class="mk">Multiplier</span><span class="mv big">4.2×</span></div>
+    <div class="mr"><span class="mk">Output IP</span><span class="mv">→ Client</span></div>
+    <div class="mr"><span class="mk">Methodology IP</span><span class="mv tl">→ KREW</span></div>
+    <div class="mr"><span class="mk">Switching Cost</span><span class="mv tl">Compounds ∞</span></div>
+  </div>
+</section>
+<div class="tabs-s">
+  <div class="tl">Board Agenda</div>
+  <div class="tr" id="tr"></div>
+</div>
+<div class="launch">
+  <button class="btn" id="btnC" onclick="convene()">CONVENE BOARD</button>
+  <span class="linfo" id="li">Select a topic <em>●</em> fire all 6 board members simultaneously</span>
+</div>
+<section class="board">
+  <div class="bhdr">Advisory Board <em>● 6 Members</em></div>
+  <div class="cwrap">
+    <div class="card" id="card-ceo">
+      <div class="ch">
+        <div class="cdot" style="background:#00FFB2"></div>
+        <div class="ci"><div class="ctitle">KREW CEO</div><div class="csub">Staffing × Agentic Systems × Training Architecture</div></div>
+        <div class="cstat" id="stat-ceo">STANDING BY</div>
+      </div>
+      <div class="cbody" id="body-ceo">
+        <div class="sw" id="sw-ceo"><div class="swb" style="background:linear-gradient(90deg,transparent,#00FFB2,transparent)"></div></div>
+        <div class="cempty" id="em-ceo">
+          <svg class="ei" width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="15" stroke="#00FFB2" stroke-width="1.5"/><circle cx="17" cy="17" r="5" fill="#00FFB2"/><line x1="17" y1="2" x2="17" y2="9" stroke="#00FFB2" stroke-width="1.5"/><line x1="17" y1="25" x2="17" y2="32" stroke="#00FFB2" stroke-width="1.5"/><line x1="2" y1="17" x2="9" y2="17" stroke="#00FFB2" stroke-width="1.5"/><line x1="25" y1="17" x2="32" y2="17" stroke="#00FFB2" stroke-width="1.5"/></svg>
+          <div class="et">Awaiting Convene</div>
+        </div>
+        <div class="resp" id="resp-ceo"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bgrid" id="bg"></div>
+</section>
+<footer class="ft">
+  <div class="ftl"><strong>KREW</strong> by SAGA.WORX · Spitsbergen Invest AS · org.nr. 992 240 857 MVA · sagaworx.no</div>
+  <div class="ftr">AI Advisory Board · Confidential</div>
+</footer>
+</div>
+<script>
+const BRIEF=`KREW — AI-Native Staffing Agency by SAGA.WORX / Spitsbergen Invest AS
+
+CORE CONCEPT:
+KREW is an AI-native staffing agency. We deploy professionally trained AI agents as staff to client organisations. Clients purchase one or more agents from a catalog of professional roles: software developer, lawyer, doctor, accountant, marketer, project manager, data analyst, copywriter, customer support, and hundreds more.
+
+KEY MECHANICS:
+- Availability: Agents work 7x24h. Humans work 5x8h. That is 168h vs 40h per week — a 4.2x productivity multiplier.
+- IP split: Clients own all output IP. KREW owns the methodology and agent training improvement loops (the learning flywheel is KREW's moat).
+- Customisation: Each agent learns the client's systems, tone, processes, and preferences over time. Switching cost compounds with every interaction.
+- Communications: Agents collaborate via Slack as their primary comms backbone — internal and external. External integrations also available.
+- Scale vision: An expert agent for every professional role in the world.
+
+CAMPUS MODEL:
+- Training facility: agent skills built, tested, and continuously improved
+- DevOps operations: agent deployment, monitoring, uptime SLAs
+- Staffing team: client logo onboarding, agent matching, account management
+- Advisory Board: strategic governance
+- All training improvements (the methodology IP) belong to KREW, not the client
+
+REVENUE HYPOTHESIS:
+- Agent subscriptions (monthly per-agent fee, tiered by role complexity)
+- Client specification training packages (custom knowledge ingestion for high-value clients)
+- Enterprise fleet pricing (volume discounts for 10+ agent workforces)
+
+THE PUNCHLINE:
+"A KREW agent works 168 hours a week. Your human employee works 40. That's 4.2x the coverage, zero sick days, and the agent gets smarter every single day it works with you. That's scary good."
+
+PARENT COMPANY: Spitsbergen Invest AS / SAGA.WORX — Norwegian AI SaaS studio.`;
+
+const TOPICS=[
+{id:'concept',label:'CONCEPT',p:'Critically analyse the KREW concept. What is genuinely compelling? Where are the gaps and weaknesses? How would you sharpen the core value proposition? Be specific and do not hold back.'},
+{id:'gtm',label:'GO-TO-MARKET',p:'Design the KREW go-to-market strategy. Who are the ideal first 10 clients? What is the sales motion? How do we reach the first NOK 1,000,000 in ARR? Be specific with channels, messaging, and milestones for months 1-6.'},
+{id:'risk',label:'RISK',p:'Identify the top risks for KREW across legal, operational, competitive, technical, and reputational dimensions. For each risk, propose a specific mitigation. Surface risks others in this room may have glossed over.'},
+{id:'financials',label:'FINANCIALS',p:'Build the KREW financial picture from first principles. What are realistic unit economics? What pricing tiers make sense? What does a 12-month revenue model look like from zero? What is the minimum capital needed to prove the model?'},
+{id:'ops',label:'OPERATIONS',p:'Design the KREW operational model. How does the campus run day-to-day? What are the key processes: agent training, client onboarding, quality control, improvement cycles? What is the minimum viable team to launch and reach first revenue?'},
+{id:'revenue',label:'REVENUE MODEL',p:'Design the optimal KREW revenue model from first principles. Compare per-seat subscription vs usage-based vs outcome-based. What pricing architecture maximises growth while capturing real value? Give a clear recommendation with rationale.'}
+];
+
+const AGENTS=[
+{id:'ceo',title:'KREW CEO',sub:'Staffing × Agentic Systems × Training',color:'#00FFB2',
+sys:`You are the CEO of KREW, an AI-native staffing agency launching under SAGA.WORX. Your background spans 15+ years building staffing businesses across temp, permanent, and executive search, combined with deep expertise in AI agent systems, LLM orchestration, and agentic training pipelines. You think in "agents as employees" — each has a role, skills profile, performance metrics, and a learning trajectory. You are commercially sharp: you price for value capture, think in unit economics, and care only about metrics that connect to revenue and retention.
+
+Respond as the CEO presenting your strategic vision to the advisory board. Be direct, specific, and commercially sharp. No waffle. No generic frameworks. Address exactly what is asked.
+
+Write in clear paragraphs. No bullet points. 260-300 words.`},
+{id:'cto',title:'CTO ADVISOR',sub:'Architecture × Infrastructure × Reliability',color:'#4DA6FF',
+sys:`You are the CTO advisor to KREW with a Musk + Torvalds engineering philosophy. First principles. No cargo-culting. Ship fast, build reliably, scale deliberately.
+
+Your expertise covers multi-agent orchestration at scale, training pipeline architecture (how agents acquire and improve professional skills), client-specific knowledge ingestion without cross-tenant contamination (GDPR-critical), Slack as the AI-human comms backbone, infrastructure cost control with LiteLLM-style routing and Edge Functions, and evaluation frameworks for agent quality. Only propose what can be engineered today.
+
+Write in clear paragraphs. No bullet points. 260-300 words.`},
+{id:'cfo',title:'CFO ADVISOR',sub:'Unit Economics × Moats × Capital Efficiency',color:'#FFB800',
+sys:`You are the CFO advisor to KREW with a Buffett + Munger investment mindset. Zero hallucination. Only numbers you can defend.
+
+Your lens: unit economics (cost per agent deployment vs. monthly revenue per agent), pricing architecture (per-seat vs. usage vs. outcome), SaaS metrics (CAC, LTV, payback period, net revenue retention), the compounding moat (each month the agent learns more about a specific client, switching cost increases — this is the single most important financial characteristic in the model), staffing industry benchmarks (temp markup typically 40-60%; permanent placement 15-25% of first-year salary — AI agents will disrupt both), and minimum viable capital to prove the model before scaling. Acknowledge uncertainty explicitly where it exists.
+
+Write in clear paragraphs. No bullet points. 260-300 words.`},
+{id:'cpo',title:'CPO ADVISOR',sub:'Product × Experience × Flywheel',color:'#B266FF',
+sys:`You are the CPO advisor to KREW with a Jobs + Bezos product philosophy. The experience is the product. Obsess over every moment a client touches KREW.
+
+Your lens: the first magical moment (what does a new client experience in their first 30 minutes with a KREW agent?), agent catalog design (how clients discover, evaluate, and buy), onboarding (zero-to-value in hours not weeks), the flywheel (more deployments → richer training data → smarter agents → more deployments — design this deliberately), stickiness mechanics (agent-client knowledge as structural anti-churn), the KREW campus as a visible product (can clients see their agents' training progress and performance metrics?), and self-service vs. white-glove segmentation. Identify the one signature feature that makes KREW unforgettable.
+
+Write in clear paragraphs. No bullet points. 260-300 words.`},
+{id:'cco',title:'CCO ADVISOR',sub:'Client Success × Land & Expand',color:'#67E8F9',
+sys:`You are the CCO advisor to KREW (Chief Client Officer) with a Bezos + Jobs mindset: relentless client obsession.
+
+Your lens: onboarding excellence (from signed contract to first productive agent interaction in under 24 hours), land-and-expand motion (how a client goes from 1 agent to 5 to 20 and what triggers each expansion), client specification capture (how to systematically ingest a client's processes, tone, institutional knowledge into agent training), SLA design (uptime commitments, response time benchmarks, escalation paths when an agent hands off to a human), churn prevention (earliest behavioral warning signals of an unhappy client), expansion triggers (what behavioral data predicts the next agent purchase), and what a compelling 12-month reference case study looks like.
+
+Think in customer journeys. Be obsessively practical. Write in clear paragraphs. No bullet points. 260-300 words.`},
+{id:'cro',title:'CRO ADVISOR',sub:'Risk × Revenue Scenarios × Devil\'s Advocate',color:'#FF4D6D',
+sys:`You are the CRO advisor to KREW — combining Chief Risk Officer and Chief Revenue Officer. Munger + Taleb mindset: invert everything, survive first, then win. ZERO hallucination. Evidence-based only.
+
+Risk mandate: Is an AI agent an "employee" under EU/Norwegian law and who carries liability when an agent causes harm? How is professional liability managed for medical, legal, and financial agents? How does GDPR apply to client data in training pipelines and right-to-erasure in trained models? What prevents AWS, Microsoft, or a well-funded startup from replicating KREW in 6 months? What happens operationally when an agent hallucinates or creates a client incident? What does one high-profile failure in a sensitive domain do to the brand?
+
+Revenue scenarios: Conservative 12-month ARR from zero. Base case 24-month trajectory. Optimistic 36-month picture.
+
+Surface the risks others in this room glossed over. Never offer false reassurance. Write in clear paragraphs. No bullet points. 260-300 words.`}
+];
+
+let activeTopic=TOPICS[0].id;
+let running=false;
+
+(function init(){
+  const tr=document.getElementById('tr');
+  TOPICS.forEach((t,i)=>{
+    const b=document.createElement('button');
+    b.className='tab'+(i===0?' on':'');
+    b.textContent=t.label;
+    b.onclick=()=>{
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      activeTopic=t.id;
+    };
+    tr.appendChild(b);
+  });
+  const bg=document.getElementById('bg');
+  AGENTS.filter(a=>a.id!=='ceo').forEach(a=>{
+    const d=document.createElement('div');
+    d.className='card';d.id='card-'+a.id;
+    d.innerHTML=`<div class="ch"><div class="cdot" style="background:${a.color}"></div><div class="ci"><div class="ctitle">${a.title}</div><div class="csub">${a.sub}</div></div><div class="cstat" id="stat-${a.id}">STANDING BY</div></div><div class="cbody" id="body-${a.id}"><div class="sw" id="sw-${a.id}"><div class="swb" style="background:linear-gradient(90deg,transparent,${a.color},transparent)"></div></div><div class="cempty" id="em-${a.id}"><svg class="ei" width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11" stroke="${a.color}" stroke-width="1.5"/><circle cx="13" cy="13" r="4" fill="${a.color}" opacity="0.4"/></svg><div class="et">Awaiting Convene</div></div><div class="resp" id="resp-${a.id}"></div></div>`;
+    bg.appendChild(d);
+  });
+})();
+
+async function convene(){
+  if(running)return;
+  running=true;
+  const btn=document.getElementById('btnC');
+  const li=document.getElementById('li');
+  btn.disabled=true;
+  const topic=TOPICS.find(t=>t.id===activeTopic);
+  li.innerHTML=`Convening all 6 board members <em>●</em> topic: <em>${topic.label}</em>`;
+  AGENTS.forEach(a=>setLoad(a.id));
+  let done=0;
+  AGENTS.map(a=>call(a,topic).then(txt=>({id:a.id,txt})).catch(e=>({id:a.id,err:e.message||'API error'}))).forEach(p=>p.then(r=>{
+    done++;
+    r.err?setErr(r.id,r.err):setResp(r.id,r.txt);
+    li.innerHTML=`${done}/6 responded <em>●</em> topic: <em>${topic.label}</em>`;
+    if(done===AGENTS.length){running=false;btn.disabled=false;li.innerHTML=`Session complete <em>●</em> ${topic.label} <em>● Switch topic and re-convene</em>`}
+  }));
+}
+
+function setLoad(id){
+  const st=document.getElementById('stat-'+id);
+  const em=document.getElementById('em-'+id);
+  const rp=document.getElementById('resp-'+id);
+  const sw=document.getElementById('sw-'+id);
+  if(st){st.textContent='PROCESSING';st.className='cstat loading';st.style.color=''}
+  if(sw)sw.classList.add('on');
+  if(em){em.style.display='flex';em.innerHTML='<div class="et" style="color:var(--amber)">PROCESSING...</div>'}
+  if(rp){rp.className='resp';rp.style.display='none';rp.textContent='';rp.style.color=''}
+}
+
+function setResp(id,txt){
+  const st=document.getElementById('stat-'+id);
+  const em=document.getElementById('em-'+id);
+  const rp=document.getElementById('resp-'+id);
+  const sw=document.getElementById('sw-'+id);
+  if(st){st.textContent='DONE';st.className='cstat done';st.style.color=''}
+  if(sw)sw.classList.remove('on');
+  if(em)em.style.display='none';
+  if(rp){rp.textContent=txt;rp.style.display='block';void rp.offsetWidth;rp.className='resp show'}
+}
+
+function setErr(id,msg){
+  const st=document.getElementById('stat-'+id);
+  const em=document.getElementById('em-'+id);
+  const rp=document.getElementById('resp-'+id);
+  const sw=document.getElementById('sw-'+id);
+  if(st){st.textContent='ERROR';st.className='cstat';st.style.color='var(--red)'}
+  if(sw)sw.classList.remove('on');
+  if(em)em.style.display='none';
+  if(rp){rp.textContent='Error: '+msg;rp.style.color='var(--red)';rp.style.display='block';void rp.offsetWidth;rp.className='resp show'}
+}
+
+async function call(agent,topic){
+  const prompt=BRIEF+'\n\n---\nTOPIC: '+topic.label+'\n\n'+topic.p;
+  const res=await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:agent.sys,messages:[{role:'user',content:prompt}]})
+  });
+  if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e?.error?.message||'HTTP '+res.status)}
+  const data=await res.json();
+  const blk=data.content?.find(b=>b.type==='text');
+  if(!blk)throw new Error('No text in response');
+  return blk.text;
+}
+</script>
