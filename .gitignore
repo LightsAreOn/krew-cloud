@@ -12,3 +12,9 @@ Old uploads/
 krew-boardroom.html
 send-*.js
 *-CC.md
+# Internal ERP (private — deployed separately, never on public krew.cloud)
+krew-erp.html
+boardroom.html
+quality.html
+harm.html
+crm.html
