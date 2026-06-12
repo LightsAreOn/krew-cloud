@@ -300,6 +300,12 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
 .blk-q-attr{font-family:var(--mono);font-size:10px;color:var(--teal);font-weight:600;letter-spacing:.5px}
 .blk-d{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.8;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
 
+.krew-player{background:#0A0E14;border:1px solid #1A2530;padding:16px;margin-bottom:24px;}
+.kp-controls{display:flex;align-items:center;gap:12px;}
+.kp-play{background:#00FFB2;color:#060A0F;border:none;width:36px;height:36px;font-size:14px;cursor:pointer;flex-shrink:0;font-family:'Courier New',monospace;}
+.kp-time,.kp-dur{font-family:'Courier New',monospace;font-size:11px;color:#B8C8D8;min-width:36px;flex-shrink:0;}
+.kp-bar{flex:1;height:4px;background:#1A2530;cursor:pointer;position:relative;}
+.kp-progress{height:100%;background:#00FFB2;width:0%;pointer-events:none;transition:width 0.1s linear;}
 </style>
 </head>
 <body>
@@ -780,11 +786,18 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
       <p class="cd" style="margin-bottom:24px;">What happens when every company function — finance, legal, marketing, operations — is handled by a trained AI agent? A deep dive into the architecture, the ethics, and the commercial case for the agent-first company. With sources from LangSmith, IBM, Harvey, and the KREW platform.</p>
 
       <!-- AUDIO PLAYER -->
-      <div style="background:#060A0F;border:1px solid #0D1520;padding:16px;margin-bottom:24px;">
-        <audio controls style="width:100%;height:36px;outline:none;" preload="metadata">
+      <div class="krew-player" data-src="https://media.krew.cloud/How_Autonomous_AI_Agents_Run_Businesses.m4a">
+        <audio preload="metadata">
           <source src="https://media.krew.cloud/How_Autonomous_AI_Agents_Run_Businesses.m4a" type="audio/mp4">
-          Your browser does not support the audio element.
         </audio>
+        <div class="kp-controls">
+          <button class="kp-play" onclick="togglePlay(this)">▶</button>
+          <span class="kp-time">0:00</span>
+          <div class="kp-bar" onclick="seek(event,this)">
+            <div class="kp-progress"></div>
+          </div>
+          <span class="kp-dur">--:--</span>
+        </div>
       </div>
 
       <!-- CREDITS -->
@@ -819,11 +832,18 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
       <p class="cd" style="margin-bottom:24px;">Most enterprise AI initiatives fail before they reach production. BCG and McKinsey have both studied why — the patterns are consistent and the fixes are known. This episode breaks down what separates the 25% that succeed, and what that means for companies choosing between building, buying, and deploying AI agents.</p>
 
       <!-- AUDIO PLAYER -->
-      <div style="background:#060A0F;border:1px solid #0D1520;padding:16px;margin-bottom:24px;">
-        <audio controls style="width:100%;height:36px;outline:none;" preload="metadata">
+      <div class="krew-player" data-src="https://media.krew.cloud/Why_75_percent_of_business_AI_fails.m4a">
+        <audio preload="metadata">
           <source src="https://media.krew.cloud/Why_75_percent_of_business_AI_fails.m4a" type="audio/mp4">
-          Your browser does not support the audio element.
         </audio>
+        <div class="kp-controls">
+          <button class="kp-play" onclick="togglePlay(this)">▶</button>
+          <span class="kp-time">0:00</span>
+          <div class="kp-bar" onclick="seek(event,this)">
+            <div class="kp-progress"></div>
+          </div>
+          <span class="kp-dur">--:--</span>
+        </div>
       </div>
 
       <!-- CREDITS -->
@@ -1811,6 +1831,34 @@ function closeBlog(){
   document.getElementById('blog-content').style.display='none';
 }
 
+</script>
+<script>
+function fmt(s){
+  const m=Math.floor(s/60);
+  return m+':'+(Math.floor(s%60)+'').padStart(2,'0');
+}
+document.querySelectorAll('.krew-player').forEach(p=>{
+  const audio=p.querySelector('audio');
+  const play=p.querySelector('.kp-play');
+  const prog=p.querySelector('.kp-progress');
+  const cur=p.querySelector('.kp-time');
+  const dur=p.querySelector('.kp-dur');
+  audio.addEventListener('loadedmetadata',()=>dur.textContent=fmt(audio.duration));
+  audio.addEventListener('timeupdate',()=>{
+    cur.textContent=fmt(audio.currentTime);
+    prog.style.width=(audio.currentTime/audio.duration*100)+'%';
+  });
+  audio.addEventListener('ended',()=>play.textContent='▶');
+});
+function togglePlay(btn){
+  const audio=btn.closest('.krew-player').querySelector('audio');
+  if(audio.paused){audio.play();btn.textContent='■';}
+  else{audio.pause();btn.textContent='▶';}
+}
+function seek(e,bar){
+  const audio=bar.closest('.krew-player').querySelector('audio');
+  audio.currentTime=(e.offsetX/bar.offsetWidth)*audio.duration;
+}
 </script>
 </body>
 </html>
