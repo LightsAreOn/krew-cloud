@@ -245,6 +245,12 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
   .nav-links{display:none;position:fixed;top:60px;left:0;right:0;flex:none;flex-direction:column;align-items:stretch;gap:0;background:var(--black);border-bottom:1px solid #1f1f1f;padding:8px 20px 16px;z-index:199}
   .nav-links.open{display:flex}
   .nav-links .nav-link{color:var(--teal);font-size:15px;padding:14px 0;width:100%;border-bottom:1px solid #1f1f1f}
+  /* stack all multi-column content grids (pricing, comparison, cards) */
+  .cg,.g1{grid-template-columns:1fr !important}
+  .pt,.pcc{margin-bottom:16px}
+  /* exception: keep the stats strip as a 2x2 grid */
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .stat{border:none;padding:0;margin:0}
 }
 
 /* SUBNAV */
