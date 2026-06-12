@@ -12,6 +12,8 @@ Old uploads/
 krew-boardroom.html
 send-*.js
 *-CC.md
+# Stale design-tool export — index.html is the source of truth
+krew.html
 # Internal ERP (private — deployed separately, never on public krew.cloud)
 krew-erp.html
 boardroom.html
