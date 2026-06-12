@@ -3,3 +3,12 @@ node_modules/
 .env
 
 .vercel
+
+# Local / private — never publish to the public repo
+.claude/
+Old uploads/
+*.m4a
+*-email.html
+krew-boardroom.html
+send-*.js
+*-CC.md
