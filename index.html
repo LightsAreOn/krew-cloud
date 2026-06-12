@@ -348,6 +348,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
 #wg-panel input.wg-in{width:100%;}
 .wg-toast{position:absolute;left:12px;right:12px;bottom:74px;background:#0E141C;border:1px solid #1A2430;border-left:3px solid #00FFB2;color:#E0ECF8;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;padding:10px 14px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.45);z-index:9002;opacity:0;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;pointer-events:none;}
 .wg-toast.show{opacity:1;transform:translateY(0);}
+.wg-msg.intro{background:#0E141C;border:1px solid #1A2430;border-left:3px solid #00FFB2;color:#E0ECF8;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.75;border-radius:8px;}
 .wg-in.wg-bad{border-color:#FF4D4D;}
 @media(max-width:600px){#wg-panel{right:0;bottom:0;left:0;width:100%;max-width:100%;border-radius:12px 12px 0 0;height:82dvh;}#wg-pill{bottom:16px;right:16px;}}
 </style>
@@ -1760,7 +1761,7 @@ window.wgMinNav=function(page){wgel('wg-panel').classList.remove('open');wgel('w
 function wgRender(){
   const b=wgel('wg-body'),f=wgel('wg-foot');
   if(wg.step==='intake'){
-    b.innerHTML='<div class="wg-msg g">Hi — I\'m '+WG_NAME+', KREW\'s web guide (an AI agent). How can I help you keep the lights on? A few details first, so a human can follow up if you want one to.</div>'
+    b.innerHTML='<div class="wg-msg g intro">Hi — I\'m '+WG_NAME+', KREW\'s web guide (an AI agent). How can I help you keep the lights on? A few details first, so a human can follow up if you want one to.</div>'
       +'<label class="wg-lbl">First name *</label><input class="wg-in" id="wgf0">'
       +'<label class="wg-lbl">Last name *</label><input class="wg-in" id="wgf1">'
       +'<label class="wg-lbl">Email *</label><input class="wg-in" id="wgf2" type="email">'
@@ -1770,7 +1771,7 @@ function wgRender(){
     f.innerHTML='<button class="wg-btn" style="width:100%" onclick="wgStart()">Start chat</button>';
     ['first','last','email','company','country'].forEach((k,i)=>{if(wg.f[k])wgel('wgf'+i).value=wg.f[k];});
   }else{
-    b.innerHTML=wg.msgs.map(m=>'<div class="wg-msg '+m.r+'">'+wgEsc(m.t)+'</div>').join('')+(wg.busy?'<div class="wg-msg s">…</div>':'');
+    b.innerHTML=wg.msgs.map(m=>'<div class="wg-msg '+m.r+(m.intro?' intro':'')+'">'+wgEsc(m.t)+'</div>').join('')+(wg.busy?'<div class="wg-msg s">…</div>':'');
     b.scrollTop=b.scrollHeight;
     f.innerHTML='<div class="wg-row"><input class="wg-in" id="wgin" placeholder="Type…" onkeydown="if(event.key===\'Enter\')wgSend()"><button class="wg-btn" onclick="wgSend()" '+(wg.busy?'disabled':'')+'>Send</button></div>'
       +'<div class="wg-acts"><button class="wg-btn alt" onclick="wgTranscript()">Send transcript</button><button class="wg-btn alt" onclick="wgClose()">Close &amp; delete</button></div>';
@@ -1783,7 +1784,7 @@ window.wgStart=function(){
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v(2))){wgToast('That email does not look quite right — mind checking it?');wgBad('wgf2');return;}
   if(!wgel('wgc1').checked){wgToast('One tick left — the consent box, so I am allowed to chat with you.');return;}
   wg.step='chat';
-  wg.msgs=[{r:'g',t:'Thanks, '+wg.f.first+'. So — what does your company do, and where does the week leak the most time?'}];
+  wg.msgs=[{r:'g',intro:true,t:'Thanks, '+wg.f.first+'. So — what does your company do, and where does the week leak the most time?'}];
   wgRender();
 };
 window.wgSend=async function(){
