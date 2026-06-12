@@ -26,6 +26,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .btn-ghost:hover{background:#1a1a1a;color:#fff}
 .btn-hire{font-size:13px;font-weight:700;padding:9px 22px;background:var(--teal);color:var(--teal-dk);transition:opacity .15s;letter-spacing:.2px;cursor:pointer}
 .btn-hire:hover{opacity:.88}
+.nav-burger{display:none;font-size:28px;line-height:1;color:#00FFB2;background:none;border:none;cursor:pointer;padding:0 4px}
 
 /* ── BLACK SUBNAV — appears below white nav on sub-pages ── */
 .subnav{display:none;position:sticky;top:60px;z-index:199;background:var(--black);height:48px;align-items:center;padding:0 48px;border-bottom:1px solid #1f1f1f;overflow-x:auto}
@@ -236,6 +237,15 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
   .nav-links{display:none}
   .sn-link{padding:0 12px}
 }
+@media(max-width:768px){
+  .nav{justify-content:space-between;padding:0 20px}
+  .nav-burger{display:block}
+  .nav .btn-ghost{display:none}
+  .nav .btn-hire{white-space:nowrap;padding:8px 14px;font-size:13px}
+  .nav-links{display:none;position:fixed;top:60px;left:0;right:0;flex:none;flex-direction:column;align-items:stretch;gap:0;background:var(--black);border-bottom:1px solid #1f1f1f;padding:8px 20px 16px;z-index:199}
+  .nav-links.open{display:flex}
+  .nav-links .nav-link{color:var(--teal);font-size:15px;padding:14px 0;width:100%;border-bottom:1px solid #1f1f1f}
+}
 
 /* SUBNAV */
 .subnav{display:none;position:sticky;top:60px;z-index:199;background:var(--black);height:48px;align-items:center;padding:0 48px;border-bottom:1px solid #1f1f1f;overflow-x:auto}
@@ -311,6 +321,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
     <button class="btn-ghost">Sign in</button>
     <button class="btn-hire" onclick="hireTeam()">Hire Your Team →</button>
   </div>
+  <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMobileNav(this)">&#9776;</button>
 </nav>
 
 <!-- BLACK SUBNAV -->
@@ -1742,7 +1753,20 @@ function hireTeam(){
 }
 
 
+function toggleMobileNav(btn){
+  var links=document.querySelector('.nav-links');
+  if(!links) return;
+  var open=links.classList.toggle('open');
+  if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeMobileNav(){
+  var links=document.querySelector('.nav-links');
+  if(links) links.classList.remove('open');
+  var b=document.querySelector('.nav-burger');
+  if(b) b.setAttribute('aria-expanded','false');
+}
 function scrollToSection(id) {
+  closeMobileNav();
   function doScroll() {
     var el = document.getElementById(id);
     if (el) { var top = el.getBoundingClientRect().top + window.pageYOffset - 65; window.scrollTo({top:Math.max(0,top),behavior:'smooth'}); }
