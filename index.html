@@ -251,6 +251,10 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
   /* exception: keep the stats strip as a 2x2 grid */
   .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .stat{border:none;padding:0;margin:0}
+  /* layer diagram (L1-L5): wrap rows so descriptions don't overflow on mobile */
+  .lr{flex-wrap:wrap}
+  .lrn{flex:1;min-width:0;font-size:12px}
+  .lrd{white-space:normal;margin-left:0;width:100%;padding:0 16px 12px 84px;font-size:10px;line-height:1.5}
 }
 
 /* SUBNAV */
