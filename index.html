@@ -346,6 +346,9 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
 .wg-link{color:#00FFB2;cursor:pointer;text-decoration:underline;}
 .wg-x{position:absolute;top:12px;right:14px;background:none;border:none;color:#4A6070;font-size:16px;cursor:pointer;font-family:'IBM Plex Mono',monospace;}
 #wg-panel input.wg-in{width:100%;}
+.wg-toast{position:absolute;left:12px;right:12px;bottom:74px;background:#0E141C;border:1px solid #1A2430;border-left:3px solid #00FFB2;color:#E0ECF8;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;padding:10px 14px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.45);z-index:9002;opacity:0;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease;pointer-events:none;}
+.wg-toast.show{opacity:1;transform:translateY(0);}
+.wg-in.wg-bad{border-color:#FF4D4D;}
 @media(max-width:600px){#wg-panel{right:0;bottom:0;left:0;width:100%;max-width:100%;border-radius:12px 12px 0 0;height:82dvh;}#wg-pill{bottom:16px;right:16px;}}
 </style>
 </head>
@@ -1415,7 +1418,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
         <svg width="56" height="56" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="pk-s"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#pk-s)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="38" cy="18" r="8"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/><circle cx="10" cy="42" r="6"/><circle cx="44" cy="6" r="6"/><circle cx="74" cy="20" r="5"/><circle cx="28" cy="76" r="5"/><circle cx="66" cy="76" r="5"/><circle cx="76" cy="54" r="5"/><circle cx="8" cy="28" r="5"/><circle cx="48" cy="62" r="6"/><circle cx="24" cy="36" r="6"/></g></svg>
       </div>
       <p style="color:#B8C8D8;font-size:14px;margin:0 0 24px;">The complete KREW brand asset package — logos, colors, typography, and usage guidelines.</p>
-      <a href="https://media.krew.cloud/krew-brand-assets.zip" style="display:inline-block;background:#00FFB2;color:#060A0F;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;text-decoration:none;">Download brand assets ↓</a>
+      <a href="assets/krew-brand-assets.zip" style="display:inline-block;background:#00FFB2;color:#060A0F;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;text-decoration:none;">Download brand assets ↓</a>
     </div>
 
     <!-- LOGOTYPE -->
@@ -1427,7 +1430,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
         </div>
         <div class="ct" style="margin-bottom:8px;">Logotype</div>
         <p class="cd" style="margin-bottom:16px;">The KREW wordmark with sphere — the preferred visual identifier for partnership announcements, press materials, and media references. Wordmark always left, sphere always right.</p>
-        <a href="https://media.krew.cloud/krew-logotype.zip" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FFB2;text-decoration:none;letter-spacing:1px;">DOWNLOAD LOGOTYPE ↓</a>
+        <a href="assets/krew-logotype.zip" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FFB2;text-decoration:none;letter-spacing:1px;">DOWNLOAD LOGOTYPE ↓</a>
       </div>
 
       <!-- LOGOMARK -->
@@ -1437,7 +1440,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
         </div>
         <div class="ct" style="margin-bottom:8px;">Logomark</div>
         <p class="cd" style="margin-bottom:16px;">The standalone KREW sphere — clipped circles forming a globe. Use in space-constrained contexts: social avatars, favicons, app icons.</p>
-        <a href="https://media.krew.cloud/krew-logomark.zip" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FFB2;text-decoration:none;letter-spacing:1px;">DOWNLOAD LOGOMARK ↓</a>
+        <a href="assets/krew-logomark.zip" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FFB2;text-decoration:none;letter-spacing:1px;">DOWNLOAD LOGOMARK ↓</a>
       </div>
     </div>
 
@@ -1749,6 +1752,8 @@ const WG_SYSTEM="You are Nora, the web guide of KREW (krew.cloud), an agentic AI
 let wg={step:'intake',f:{},msgs:[],busy:false};
 function wgel(id){return document.getElementById(id);}
 function wgEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function wgToast(msg){const p=wgel('wg-panel');let t=wgel('wg-toast');if(!t){t=document.createElement('div');t.id='wg-toast';t.className='wg-toast';p.appendChild(t);}t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2800);}
+function wgBad(id){const el=wgel(id);if(!el)return;el.classList.add('wg-bad');el.addEventListener('input',()=>el.classList.remove('wg-bad'),{once:true});el.focus();}
 window.wgOpen=function(){wgel('wg-panel').classList.add('open');wgel('wg-pill').style.display='none';wgRender();};
 window.wgClose=function(){wg={step:'intake',f:{},msgs:[],busy:false};wgel('wg-panel').classList.remove('open');wgel('wg-pill').style.display='flex';};
 window.wgMinNav=function(page){wgel('wg-panel').classList.remove('open');wgel('wg-pill').style.display='flex';try{if(typeof navigate==='function')navigate(page);}catch(e){}};
@@ -1774,9 +1779,9 @@ function wgRender(){
 window.wgStart=function(){
   const v=i=>wgel('wgf'+i).value.trim();
   wg.f={first:v(0),last:v(1),email:v(2),company:v(3),country:v(4)};
-  if(!v(0)||!v(1)){alert('First and last name required.');return;}
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v(2))){alert('A valid email is required.');return;}
-  if(!wgel('wgc1').checked){alert('Consent is required to start the chat.');return;}
+  if(!v(0)||!v(1)){wgToast('First and last name, please — so the humans know who to write back to.');wgBad(!v(0)?'wgf0':'wgf1');return;}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v(2))){wgToast('That email does not look quite right — mind checking it?');wgBad('wgf2');return;}
+  if(!wgel('wgc1').checked){wgToast('One tick left — the consent box, so I am allowed to chat with you.');return;}
   wg.step='chat';
   wg.msgs=[{r:'g',t:'Thanks, '+wg.f.first+'. So — what does your company do, and where does the week leak the most time?'}];
   wgRender();
@@ -1796,7 +1801,7 @@ window.wgSend=async function(){
   wg.busy=false;wgRender();
 };
 window.wgTranscript=async function(){
-  if(wg.msgs.length<2){alert('Have a short conversation first — then I can send it.');return;}
+  if(wg.msgs.length<2){wgToast('Have a short conversation first — then I can send it to you.');return;}
   const flat=wg.msgs.filter(m=>m.r!=='s').map(m=>(m.r==='v'?wg.f.first.toUpperCase():WG_NAME.toUpperCase()+' (GUIDE)')+': '+m.t).join('\n\n');
   wg.busy=true;wgRender();
   try{
