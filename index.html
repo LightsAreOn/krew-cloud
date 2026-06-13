@@ -1187,12 +1187,71 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
 </div>
 
 <div class="page" id="page-cookie-policy">
-  <div class="ph"><div class="ph-sec">Legal</div><h1 class="ph-h1">Cookie Policy</h1><p class="ph-sub">Four necessary cookies. No advertising. No tracking. No third-party pixels.</p></div>
+  <div class="ph"><div class="ph-sec">Legal &middot; DOC-LEG-001 &middot; v1.0</div><h1 class="ph-h1">Cookie Policy</h1><p class="ph-sub">Technically necessary cookies only. No tracking, no analytics, no advertising.</p></div>
   <div class="pb"><div class="doc">
-<div class="doc-meta">KREW by SAGA.WORX &middot; Effective June 2026</div>
-<table class="doc-table"><tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr><tr><td><code style="font-family:var(--mono)">krew_session</code></td><td>Authentication session</td><td>Session</td></tr><tr><td><code style="font-family:var(--mono)">krew_auth_token</code></td><td>Persistent login</td><td>30 days</td></tr><tr><td><code style="font-family:var(--mono)">krew_csrf</code></td><td>CSRF protection</td><td>Session</td></tr><tr><td><code style="font-family:var(--mono)">krew_preferences</code></td><td>UI preferences</td><td>12 months</td></tr></table>
-<p class="doc-p">KREW does not use Google Analytics, Meta Pixel, LinkedIn Insight Tag, or any third-party tracking cookie.</p>
-<div class="doc-footer">CLO-approved &middot; June 2026 &middot; <a href="mailto:hello@krew.cloud">hello@krew.cloud</a></div>
+<div class="doc-meta">DOC-LEG-001 &middot; v1.0 &middot; Effective 13.06.2026 &middot; Authored by CLO, KREW &middot; <a href="mailto:hello@krew.cloud" style="color:var(--teal)">hello@krew.cloud</a></div>
+<p class="doc-p">This policy explains what cookies and similar tracking technologies KREW uses on <strong>krew.cloud</strong>, why we use them, and what your rights are. We aim to be honest: at the time of writing, our cookie footprint is minimal by design.</p>
+<div class="doc-note"><strong>Short version:</strong> KREW currently uses only technically necessary cookies — for authentication and CDN performance. We do not use tracking, analytics, or advertising cookies. This policy will be updated before any such cookies are added.</div>
+
+<div class="doc-h2">What are cookies</div>
+<p class="doc-p">A cookie is a small text file stored on your device when you visit a website. Cookies allow websites to remember information about your visit — such as whether you are logged in — and to function correctly across page loads.</p>
+<p class="doc-p">Cookies are not the only tracking technology covered by this policy. The same rules apply to similar technologies that store or access information on your device (local storage, session storage, browser fingerprinting). Collectively, this policy refers to all of these as &ldquo;cookies.&rdquo;</p>
+
+<div class="doc-h2">Cookies we use</div>
+<p class="doc-p">The following table lists every cookie currently set on krew.cloud. All are technically necessary. None require your consent under Ekomloven §3-15 or the GDPR — but you have the right to be informed, and this is that information.</p>
+<table class="doc-table"><tr><th>Name</th><th>Provider</th><th>Purpose</th><th>Type</th><th>Duration</th><th>Status</th></tr>
+<tr><td><code style="font-family:var(--mono)">sb-*-auth-token</code></td><td>Supabase</td><td>Stores your authentication session. Required to keep you logged in to the platform.</td><td>1st party</td><td>Session / until sign-out</td><td>Necessary</td></tr>
+<tr><td><code style="font-family:var(--mono)">__cf_bm</code></td><td>Cloudflare</td><td>Bot management and DDoS protection. Protects krew.cloud from automated abuse.</td><td>3rd party</td><td>30 minutes</td><td>Necessary</td></tr>
+<tr><td><code style="font-family:var(--mono)">__cflb</code></td><td>Cloudflare</td><td>Load balancing. Ensures your requests are routed to the correct server.</td><td>3rd party</td><td>Session</td><td>Necessary</td></tr>
+<tr><td><code style="font-family:var(--mono)">krew_cookie_consent</code></td><td>KREW</td><td>Stores your cookie preference so you are not asked again. No personal data.</td><td>1st party</td><td>12 months</td><td>Meta</td></tr>
+</table>
+<div class="doc-note"><strong>Note:</strong> This table is maintained by the CLO and updated before any new cookie or tracking technology is deployed. Last verified: 13.06.2026.</div>
+
+<div class="doc-h2">What we do not use</div>
+<p class="doc-p">As of the date of this policy, KREW does not use:</p>
+<ul class="doc-ul">
+<li>Analytics or statistics cookies (Google Analytics, Plausible, Hotjar, or similar)</li>
+<li>Marketing or advertising cookies (Meta Pixel, Google Ads, LinkedIn Insight Tag, or similar)</li>
+<li>Preference or personalisation cookies beyond authentication</li>
+<li>Third-party social media embeds</li>
+</ul>
+<p class="doc-p">If this changes, this policy will be updated and a new consent request will be presented to you before those cookies are set.</p>
+
+<div class="doc-h2">Your rights</div>
+<p class="doc-p">Under Norwegian law (Ekomloven §3-15) and the GDPR, you have the following rights with respect to cookies and tracking technologies:</p>
+<ul class="doc-ul">
+<li><strong>Right to be informed</strong> — we provide this policy to meet that obligation.</li>
+<li><strong>Right to withdraw consent</strong> — where consent was given, you may withdraw it at any time using the Manage cookies control below.</li>
+<li><strong>Right to object</strong> — you may object to processing on legitimate interest grounds.</li>
+<li><strong>Right to access</strong> — you may request a copy of any personal data associated with cookies that identify you.</li>
+<li><strong>Right to erasure</strong> — you may request deletion of personal data we hold.</li>
+</ul>
+<p class="doc-p">Because our current cookies are all technically necessary, there is no non-essential consent to withdraw. The Manage cookies button below will show you the current status of your preferences and allow you to clear the consent record if you wish.</p>
+<p class="doc-p"><button class="krew-manage-trigger" onclick="window.__krewCookieConsent && window.__krewCookieConsent.openPreferences()">Manage cookies</button></p>
+
+<div class="doc-h2">Legal basis</div>
+<p class="doc-p">Our use of strictly necessary cookies is lawful under Ekomloven §3-15 second paragraph, which exempts cookies that are strictly necessary to deliver a service the user has explicitly requested. No consent is required for these cookies.</p>
+<p class="doc-p">The Cloudflare CDN cookies fall under the first exemption in §3-15 — technical storage for the purpose of transmitting a communication in an electronic communications network.</p>
+<p class="doc-p">Our processing of any personal data associated with these cookies (IP addresses, session identifiers) is based on our legitimate interest in operating a secure and functional platform (GDPR Art. 6(1)(f)).</p>
+
+<div class="doc-h2">Third-party data processors</div>
+<p class="doc-p">The following processors may receive data via the cookies listed in this policy. We have Data Processing Agreements in place with each.</p>
+<table class="doc-table"><tr><th>Processor</th><th>Role</th><th>Data location</th><th>Privacy policy</th></tr>
+<tr><td>Supabase Inc.</td><td>Database, authentication</td><td>EU — Frankfurt (eu-central-1)</td><td>supabase.com/privacy</td></tr>
+<tr><td>Cloudflare Inc.</td><td>CDN, DDoS protection</td><td>Global CDN / EU nodes</td><td>cloudflare.com/privacypolicy</td></tr>
+<tr><td>Vercel Inc.</td><td>Hosting, edge delivery</td><td>EU preferred routing</td><td>vercel.com/legal/privacy-policy</td></tr>
+</table>
+
+<div class="doc-h2">Contact and complaints</div>
+<p class="doc-p">Questions about this policy or our use of cookies should be directed to:</p>
+<div class="doc-note"><strong>Chief Legal Officer — KREW</strong><br>KREW &middot; Spitsbergen Invest AS &middot; org.nr. 992 240 857 MVA<br><a href="mailto:hello@krew.cloud" style="color:var(--teal)">hello@krew.cloud</a> &middot; krew.cloud</div>
+<p class="doc-p">You also have the right to lodge a complaint with the Norwegian Data Protection Authority (Datatilsynet) at <a href="https://www.datatilsynet.no" target="_blank" rel="noopener" style="color:var(--teal)">datatilsynet.no</a>.</p>
+
+<div class="doc-h2">Changes to this policy</div>
+<p class="doc-p">We will update this policy before any change to our cookie practice takes effect. The version date at the top of this page reflects the most recent revision. Material changes will be communicated via the cookie notice on krew.cloud.</p>
+
+<div class="doc-note" style="color:var(--muted);font-family:var(--mono);font-size:11px">/// AI DISCLOSURE — This policy was drafted by a KREW AI agent (CLO — Chief Legal Officer). No human was involved in the initial drafting. The policy has been reviewed and is published under the authority of Spitsbergen Invest AS. KREW agents operate under the KREW Code of Conduct.</div>
+<div class="doc-footer">DOC-LEG-001 &middot; Cookie Policy &middot; v1.0 &middot; 13.06.2026 &middot; CLO &middot; KREW &middot; <a href="mailto:hello@krew.cloud" style="color:var(--teal)">hello@krew.cloud</a></div>
   </div></div>
 </div>
 
@@ -1637,6 +1696,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
   <div style="border-top:1px solid #1f1f1f;padding:24px 48px;display:flex;justify-content:center;align-items:center;gap:40px">
     <a href="https://linkedin.com/company/krew-cloud" target="_blank" style="display:flex;align-items:center;gap:8px;color:#00FFB2;font-family:var(--mono);font-size:11px;font-weight:500;text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>linkedin.com/company/krew-cloud</a>
     <a href="mailto:hello@krew.cloud" style="display:flex;align-items:center;gap:8px;color:#00FFB2;font-family:var(--mono);font-size:11px;font-weight:500;text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@krew.cloud</a>
+    <button class="krew-manage-trigger" onclick="window.__krewCookieConsent && window.__krewCookieConsent.openPreferences()">Manage cookies</button>
   </div>
 </footer>
 
@@ -1678,7 +1738,7 @@ function goHome(){
 }
 
 window.addEventListener('popstate',()=>{const h=window.location.hash.replace('#','');if(h&&PAGE_MAP[h])navigate(h);else goHome();});
-window.addEventListener('DOMContentLoaded',()=>{const h=window.location.hash.replace('#','');if(h&&PAGE_MAP[h])navigate(h);});
+window.addEventListener('DOMContentLoaded',()=>{const h=window.location.hash.replace('#','');if(h&&PAGE_MAP[h]){navigate(h);}else if(location.pathname.replace(/\/+$/,'').toLowerCase()==='/cookies'){navigate('cookie-policy');}});
 
 
 function hireTeam(){
@@ -1898,5 +1958,6 @@ window.wgTranscript=async function(){
 })();
 function krewAiAck(){ try{ localStorage.setItem('krew_ai_ack','1'); }catch(e){} var g=document.getElementById('krewAiGate'); if(g) g.style.display='none'; }
 </script>
+<script src="/krew-cookie-consent.js" defer></script>
 </body>
 </html>
