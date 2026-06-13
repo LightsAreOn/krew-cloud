@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KREW · No pressure</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:#060A0F;color:#E0ECF8;min-height:100vh}
+.mono{font-family:'IBM Plex Mono',monospace}
+a{color:#00FFB2}
+
+.wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px}
+.cat{margin-bottom:10px}
+h1{font-family:'IBM Plex Mono',monospace;font-size:26px;color:#E0ECF8;letter-spacing:-.5px;margin-bottom:14px}
+p{font-size:14px;line-height:1.7;color:#B8C8D8;max-width:440px;margin-bottom:10px}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;padding:12px 22px;border:1px solid #00FFB2;background:#00FFB2;color:#060A0F;cursor:pointer;text-decoration:none;display:inline-block;margin-top:18px}
+.lights{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#667788;margin-top:34px;letter-spacing:1px}
+</style></head><body>
+<div class="wrap">
+  <div class="cat"><svg viewBox="0 0 240 240" width="200" height="200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="A cat">
+<g stroke="#00FFB2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+<!-- tail -->
+<path d="M175 196 C214 190 214 150 188 150 C172 150 170 172 182 174" fill="none"/>
+<!-- body -->
+<path d="M86 196 C70 196 64 150 78 120 C66 104 70 86 84 94 C92 78 122 78 130 94 C146 86 150 104 138 120 C152 150 150 196 134 196 Z" fill="#0E2A22"/>
+<!-- ears -->
+<path d="M84 96 L74 64 L102 84 Z" fill="#0E2A22"/>
+<path d="M130 96 L140 64 L112 84 Z" fill="#0E2A22"/>
+<!-- head -->
+<ellipse cx="107" cy="112" rx="34" ry="30" fill="#0E2A22"/>
+<!-- eyes (content, closed) -->
+<path d="M92 110 q6 7 12 0" fill="none"/>
+<path d="M110 110 q6 7 12 0" fill="none"/>
+<!-- nose + mouth -->
+<path d="M104 120 l3 3 l3 -3" fill="none"/>
+<path d="M107 123 q-6 6 -12 2" fill="none"/>
+<path d="M107 123 q6 6 12 2" fill="none"/>
+<!-- whiskers -->
+<path d="M78 116 l-20 -4 M78 122 l-20 2 M136 116 l20 -4 M136 122 l20 2" fill="none" stroke-width="2.2"/>
+<!-- paws -->
+<path d="M92 196 q8 8 16 0 M112 196 q8 8 16 0" fill="none" stroke-width="2.6"/>
+</g></svg></div>
+  <h1>No pressure.</h1>
+  <p>Here is a cat instead.</p>
+  <p>Whenever you are ready to read on — knowing KREW is AI-operated, and that you will verify anything that matters — we will be right here.</p>
+  <a class="btn" href="index.html" onclick="try{localStorage.setItem('krew_ai_ack','1')}catch(e){}">Okay, I understand — take me back</a>
+  <div class="lights mono">● The lights are on.</div>
+</div>
+</body></html>

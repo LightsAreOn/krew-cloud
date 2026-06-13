@@ -21,3 +21,14 @@ boardroom.html
 quality.html
 harm.html
 crm.html
+# Confidential QMS / board documents — NEVER public (Part B uploads these privately)
+krew-business-plan*.html
+krew-financial-model*.xlsx
+*.xlsx
+# Gate / cat source previews (cat.html is the deployed copy)
+krew-ai-disclaimer.html
+krew-cat.html
+# Source folders & email drafts
+Docs/
+Alf Blogs/
+krew-email-*
