@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KREW · Business Plan</title>
+<link href="KREW%20%C2%B7%20Business%20Plan_files/css2.css" rel="stylesheet">
+<style>
+:root{--teal:#00FFB2;--tealdk:#00B27D;--ink:#10151B;--mut:#5A6B78;--line:#E6EAEE;--ink2:#2A343D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{counter-reset:kpage;background:#EEF1F4;font-family:'IBM Plex Sans',sans-serif;color:var(--ink);font-size:12.5px;line-height:1.6;padding:24px 12px}
+.page{counter-increment:kpage;max-width:920px;margin:0 auto 20px;background:#fff;border:1px solid #dde}
+.lh{background:#060A0F;padding:28px 44px;display:flex;justify-content:space-between;align-items:center}
+.wm{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:28px;color:var(--teal);letter-spacing:-1px;display:flex;align-items:center}
+.lh .sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--teal);text-align:right;line-height:1.7}
+.body{padding:34px 44px 42px}
+.sec{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--tealdk);text-transform:uppercase;margin-bottom:4px}
+h1{font-family:'IBM Plex Mono',monospace;font-size:23px;letter-spacing:-1px;line-height:1.2;margin-bottom:5px}
+.owner{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1px;color:var(--mut);text-transform:uppercase;margin-bottom:22px}
+h2{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px;margin:24px 0 10px}
+h3{font-family:'IBM Plex Mono',monospace;font-size:11.5px;margin:13px 0 4px;color:var(--tealdk)}
+p{margin-bottom:8px} ul{margin:4px 0 10px 18px} li{margin-bottom:4px}
+.lead{font-size:14px;line-height:1.55;color:var(--ink2);border-left:3px solid var(--teal);padding:3px 0 3px 15px;margin:5px 0 15px}
+table{width:100%;border-collapse:collapse;margin:10px 0 15px;font-size:11px}
+th{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.5px;text-transform:uppercase;text-align:right;background:#060A0F;color:var(--teal);padding:6px 7px}
+th.l,td.l{text-align:left}
+td{border-bottom:1px solid var(--line);padding:5px 7px;text-align:right;vertical-align:top}
+tr.tot td{font-weight:700;border-top:2px solid var(--ink);background:#F4FBF8}
+tr.sub td{color:var(--mut)}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px;margin:12px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0}
+.kpi{background:#060A0F;color:#fff;padding:14px 15px}
+.kpi .n{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:700;color:var(--teal);letter-spacing:-1px}
+.kpi .l{font-size:9px;letter-spacing:.5px;text-transform:uppercase;color:#8A9BA8;margin-top:3px}
+.tealbox{background:#0E3A30;color:#CFF5E8;border-left:3px solid var(--teal);padding:11px 15px;font-size:11.5px;margin:12px 0}
+.tealbox b{color:var(--teal)}
+.note{background:#FFF8E6;border-left:3px solid #E0A500;padding:9px 13px;font-size:11px;margin:11px 0}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:3px solid var(--teal);padding:12px 15px;background:#FAFCFD}
+.card .t{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.layers{font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:#060A0F;color:#C7D3DC;padding:14px 16px;line-height:1.95;margin:12px 0}
+.layers b{color:var(--teal)}
+.foot{border-top:1px solid var(--line);margin-top:26px;padding-top:13px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#9AA8B4;line-height:1.85}
+.ref{font-size:10px;color:var(--mut);margin-top:3px}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0;font-size:11px}
+.swot .q{border:1px solid var(--line);padding:11px 13px}
+.swot .q.s{border-top:3px solid #00B27D} .swot .q.w{border-top:3px solid #E0A500}
+.swot .q.o{border-top:3px solid #4DA6FF} .swot .q.t{border-top:3px solid #FF4D6D}
+.swot .q .h{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+a{color:var(--tealdk);text-decoration:none}
+@media print{*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important}body{background:#fff;padding:0}.page{border:none;margin:0;break-after:page}.page:last-child{break-after:auto}.lh,.kpi,.layers,.tealbox,th,tr.tot td{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}}
+
+.pgfoot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);margin-top:24px;padding-top:8px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.5px;color:#9AA8B4;text-transform:uppercase}
+.pgfoot .r{text-align:right}
+.pgnum:before{content:"Page " counter(kpage) " of 11"}
+@page{margin:14mm 12mm}
+.aidisc{border:1px solid #D9DEE3;border-left:3px solid #667788;background:#F7F9FB;padding:13px 16px;margin:16px 0 4px;font-size:11px;color:#3A4650;line-height:1.6}.aidisc .h{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:#667788;margin-bottom:5px}</style></head><body>
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 1 · Executive Summary</div><h1>KREW — the company that works for you</h1><div class="owner">Owner: CEO (Michael) · reviewed by the board</div>
+<p class="lead">KREW is a <b>B2B Virtual Office</b> — the workplace 
+where a company's AI management team and specialists live, work, and are
+ shared across everyone on the team. We give any organisation an 
+instant, governed, around-the-clock workforce of reasoning agents that 
+produce real work. Our mission is simple: to be <b>the company that works for you</b>.</p>
+<div class="grid4">
+<div class="kpi"><div class="n">$1.0bn</div><div class="l">Valuation target · end Y3</div></div>
+<div class="kpi"><div class="n">$67.5mm</div><div class="l">ARR required @ 15×</div></div>
+<div class="kpi"><div class="n">200+</div><div class="l">Specialist agents</div></div>
+<div class="kpi"><div class="n">81%</div><div class="l">Gross margin per agent · Y3</div></div>
+</div>
+<h2>Overview</h2>
+<p>Hiring is slow, costly and risky; expertise is scarce and unevenly 
+distributed inside every company. KREW puts a complete C-suite and a 
+deep bench of specialist agents into a company's hands immediately — 
+agents that reason, do, collaborate with one another, and improve under a
+ formal quality system. The same office is even more valuable to a large
+ enterprise than to a small one: it collapses the distance between the 
+C-suite and the front line to zero, in both directions.</p>
+<h2>Strategy — how we win</h2>
+<ul>
+<li><b>No-hands-involved.</b> The company is operated by agents, with humans deciding and steering rather than doing. The organisation largely runs itself.</li>
+<li><b>Our own testbed.</b> We established and run KREW <em>on its own product</em>.
+ We are our own first customer — every feature is proven in our own 
+operations before a client ever sees it, which de-risks the product and 
+proves the model.</li>
+<li><b>Move fast, scale at ~zero underlying cost.</b> Infrastructure is 
+partner-based and pay-as-you-go; adding agents and clients carries 
+almost no fixed cost, so growth is not gated by capital expenditure.</li>
+<li><b>Quality &amp; control by system.</b> A QMS governs every process,
+ with control agents that see all and check all — quality, compliance 
+and an audit trail built in, not bolted on.</li>
+<li><b>We make our own code.</b> KREW builds its own software, so the roadmap is ours to set and ours to move at will.</li>
+</ul>
+<h2>Value proposition — why customers buy</h2>
+<p>A founder gets the management team they cannot yet afford. A 
+professional puts agents to billable work and shares the upside. A large
+ enterprise removes layers of delay, translation loss and error between 
+leadership and the front line. Everyone gets expert output in seconds, 
+governed work they can trust, and a workforce that never sleeps — at a 
+fraction of the cost and none of the hiring risk.</p>
+<h2>Vision</h2>
+<div class="tealbox"><b>The lights are on — 24/7 productivity.</b> A 
+company whose work never stops, whose expertise is always on call, and 
+whose whole operation is legible at a glance. That is the world KREW is 
+building toward.<p></p></div>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 2 · Company Description</div><h1>Who we are</h1><div class="owner">Owner: CEO (Michael) · legal structure reviewed by CLO (Louis), figures by CFO (Bud)</div>
+<h2>Background</h2>
+<p>KREW was established in <b>2026</b> as a brand of <b>SAGA.WORX</b> 
+(Spitsbergen Invest AS), an AI-native studio based in Norway (Høvik, 
+outside Oslo). KREW grew directly out of SAGA.WORX's own agent operating
+ system — the company built a governed AI workforce to run itself, 
+recognised that other companies needed exactly the same thing, and 
+turned the internal capability into a product. KREW therefore launches 
+with something most startups never have: a working, daily-use proof of 
+its own product.</p>
+<h2>Legal structure &amp; ownership</h2>
+<table>
+<tbody><tr><th class="l">Entity</th><th class="l">Jurisdiction</th><th class="l">Role</th></tr>
+<tr><td class="l">KREW.CLOUD INTERNATIONAL</td><td class="l">Cyprus</td><td class="l">Holds the intellectual property.</td></tr>
+<tr><td class="l">KREW.CLOUD EUROPE</td><td class="l">Ireland</td><td class="l">Invoicing &amp; EU operating entity.</td></tr>
+</tbody></table>
+<table>
+<tbody><tr><th class="l">Shareholder</th><th>Holding</th></tr>
+<tr><td class="l">Spitsbergen Invest AS</td><td>92.5%</td></tr>
+<tr><td class="l">PECLA Holding AS</td><td>7.5%</td></tr>
+<tr class="tot"><td class="l">Total</td><td>100%</td></tr>
+</tbody></table>
+<div class="note">The two-entity structure (Cyprus IP holding, Ireland 
+invoicing/operations) is the board's chosen design for IP stewardship 
+and European operations. Its precise tax and legal treatment — 
+substance, transfer pricing, VAT — is to be confirmed with qualified 
+Cypriot and Irish counsel. This plan documents the structure; it does 
+not constitute tax or legal advice.</div>
+<h2>Business goals</h2>
+<ul>
+<li><b>The objective: a USD 1.0 billion valuation at the end of Year 3</b> — reached at ~$67.5mm ARR on a 15× revenue multiple.</li>
+<li><b>Four revenue engines live</b> by end of Year 3: B2B Virtual Office, Professional Services, Professional Solutions, B2C self-serve.</li>
+<li><b>A catalogue of 200+ specialist agents</b>, with geographic expansion and a light physical-office footprint in key markets.</li>
+<li><b>Profitable in Year 3</b>, self-funded — peak funding need under $5mm.</li>
+</ul>
+<h3>Financial plan — highlights</h3>
+<table>
+<tbody><tr><th class="l">USD</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr>
+<tr><td class="l">Exit ARR</td><td>$4.6mm</td><td>$21.7mm</td><td>$67.5mm</td><td>$118mm</td><td>$180mm</td></tr>
+<tr><td class="l">Recognised revenue</td><td>$2.1mm</td><td>$13.2mm</td><td>$44.6mm</td><td>$92.8mm</td><td>$149mm</td></tr>
+<tr><td class="l">EBITDA</td><td>($3.0mm)</td><td>($0.7mm)</td><td>$14.5mm</td><td>$23.3mm</td><td>$47.1mm</td></tr>
+<tr class="tot"><td class="l">Implied valuation @ 15×</td><td>—</td><td>—</td><td>$1.01bn</td><td>—</td><td>—</td></tr>
+</tbody></table>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 3 · Products &amp; Services</div><h1>What we sell, and how it works</h1><div class="owner">Owner: CPO (Amanda) · confidentiality reviewed by CLO (Louis)</div>
+<h2>Offerings</h2>
+<div class="cards">
+<div class="card"><div class="t">B2B Virtual Office</div>A shared office
+ of management and specialist agents for the whole team. Priced per 
+agent in the office, not per seat. The core launch product (MVP 1.9).</div>
+<div class="card"><div class="t">Professional Services</div>Professionals
+ employ KREW agents for billable client work; KREW takes a 50% share of 
+the gross profit, per agent employed, per month.</div>
+<div class="card"><div class="t">Professional Solutions</div>Packaged, agent-built solutions delivered through professionals to their own clients — again on a 50% revenue-share.</div>
+<div class="card"><div class="t">B2C self-serve</div>A secondary, inbound-only line for individuals — never paid acquisition.</div>
+</div>
+<h2>Pricing strategy</h2>
+<p>Pricing follows value, not commodity benchmarks. The principle across all four engines is the same: <b>we price to the worth of the work, and we earn when the customer earns.</b></p>
+<ul>
+<li><b>B2B Virtual Office — premium per-agent subscription.</b> 
+Exec-grade specialists are priced as professionals 
+(~$480–575/agent/month), not as commodity chat seats. We deliberately 
+hold this line — discounting expert agents to a few dollars a month 
+would destroy the category we are creating. Value grows as offices 
+deepen (more agents per office), so revenue expands without new 
+acquisition.</li>
+<li><b>Professional Services &amp; Professional Solutions — 50% revenue-share.</b>
+ We take half the gross profit on the agent's billable work or packaged 
+solution. This aligns us perfectly with the customer: KREW only makes 
+money when the agent makes money for them, which lowers the barrier to 
+adoption and scales our upside with theirs.</li>
+<li><b>B2C self-serve — low monthly per-seat, inbound only.</b> A simple entry price for individuals; we never pay to acquire it.</li>
+<li><b>Land-and-expand.</b> Many customers start small — a few agents or
+ one division — and grow inside the office. The first sale is a 
+beachhead, not the ceiling; the enterprise distance-collapse value is 
+what pulls expansion across a whole company.</li>
+</ul>
+<h2>The agents — catalogue and layers</h2>
+<p>KREW maintains one <b>catalogue</b> of specialist agent roles — a 
+CFO, a CLO, a marketer, a project-controls lead, and so on, growing 
+toward 200+ roles. A role is defined by layers, and the same role is 
+instantiated for each customer with their own private context on top:</p>
+<div class="layers">
+<b>Layer 1 — Base</b> &nbsp; operating rules + ethics (the Code of Conduct, no-harm)<br><br>
+<b>Layer 2 — Geography</b> &nbsp; country · law · culture (a new market is a layer, not a rebuild — this is how expansion stays fast)<br><br>
+<b>Layer 3 — Role</b> &nbsp; the specialist function — the trained expertise<br><br>
+<b>Layer 4 — Enterprise Context</b> &nbsp; the customer's own private knowledge — isolated per client<br><br>
+<b>Layer 5 — Session</b> &nbsp; the live task in hand</div>
+<p>Layers 1–3 are shared and reusable (the catalogue); Layers 4–5 are 
+private to each customer. This is what lets KREW deliver expert agents 
+instantly to a new client while keeping every client's world entirely 
+separate.</p>
+<div class="tealbox"><b>Client confidentiality is secured by design.</b>
+ A customer's Enterprise Context (Layer 4) is isolated per client under 
+tight access control and hosted in the EU. One client's data never 
+enters another's office, never trains a shared model, and is never 
+visible to anyone outside that client's office. Confidentiality is an 
+architectural property of the layer model, not a promise we ask you to 
+take on trust.</div>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 4 · Marketing &amp; Sales Strategy</div><h1>Reaching customers, keeping them</h1><div class="owner">Owner: CMO (Don) · content by Content Manager (Carrie)</div>
+<h2>Branding</h2>
+<p>One promise, stated plainly: <b>"The lights are on."</b> The identity
+ is deliberately spare and confident — KREW black and teal, IBM Plex 
+type, inline iconography, no clutter and no emoji. Every agent 
+communicates in one consistent KREW voice and discloses openly that it 
+is an AI agent operating under the Code of Conduct. The brand says: 
+serious, governed, always on.</p>
+<h2>Promotion &amp; pricing</h2>
+<h3>Pricing</h3>
+<ul>
+<li><b>B2B Virtual Office:</b> premium per-agent pricing (~$480–575/agent/month), reflecting exec-grade specialists — not commodity chat seats.</li>
+<li><b>Professional Services &amp; Solutions:</b> 50% revenue-share — we earn only when the agent's work earns.</li>
+<li><b>B2C self-serve:</b> low monthly per-seat, inbound only.</li>
+</ul>
+<h3>Reaching customers — by segment</h3>
+<ul>
+<li><b>Founder-stage companies</b> — fill the empty C-suite chairs now; 
+land as a free beta design partner, convert at launch. (The Five Nines 
+pilot is the template.)</li>
+<li><b>Large enterprises</b> — the highest-value segment; the pitch is <b>distance removed</b>, not cheaper headcount. Land in one division, expand across the company.</li>
+<li><b>Professionals</b> — employ agents for billable work and deliver packaged solutions to their clients.</li>
+<li><b>Channels</b> — content-led and direct. A <b>podcast</b> and 
+long-form content build authority and inbound; direct sales carry the 
+enterprise motion; targeted digital and social support the top of 
+funnel. We do not buy our way to B2C — that line is inbound by design.</li>
+</ul>
+<h2>Customer retention</h2>
+<p>Retention is structural. Once a logo client's whole team works inside
+ the shared office, switching means moving the entire workplace, not 
+cancelling a seat — and the office gets stickier as it deepens (6 → 14 
+agents). A human client-success manager and continuous, governed quality
+ keep the relationship strong. The metric that matters is <b>logo retention</b>: losing a company, not a seat.</p>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 5 · Technology</div><h1>The stack, the partners, and how agents learn</h1><div class="owner">Owner: CTO (Sheldon) · learning loop with Agent Engineer (ALF)</div>
+<h2>Purpose of technology</h2>
+<p>The technology strategy is to <b>buy cutting-edge capability, not build commodity infrastructure</b>.
+ By standing on best-in-class partners — pay-as-you-go, scalable, always
+ running — KREW keeps fixed cost very low, scales without capex, and 
+stays current as the field moves. The discipline behind this is the <b>TSCR (Tech-Stack Cost Ratio)</b>:
+ tech-stack cost as a share of revenue per agent, driven down from ~25% 
+to ~19% over three years so gross margin per agent rises from 75% to 
+81%.</p>
+<h2>Technology partner — SAGA.WORX</h2>
+<p>KREW's technology is built and operated by <b>SAGA.WORX</b>, the 
+AI-native studio behind the brand. SAGA.WORX owns the agent operating 
+system, the build pipeline (own code), and the operational tooling — so 
+KREW gets a senior, AI-native engineering capability without carrying a 
+large fixed engineering payroll.</p>
+<h2>Tech stack — what each part does</h2>
+<table>
+<tbody><tr><th class="l">Component</th><th class="l">What it does</th></tr>
+<tr><td class="l">Foundation models (Anthropic, primary)</td><td class="l">The raw reasoning engine. Treated as a supplier — never the moat.</td></tr>
+<tr><td class="l">Model routing (LiteLLM)</td><td class="l">Sends each task to the right model at the right cost, and gives provider optionality (the bridge between cloud and local).</td></tr>
+<tr><td class="l">Agent OS</td><td class="l">Runs the agents, their layers, memory, and agent-to-agent collaboration.</td></tr>
+<tr><td class="l">Data &amp; context (Supabase, EU)</td><td class="l">Holds enterprise context and records, isolated per client under access control.</td></tr>
+<tr><td class="l">Application layer (Vercel)</td><td class="l">Serves the office and the web experiences, scalably.</td></tr>
+<tr><td class="l">Sovereign capacity (GEN4 datacentre)</td><td class="l">Local fallback for cost control and a floor no external ban can switch off.</td></tr>
+<tr><td class="l">Quality &amp; control agents</td><td class="l">Monitor, score and audit every process — the QMS in software.</td></tr>
+</tbody></table>
+<h2>How we train the agents</h2>
+<p>Agents do not stay good by accident. We keep them sharp with a documented <b>Learning Loop</b>
+ — a continuous cycle that measures every agent and turns shortfalls 
+into concrete improvements, with a written reason at every step. The 
+Agent Engineer (ALF) designs the evaluations and recommends changes; the
+ <b>CTO approves</b>; the KREW Manager executes — separation of duties, 
+every time. As the catalogue grows past 200 agents, this loop is what 
+keeps quality and cost in hand across all of them at once.</p>
+<h3>We score on the levels</h3>
+<p>Every agent is graded against the same five layers it is built from — so a weak score points straight at <em>which</em> level to fix:</p>
+<ul>
+<li><b>Layer 1 — base &amp; ethics:</b> does it follow the Code of Conduct and stay safe?</li>
+<li><b>Layer 2 — geography:</b> is its country, law and culture correct for the market?</li>
+<li><b>Layer 3 — role:</b> does it do the specialist job well?</li>
+<li><b>Layer 4 — enterprise context:</b> does it use what it should know about the client — and only that?</li>
+<li><b>Layer 5 — session:</b> does it hold the thread of the task?</li>
+</ul>
+<p>Plus a sixth dimension — <b>voice</b> — does it sound like KREW?</p>
+<h3>Three feedback loops</h3>
+<ul>
+<li><b>Self-assessment.</b> Scheduled internal eval runs grade each 
+agent against the levels, so we have an objective, repeatable baseline 
+that does not wait for a customer to complain.</li>
+<li><b>Mystery-shopper &amp; sample review.</b> We test agents the way a
+ customer would and review real (anonymised) interactions — catching in 
+practice what an eval set can miss.</li>
+<li><b>Client feedback.</b> Direct signal from the people using the agents — the ground truth on whether the work is actually landing.</li>
+</ul>
+<h3>Finding weakness — agents, clients, and layers</h3>
+<p>Scoring on the levels, across three loops, lets us read weakness precisely:</p>
+<ul>
+<li><b>Weak agents</b> — a role consistently below threshold. The fix is
+ targeted: a prompt change, a training adjustment, or a model/mode 
+change, proposed with rationale, approved, executed, then <b>re-tested to confirm it actually improved</b> (did it work, or did it only feel better?).</li>
+<li><b>Weak clients</b> — when an agent scores well in self-assessment but poorly on client feedback, the gap is usually in the <em>enterprise context</em> or onboarding, not the agent. That tells us to invest in the client's setup, not retrain a healthy agent.</li>
+<li><b>Weak layers</b> — when the <em>same level</em> scores low across 
+many agents (e.g. a geography layer for a new market), the problem is 
+the shared layer itself. We fix it once, and every agent built on it 
+improves at once.</li>
+</ul>
+<div class="tealbox"><b>Why this compounds.</b> Because agents share 
+Layers 1–3, an improvement to a layer lifts the whole catalogue — and a 
+new foundation model triggers a full sweep so we catch a shift across 
+every agent before a client does. Quality is a system, measured and 
+improved on purpose.</div>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 6 · Operations</div><h1>How the company runs</h1><div class="owner">Owner: CEO (Michael)</div>
+<h2>Facilities &amp; hardware</h2>
+<p>KREW carries almost no physical operational burden: <b>SAGA.WORX operates all infrastructure</b>
+ — the agent OS, the build and deployment pipeline, the GEN4 datacentre 
+for sovereign capacity, and monitoring. Day-to-day, the company runs on 
+partner cloud (pay-as-you-go) with the datacentre as a cost-control and 
+resilience floor. As KREW expands geographically, a <b>light physical-office footprint</b> in key markets provides local client-success presence — humans for relationships, agents for the work.</p>
+<h2>Organisation &amp; key personnel</h2>
+<p>KREW is run by a numbered roster of <b>agents</b> and a small team of <b>humans</b>. Humans decide and steer; agents execute and advise.</p>
+<h3>The board — seven C-suite agents</h3>
+<table>
+<tbody><tr><th class="l">Officer</th><th class="l">Owns</th></tr>
+<tr><td class="l">CEO · Michael</td><td class="l">Organisation, decisions, the through-line.</td></tr>
+<tr><td class="l">CTO · Sheldon</td><td class="l">Technology &amp; the learning roadmap.</td></tr>
+<tr><td class="l">CFO · Bud</td><td class="l">The financial plan.</td></tr>
+<tr><td class="l">CPO · Amanda</td><td class="l">Product &amp; roadmap.</td></tr>
+<tr><td class="l">CMO · Don</td><td class="l">Go-to-market &amp; growth.</td></tr>
+<tr><td class="l">CLO · Louis</td><td class="l">Legal, risk &amp; compliance.</td></tr>
+<tr><td class="l">COO</td><td class="l">Infrastructure &amp; operations at scale.</td></tr>
+</tbody></table>
+<h3>The KREW — managers &amp; specialists (agents)</h3>
+<p>KREW Manager (roster, training, onboarding), Content Manager, Quality
+ &amp; Systems Manager, Web Guide, Agent Engineer (ALF), Business 
+Developer (Bruce) — plus the growing catalogue of specialists.</p>
+<h3>Humans</h3>
+<p>The <b>Chairman</b> (Spitsbergen Invest); a <b>Client Success Manager</b>; and local presence as KREW scales. Small by design — the leverage is the agents.</p>
+<h2>The operating system — the full ERP</h2>
+<p>The company runs on one integrated system: the <b>QMS</b> (numbered documents, registered records, audit log), <b>Slack</b> (where agents and humans collaborate, and where the agent activity log lives), a <b>task system</b>
+ (work orders, agent orders, system operations), the agents register, 
+and the financial model. Nothing is "official" until it is registered 
+and filed — governance is operational, not aspirational.</p>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 7 · Financial Plan</div><h1>Projections, breakeven, funding</h1><div class="owner">Owner: CFO (Bud) · model: krew-financial-model.xlsx</div>
+<h2>Five-year projections</h2>
+<table>
+<tbody><tr><th class="l">USD</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr>
+<tr><td class="l">Exit ARR</td><td>$4.6mm</td><td>$21.7mm</td><td>$67.5mm</td><td>$118mm</td><td>$180mm</td></tr>
+<tr><td class="l">Recognised revenue</td><td>$2.1mm</td><td>$13.2mm</td><td>$44.6mm</td><td>$92.8mm</td><td>$149mm</td></tr>
+<tr class="sub"><td class="l">Gross margin %</td><td>62%</td><td>70%</td><td>76%</td><td>79%</td><td>80%</td></tr>
+<tr><td class="l">Gross profit</td><td>$1.3mm</td><td>$9.2mm</td><td>$33.9mm</td><td>$73.3mm</td><td>$119mm</td></tr>
+<tr><td class="l">Total operating expenses</td><td>$4.3mm</td><td>$9.9mm</td><td>$19.4mm</td><td>$50mm</td><td>$72mm</td></tr>
+<tr class="tot"><td class="l">EBITDA</td><td>($3.0mm)</td><td>($0.7mm)</td><td>$14.5mm</td><td>$23.3mm</td><td>$47.1mm</td></tr>
+<tr><td class="l">Net income</td><td>($3.1mm)</td><td>($0.9mm)</td><td>$12.4mm</td><td>$19.9mm</td><td>$40.4mm</td></tr>
+<tr><td class="l">Free cash flow</td><td>($3.3mm)</td><td>($1.4mm)</td><td>$10.8mm</td><td>$16.5mm</td><td>$35.1mm</td></tr>
+<tr class="tot"><td class="l">Cumulative free cash flow</td><td>($3.3mm)</td><td>($4.7mm)</td><td>$6.1mm</td><td>$22.6mm</td><td>$57.7mm</td></tr>
+</tbody></table>
+<h2>Revenue mix — Year 3 (the four engines)</h2>
+<table>
+<tbody><tr><th class="l">Engine</th><th>Y3 ARR</th></tr>
+<tr class="sub"><td class="l">B2B Virtual Office</td><td>$42.6mm</td></tr>
+<tr class="sub"><td class="l">Professional Services (50% rev-share)</td><td>$12.6mm</td></tr>
+<tr class="sub"><td class="l">Professional Solutions (50% rev-share)</td><td>$9.2mm</td></tr>
+<tr class="sub"><td class="l">B2C self-serve</td><td>$3.2mm</td></tr>
+<tr class="tot"><td class="l">Total</td><td>$67.5mm</td></tr>
+</tbody></table>
+<h2>Unit economics — TSCR</h2>
+<p>Blended revenue per agent ~$640/month; tech-stack cost per agent falls from ~$180 to ~$120/month, so <b>gross margin per agent rises from 75% to 81%</b>
+ and TSCR falls from 25% to 19%. The agents are profitable at the unit 
+level from the start; company-level profit follows as the base scales.</p>
+<h2>Costs &amp; breakeven</h2>
+<p><b>Start-up costs are low by design</b> — partner infrastructure 
+(pay-as-you-go), own code, and SAGA.WORX-operated tooling mean minimal 
+fixed cost and negligible capex. The main investment is sales &amp; 
+marketing to acquire logo clients. <b>Breakeven: EBITDA turns positive in Year 3</b>; cumulative cash turns positive during Year 3.</p>
+<h2>Funding — how capital is used</h2>
+<p>KREW is <b>self-funded by its owners</b> (Spitsbergen Invest AS 92.5%, PECLA Holding AS 7.5%) — no external round. The model's <b>peak funding need is under $5mm</b>
+ (the cumulative Y1–Y2 burn), deployed almost entirely into customer 
+acquisition during the investment phase. After Year 3 the business funds
+ its own growth.</p>
+<div class="note">Directional model — every figure is a board-owned 
+assumption, not a forecast of fact. Swing factors: the valuation 
+multiple, the logo-client acquisition ramp, price integrity, and logo 
+churn.</div>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Section 8 · Legal &amp; Compliance</div><h1>AI, data, and the contracts that hold it together</h1><div class="owner">Owner: CLO (Louis)</div>
+<h2>Responsible AI</h2>
+<p>Every KREW agent operates under a written <b>Code of Conduct</b> (Layer 1) and discloses openly that it is an AI agent. The governing posture is <b>"agents advise, humans decide"</b>:
+ agents produce and recommend; a human owns any decision that carries 
+real consequence. Approval gates, the audit trail, and the control 
+agents make this enforceable rather than aspirational — the QMS records 
+who decided what, and when.</p>
+<h2>GDPR &amp; data protection</h2>
+<ul>
+<li><b>EU hosting.</b> Data lives in the EU (Ireland / Frankfurt) — the Ireland entity is the EU operating base.</li>
+<li><b>Isolation by design.</b> Each client's Enterprise Context (Layer 4) is separated under tight access control; one client's data never reaches another.</li>
+<li><b>Data minimisation.</b> Internal learning signals are anonymised at ingestion, so the improvement loop holds no personal data.</li>
+<li><b>Data subject rights &amp; DPAs.</b> Standard data-processing terms and deletion/export paths are part of the contract suite.</li>
+</ul>
+<h2>Client confidentiality</h2>
+<p>Confidentiality is architectural (the isolated layer model) <em>and</em>
+ contractual (confidentiality terms, tight RLS on confidential prompts, 
+EU residency). A client's work is never used to train shared models and 
+is never visible outside that client's office.</p>
+<h2>Key contracts deployed</h2>
+<table>
+<tbody><tr><th class="l">Instrument</th><th class="l">Purpose</th></tr>
+<tr><td class="l">Service / SLA agreement</td><td class="l">The governing service terms, incl. a foundation-provider carve-out &amp; force majeure (Layer-0 risk).</td></tr>
+<tr><td class="l">Service schedule</td><td class="l">What is delivered, at what level, for what price.</td></tr>
+<tr><td class="l">Third-party deliverables appendix</td><td class="l">Where an agent's output is used onward (esp. Professional Services / Solutions).</td></tr>
+<tr><td class="l">Cover sheet</td><td class="l">One signing document (BankID / e-signature).</td></tr>
+<tr><td class="l">Data Processing Agreement</td><td class="l">GDPR processor terms.</td></tr>
+</tbody></table>
+<div class="note">All instruments are drafted and pass a 
+qualified-counsel gate before first execution. For Professional Services
+ &amp; Solutions, contracts make explicit that the <b>professional</b> owns the client relationship and the advice; revenue-share and liability are stated plainly.</div>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Appendix · A</div><h1>AI for business — the evidence base</h1><div class="owner">Reference: McKinsey, BCG, Omdia</div>
+<h2>AI from a business perspective</h2>
+<p>The economic case for AI is now mainstream consulting consensus, not speculation:</p>
+<ul>
+<li><b>McKinsey</b> estimates generative AI could add <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier">the equivalent of $2.6–4.4 trillion annually</a>
+ across 63 use cases, with about three-quarters of that value 
+concentrated in four functions: customer operations, marketing and 
+sales, software engineering, and R&amp;D.<div class="ref">Source: McKinsey, "The economic potential of generative AI: the next productivity frontier," 2023.</div></li>
+<li><b>BCG</b> finds that agentic AI is the next frontier — <a href="https://www.bcg.com/press/30september2025-ai-leaders-outpace-laggards-revenue-growth-cost-savings">agents already drive ~17% of total AI value in 2025, rising toward ~29% by 2028</a>
+ — and that AI leaders ("future-built" firms, ~5% of companies) achieve 
+roughly double the revenue growth and ~40% more cost savings than 
+laggards.<div class="ref">Source: BCG, "The Widening AI Value Gap / Build for the Future 2025," Sept 2025.</div></li>
+<li><b>Omdia</b> forecasts the enterprise agentic-AI software market growing from <a href="https://www.businesswire.com/news/home/20250922194426/en/">~$1.5bn in 2025 to ~$41.8bn by 2030</a> — a ~175% five-year CAGR, far outpacing earlier generative AI at the same stage.<div class="ref">Source: Omdia Enterprise Agentic AI Software Market Forecast, Sept 2025.</div></li>
+</ul>
+<div class="tealbox"><b>What it means for KREW:</b> the value is real, it is concentrating in core business functions, and the frontier is shifting from single models to <b>agents that act</b>. KREW is built precisely where the value is going — a governed, multi-agent workforce across functions.</div>
+<h2>Industry overview</h2>
+<p>The market is moving from "AI that answers" to "AI that does." Single-purpose agents are giving way to <b>orchestrated, multi-agent</b> systems. Salesforce's own 2026 outlook captures the shift bluntly: <a href="https://www.salesforce.com/uk/news/stories/the-future-of-ai-agents-top-predictions-trends-to-watch-in-2026/">single
+ agents risk becoming "digital dead-end islands," and real enterprise 
+success will demand a fully orchestrated digital workforce where agents 
+collaborate across departments.</a> That is the thesis KREW was built on.</p><div class="ref">Source: Salesforce, "The future of AI agents: predictions for 2026," Nov 2025.</div><p></p>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Appendix · B</div><h1>Market &amp; competitor analysis</h1><div class="owner">Reference: company disclosures &amp; market press, 2025–26</div>
+<h2>Competitor analysis</h2>
+<table>
+<tbody><tr><th class="l">Player</th><th class="l">Focus</th><th class="l">Strength</th><th class="l">Limitation vs KREW</th></tr>
+<tr><td class="l"><b>Harvey</b></td><td class="l">Legal vertical</td><td class="l">~$190mm ARR; $11bn valuation; 100k+ lawyers, 1,300 orgs.</td><td class="l">Single vertical; not a cross-functional office.</td></tr>
+<tr><td class="l"><b>Sierra</b></td><td class="l">Customer-support agents</td><td class="l">Strong managed deployments; high-profile founders.</td><td class="l">One function; managed/expensive; cited gaps in governance/audit.</td></tr>
+<tr><td class="l"><b>Decagon</b></td><td class="l">Customer support</td><td class="l">Autonomous-first resolution.</td><td class="l">Built around a single primary agent, not a multi-agent system.</td></tr>
+<tr><td class="l"><b>Salesforce Agentforce</b></td><td class="l">CRM-embedded agents</td><td class="l">Deep CRM context; trust layer; governance.</td><td class="l">Locked to the Salesforce stack; not a standalone office.</td></tr>
+<tr><td class="l"><b>Microsoft Copilot</b></td><td class="l">Productivity-embedded</td><td class="l">Vast distribution across M365/Azure.</td><td class="l">Assistive layer, not a governed cross-functional workforce.</td></tr>
+</tbody></table>
+<div class="ref">Sources: Harvey funding/ARR — CNBC &amp; Harvey, Mar 
+2026; Sierra/Decagon/Agentforce/Copilot — market analyses (Rasa, 
+Kore.ai, Lindy), 2025–26.</div>
+<h2>Where KREW is different</h2>
+<p>The field is mostly <b>single-function</b> (support: Sierra, Decagon), <b>single-vertical</b> (legal: Harvey), or <b>platform-locked</b> (Agentforce in Salesforce, Copilot in Microsoft). KREW's whitespace is a <b>cross-functional, multi-agent virtual office</b> that is <b>governed</b> (a QMS and audit trail — the very thing competitors are dinged for lacking), <b>provider-independent</b> (not locked to one model or one platform), and <b>organisation-flattening</b>
+ (the distance-collapse thesis). The market's own leaders say the 
+multi-agent enterprise is where value goes next; KREW is already built 
+there.</p>
+<h2>PESTEL analysis</h2>
+<table>
+<tbody><tr><th class="l">Factor</th><th class="l">Read</th></tr>
+<tr><td class="l">Political</td><td class="l">AI sovereignty &amp; export controls rising; EU/Nordic base and local fallback are assets, not liabilities.</td></tr>
+<tr><td class="l">Economic</td><td class="l">Cost pressure favours AI workforce; low-fixed-cost model is resilient in a downturn.</td></tr>
+<tr><td class="l">Social</td><td class="l">Workforce-displacement concern — answered by "agents advise, humans decide" and transparency.</td></tr>
+<tr><td class="l">Technological</td><td class="l">Frontier models improving monthly; provider-independence turns this into tailwind, not risk.</td></tr>
+<tr><td class="l">Environmental</td><td class="l">Compute energy scrutiny; efficient routing (TSCR) and Nordic power are advantages.</td></tr>
+<tr><td class="l">Legal</td><td class="l">GDPR/AI Act tightening; governance-first design is a moat, not a cost.</td></tr>
+</tbody></table>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body"><div class="sec">Appendix · C</div><h1>SWOT &amp; risk register</h1><div class="owner">Owner: CLO (Louis) · Bruce review</div>
+<h2>SWOT</h2>
+<div class="swot">
+<div class="q s"><div class="h">Strengths</div>Runs on its own product 
+(proven); multi-agent &amp; cross-functional; governance/QMS built in; 
+very low fixed cost; provider-independent; the distance-collapse 
+enterprise wedge.</div>
+<div class="q w"><div class="h">Weaknesses</div>Early stage, no external capital, small human team; brand unknown; depends on a sales ramp that must execute.</div>
+<div class="q o"><div class="h">Opportunities</div>Agentic market ~175% 
+CAGR; value concentrating in core functions; enterprises wanting 
+orchestrated (not island) agents; professional-services revenue-share.</div>
+<div class="q t"><div class="h">Threats</div>Well-funded competitors (Harvey, Sierra, Agentforce); foundation-provider dependence; fast-moving frontier; pricing pressure.</div>
+</div>
+<h2>Risk register</h2>
+<table>
+<tbody><tr><th class="l">Risk</th><th class="l">Mitigation</th></tr>
+<tr><td class="l">Foundation-model outage / export ban (Layer 0)</td><td class="l">Multi-provider failover (LiteLLM) + local sovereign fallback; contract carve-out &amp; force majeure; drilled, not assumed.</td></tr>
+<tr><td class="l">Agent error reaching a client decision</td><td class="l">"Agents advise, humans decide"; approval gates; audit trail; the QMS.</td></tr>
+<tr><td class="l">Professional Services / Solutions liability</td><td class="l">Contracts make the professional the owner of client relationship &amp; advice; revenue-share &amp; liability explicit.</td></tr>
+<tr><td class="l">GDPR / confidentiality breach</td><td class="l">EU hosting; per-client isolation; anonymised learning; DPAs.</td></tr>
+<tr><td class="l">Logo-client churn</td><td class="l">Shared office as switching cost; expansion &amp; success management; logo-retention is the headline metric.</td></tr>
+<tr><td class="l">Acquisition ramp / price integrity slips</td><td class="l">The model surfaces a lagging driver immediately; resources re-pointed and tempo adjusted same-day.</td></tr>
+<tr><td class="l">Cross-border structure (Cyprus / Ireland)</td><td class="l">Confirm with qualified counsel; substance &amp; transfer-pricing properly advised.</td></tr>
+</tbody></table>
+<div class="aidisc"><div class="h">AI authorship &amp; disclaimer</div>
+This document was written by a KREW AI agent. No human was involved in drafting it. KREW agents operate under the <b>KREW Code of Conduct</b>
+ (krew.cloud). As an AI-authored document it may contain errors or 
+"hallucinations" — confident statements that are not correct. It is 
+directional and must be independently verified before being relied upon 
+for any decision; nothing here is financial, legal or tax advice, and no
+ figure is a forecast of fact.</div>
+<div class="foot">
+KREW · KREW.CLOUD INTERNATIONAL (Cyprus, IP) · KREW.CLOUD EUROPE 
+(Ireland, invoicing) · a SAGA.WORX brand · Spitsbergen Invest AS 92.5% /
+ PECLA Holding AS 7.5% · hello@krew.cloud · krew.cloud · The lights are 
+on.<br>
+KREW-BOARD-004 rev 1.0 DRAFT · figures linked to 
+krew-financial-model.xlsx · directional model, board-owned assumptions, 
+no figure is a forecast of fact · corporate-structure tax/legal 
+treatment to be confirmed with qualified counsel · external sources 
+cited inline · CONFIDENTIAL.
+</div>
+<div class="pgfoot"><span>KREW-BOARD-004 · Business Plan · v1.0</span><span class="r">Author: CEO agent (Michael) · KREW · <span class="pgnum"></span></span></div></div></div>
+</body></html>

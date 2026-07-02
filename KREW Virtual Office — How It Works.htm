@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KREW Virtual Office — How It Works</title>
+<link href="KREW%20Virtual%20Office%20%E2%80%94%20How%20It%20Works_files/css2.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans",sans-serif;background:#EEF1F4;color:#1A1A1A;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:#00B27D;text-decoration:none}
+
+/* HEADER */
+.lh{background:#060A0F;padding:32px 56px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.lh-left{display:flex;align-items:center;gap:14px}
+.lh-word{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:24px;color:#00FFB2;letter-spacing:-1px}
+.lh-right{text-align:right}
+.lh-title{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#00FFB2;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.lh-meta{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#4A6070;line-height:1.9;letter-spacing:1px}
+
+/* LAYOUT */
+.wrap{max-width:960px;margin:0 auto;padding:48px 24px 80px}
+.page{background:#fff;border:1px solid #DCE4EC;padding:48px 56px;margin-bottom:28px}
+.page-dark{background:#060A0F;border:none;padding:48px 56px;margin-bottom:28px}
+
+/* TYPOGRAPHY */
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00B27D;margin-bottom:10px}
+.eyebrow-amber{color:#C78000}
+.eyebrow-red{color:#CC3355}
+h1{font-size:32px;font-weight:700;color:#060A0F;line-height:1.15;letter-spacing:-0.75px;margin-bottom:12px}
+h1.light{color:#E0ECF8}
+h2{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#060A0F;margin:40px 0 14px;border-bottom:2px solid #00FFB2;padding-bottom:7px}
+h2.dark-section{color:#E0ECF8;border-bottom-color:#1A2530}
+h3{font-size:16px;font-weight:600;color:#060A0F;margin:24px 0 8px}
+h3.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:700;color:#060A0F;margin:20px 0 6px}
+p{color:#444;line-height:1.8;margin-bottom:12px}
+p.lead{font-size:16px;color:#333;line-height:1.7;font-weight:300}
+strong{font-weight:600;color:#1A1A1A}
+
+/* META GRID */
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid #DCE4EC;margin:20px 0}
+.mk{font-family:"IBM Plex Mono",monospace;font-size:9px;color:#888;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border-bottom:1px solid #DCE4EC;background:#F8F9FA}
+.mv{font-size:13px;font-weight:500;color:#1A1A1A;padding:8px 14px;border-bottom:1px solid #DCE4EC;border-left:1px solid #DCE4EC}
+
+/* BOXES */
+.box-teal{border-left:4px solid #00FFB2;background:#F5FFFC;padding:14px 18px;margin:16px 0}
+.box-amber{border-left:4px solid #FFB800;background:#FFFBF0;padding:14px 18px;margin:16px 0}
+.box-red{border-left:4px solid #FF4D6D;background:#FFF5F5;padding:14px 18px;margin:16px 0}
+.box-dark{background:#060A0F;padding:14px 18px;margin:16px 0}
+.box-label{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.box-label.teal{color:#00B27D}
+.box-label.amber{color:#C78000}
+.box-label.red{color:#CC3355}
+.box-label.light{color:#00FFB2}
+
+/* TIER CARDS */
+.tier-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+.tier{padding:20px 18px;border-top:3px solid}
+.tier-1{background:#F5FFFC;border-top-color:#00FFB2}
+.tier-2{background:#FFFBF0;border-top-color:#FFB800}
+.tier-3{background:#FFF5F5;border-top-color:#FF4D6D}
+.tier-num{font-family:"IBM Plex Mono",monospace;font-size:28px;font-weight:700;line-height:1;margin-bottom:8px}
+.tier-1 .tier-num{color:#00FFB2}
+.tier-2 .tier-num{color:#FFB800}
+.tier-3 .tier-num{color:#FF4D6D}
+.tier-title{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.tier-1 .tier-title{color:#00B27D}
+.tier-2 .tier-title{color:#C78000}
+.tier-3 .tier-title{color:#CC3355}
+.tier p{font-size:12px;color:#555;line-height:1.7;margin-bottom:8px}
+.tier ul{list-style:none;padding:0}
+.tier ul li{font-size:12px;color:#555;padding:3px 0;border-bottom:1px solid rgba(0,0,0,0.06)}
+.tier ul li::before{content:"·";margin-right:6px;opacity:0.4}
+
+/* WORKFLOW FLOW */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin:20px 0}
+.flow-node{flex:1;min-width:100px;padding:12px 14px;font-size:11px;font-family:"IBM Plex Mono",monospace;font-weight:600;line-height:1.4;position:relative}
+.fn-trigger{background:#060A0F;color:#00FFB2;border:1px solid #1A2530}
+.fn-agent{background:#F5FFFC;color:#00755A;border:1px solid #00FFB2}
+.fn-queue{background:#FFFBF0;color:#8A5500;border:1px solid #FFB800}
+.fn-chair{background:#FFF5F5;color:#990029;border:1px solid #FF4D6D}
+.fn-output{background:#F8F9FA;color:#333;border:1px solid #DCE4EC}
+.flow-arrow{color:#bbb;font-size:18px;padding:0 4px;flex-shrink:0;align-self:center}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+thead tr{background:#060A0F}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left;color:#4A6070;font-weight:500}
+tbody td{padding:9px 14px;border-bottom:1px solid #EEF1F4;color:#444;vertical-align:top}
+tbody tr:hover{background:#FAFBFC}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;padding:2px 7px;letter-spacing:1px}
+.tag-teal{color:#00B27D;border:1px solid #00B27D;background:#F5FFFC}
+.tag-amber{color:#C78000;border:1px solid #FFB800;background:#FFFBF0}
+.tag-red{color:#CC3355;border:1px solid #FF4D6D;background:#FFF5F5}
+.tag-grey{color:#667788;border:1px solid #DCE4EC;background:#F8F9FA}
+.tag-dark{color:#4A6070;border:1px solid #1A2530;background:#0A0E14}
+
+/* WORKFLOW STEPS (numbered) */
+.wf-steps{counter-reset:step;margin:20px 0}
+.wf-step{display:grid;grid-template-columns:48px 1fr;gap:16px;margin-bottom:16px;align-items:start}
+.wf-step-num{font-family:"IBM Plex Mono",monospace;font-size:24px;font-weight:700;color:#00FFB2;line-height:1;padding-top:2px;text-align:center}
+.wf-step-content h4{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;color:#060A0F;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px}
+.wf-step-content p{font-size:13px;color:#555;margin:0;line-height:1.7}
+.wf-step-who{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;color:#00B27D;letter-spacing:1px;text-transform:uppercase;margin-right:4px}
+.wf-divider{border:none;border-top:1px solid #EEF1F4;margin:24px 0}
+
+/* ISO / QMS */
+.iso-clause{border:1px solid #DCE4EC;padding:14px 18px;margin-bottom:12px}
+.iso-clause-id{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.iso-clause-title{font-size:13px;font-weight:600;color:#060A0F;margin-bottom:6px}
+.iso-clause p{font-size:12px;color:#555;margin:0;line-height:1.7}
+
+/* INTEGRATION MAP */
+.int-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.int-card{border:1px solid #DCE4EC;padding:14px 16px}
+.int-card-source{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:4px}
+.int-card-trigger{font-size:13px;font-weight:600;color:#060A0F;margin-bottom:6px}
+.int-card-action{font-size:12px;color:#555;line-height:1.6}
+.int-priority{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:8px;font-weight:700;padding:2px 6px;letter-spacing:1px;margin-bottom:8px}
+.p-mvp{background:#F5FFFC;color:#00B27D;border:1px solid #00FFB2}
+.p-launch{background:#FFFBF0;color:#C78000;border:1px solid #FFB800}
+.p-post{background:#F8F9FA;color:#888;border:1px solid #DCE4EC}
+
+/* FOOTER */
+.pgfoot{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:9px;color:#bbb;letter-spacing:1px;padding:16px 0 0;border-top:1px solid #EEF1F4;margin-top:36px}
+.aidisc{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#888;line-height:1.7;border-left:3px solid #1A2530;padding:10px 14px;margin-top:24px;background:#F8F9FA}
+
+@media(max-width:700px){
+  .lh{padding:24px;flex-direction:column}
+  .page,.page-dark{padding:28px 20px}
+  .tier-grid{grid-template-columns:1fr}
+  .int-grid{grid-template-columns:1fr}
+  .meta-grid{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="lh">
+  <div class="lh-left">
+    <svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="38" cy="18" r="8"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg>
+    <span class="lh-word">KREW</span>
+  </div>
+  <div class="lh-right">
+    <div class="lh-title">Virtual Office — How It Works</div>
+    <div class="lh-meta">KREW-PROD-001 &nbsp;·&nbsp; Rev 1.0 &nbsp;·&nbsp; DRAFT<br>Amanda · CPO · KREW-A003 &nbsp;·&nbsp; 15.06.2026</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- COVER -->
+<div class="page">
+  <div class="eyebrow">Product Definition · KREW-PROD-001 · Rev 1.0 · 15.06.2026</div>
+  <h1>The KREW Virtual Office</h1>
+  <p class="lead">A complete operating model for the human-agent 
+organisation. How workflows run, how information flows, how decisions 
+are made, and how integrations connect everything into a single system 
+of record.</p>
+
+  <div class="meta-grid">
+    <div class="mk">Document</div><div class="mv">KREW-PROD-001 · Virtual Office Operating Model</div>
+    <div class="mk">Revision</div><div class="mv">1.0 — 15.06.2026</div>
+    <div class="mk">Status</div><div class="mv">DRAFT — Chairman review required</div>
+    <div class="mk">Authors</div><div class="mv">Amanda (CPO) · Leadership Group · Monica (QSM / ISO)</div>
+    <div class="mk">Inputs</div><div class="mv">Leadership memo 15.06 · Slack connector catalogue · ISO 9001:2015 QMS review · EU AI Act A-007 HITL documentation</div>
+    <div class="mk">Target</div><div class="mv">11.11.2026 KREW TEAM launch</div>
+  </div>
+
+  <div class="box-teal">
+    <div class="box-label teal">Core Premise</div>
+    <p style="margin:0;font-size:13px;color:#333;">The Virtual Office is
+ not software. It is an operating model enforced by software. Humans 
+make the decisions that require genuine judgment. Agents handle 
+everything else — not when asked, but the moment it is needed. The 
+quality of the Virtual Office is measured by one number: how few 
+decisions the Chairman needs to make per week, and how good those 
+decisions are when made.</p>
+  </div>
+</div>
+
+<!-- DESIGN BRIEF -->
+<div class="page">
+  <h2>Design Brief &amp; Objectives</h2>
+
+  <h3>The Problem We Are Solving</h3>
+  <p>Every company — from a PE portfolio company to a Norwegian SME 
+founder — loses most of its operating capacity to latency. Latency 
+between a lead arriving and someone responding. Between a contract being
+ signed and onboarding starting. Between a compliance deadline appearing
+ and a lawyer starting. Between a meeting request arriving and a 
+calendar being checked. These gaps are not failures of effort — they are
+ structural. The company is designed around human bandwidth.</p>
+  <p>KREW is not about replacing humans. It is about eliminating the 
+latency that exists between events and human action, in the hours when 
+humans are not working, and on the tasks that do not require human 
+judgment. A company running on KREW has agents covering the gaps. The 
+Chairman makes decisions. Agents execute everything else — continuously,
+ correctly, and with a full audit trail.</p>
+
+  <h3>Design Objectives — Ranked</h3>
+  <table>
+    <thead><tr><th>#</th><th>Objective</th><th>Success Measure</th></tr></thead>
+    <tbody>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">O-01</td><td><strong>Work starts the moment an event happens.</strong> No human initiation required for agent tasks.</td><td>Trigger → agent start latency under 60 seconds</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">O-02</td><td><strong>The Chairman's decision surface is minimal and high quality.</strong> Nothing reaches the Decision Queue that an agent should have handled.</td><td>Under 10 Decision Queue items per day</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">O-03</td><td><strong>Information arrives before it is requested.</strong> The brief contains everything the Chairman needs before they know they need it.</td><td>Chairman asks zero questions answered by reading the brief</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">O-04</td><td><strong>Compliance is a byproduct.</strong> Every action is logged, attributed, and reversible. The audit trail is automatic.</td><td>Zero manual compliance entries required</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">O-05</td><td><strong>The four-day week is real.</strong> Chairman operates effectively in 2 hours of focused review per day.</td><td>Beta client reports &lt;2hr/day active management</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What Is Not In Scope for 11.11</h3>
+  <p>Multi-user shared workspaces. BPR consulting. Custom integrations 
+requiring code. Mobile-native app. Public API. These are post-launch. 
+The 11.11 product is: one Chairman, nine agents, one Virtual Office, one
+ brief every morning, one Decision Queue, and a set of integrations that
+ mean work starts automatically. That is enough to prove the model.</p>
+</div>
+
+<!-- OPERATING MODEL -->
+<div class="page-dark">
+  <h2 class="dark-section">The Operating Model</h2>
+  <h1 class="light">Three-Tier Authority</h1>
+  <p style="color:#B8C8D8;margin-bottom:24px;">Every action in the 
+Virtual Office is assigned to one of three authority tiers. The tier 
+determines whether an agent acts autonomously, presents to the Chairman 
+for approval, or waits for a Chairman instruction. This is the 
+Human-in-the-Loop architecture. It is also the EU AI Act compliance 
+framework.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+    <div style="border-top:3px solid #00FFB2;padding:20px 16px;background:#080C12;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:#00FFB2;margin-bottom:8px;">T1</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#00B27D;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Agent Autonomous</div>
+      <p style="color:#B8C8D8;font-size:12px;line-height:1.7;margin-bottom:10px;">Agent executes without Chairman approval. Full audit log after. No external consequence.</p>
+      <div style="font-size:11px;color:#4A6070;line-height:1.8;">Draft documents · Internal analysis · Task card management · Brief generation · QMS entries · Research</div>
+    </div>
+    <div style="border-top:3px solid #FFB800;padding:20px 16px;background:#080C12;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:#FFB800;margin-bottom:8px;">T2</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#C78000;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Decision Queue</div>
+      <p style="color:#B8C8D8;font-size:12px;line-height:1.7;margin-bottom:10px;">Agent prepares complete recommended action. Chairman reviews and approves with one tap. Nothing external happens until approved.</p>
+      <div style="font-size:11px;color:#4A6070;line-height:1.8;">External emails · Client communications · Partner replies · Content publication · Scheduling commitments</div>
+    </div>
+    <div style="border-top:3px solid #FF4D6D;padding:20px 16px;background:#080C12;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:#FF4D6D;margin-bottom:8px;">T3</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#CC3355;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Chairman Initiates</div>
+      <p style="color:#B8C8D8;font-size:12px;line-height:1.7;margin-bottom:10px;">No agent action until Chairman gives explicit instruction. Legal, financial, or reputational consequence.</p>
+      <div style="font-size:11px;color:#4A6070;line-height:1.8;">Contract signing · Financial commitments · Board decisions · External legal counsel · Investor communications</div>
+    </div>
+  </div>
+
+  <div style="background:#050810;border:1px solid #141E28;padding:16px 20px;margin-top:24px;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;color:#4A6070;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">EU AI Act Mapping — Article 14 (Human Oversight)</div>
+    <p style="color:#667788;font-size:12px;margin:0;line-height:1.7;">T1
+ actions are fully documented in qms_audit_log with agent identity, 
+timestamp, and output. T2 records the Chairman's approval decision with 
+timestamp before external action. T3 records the initiation instruction.
+ Together, these three tiers provide the complete human oversight audit 
+trail required by EU AI Act Article 14 for high-risk AI system 
+deployment. Monica (QSM) owns this register.</p>
+  </div>
+</div>
+
+<!-- WORKFLOW 1: MORNING BRIEF -->
+<div class="page">
+  <h2>Workflow W-01 — The Morning Intelligence Cycle</h2>
+  <p>The brief is the primary interface between the Chairman and the 
+organisation. It arrives every morning at 08:00 CET containing 
+everything that happened overnight, what requires action, what agents 
+produced, and what the world looks like today. The Chairman reads it. 
+The day is organised. No questions needed.</p>
+
+  <div class="flow">
+    <div class="flow-node fn-trigger">00:43<br>Donna fires<br>front page</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-trigger">00:45<br>Monica<br>QMS review</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-trigger">00:46<br>News<br>Anthropic + KREW</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-trigger">00:47<br>Weather<br>4 cities</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-trigger">00:48<br>Slack<br>activity</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-trigger">00:49<br>Team status<br>+ countdown</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent">00:50<br>Briefer<br>generates brief</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-output">01:00<br>Email sent<br>to Chairman</div>
+  </div>
+
+  <div style="border-top:2px solid #EEF1F4;padding-top:16px;margin-top:16px;">
+    <div class="flow">
+      <div class="flow-node fn-trigger" style="background:#0A0E14;color:#B8C8D8;font-size:10px;">06:00<br>Watchdog fires<br>unconditional</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-node fn-agent" style="font-size:10px;">Checks brief<br>exists for today</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-node fn-agent" style="font-size:10px;">Re-runs full pipeline<br>if missing</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-node fn-output" style="font-size:10px;">Brief arrives<br>08:00–08:05 CET<br>regardless</div>
+    </div>
+  </div>
+
+  <h3 class="mono">Brief Sections — What Chairman Reads</h3>
+  <table>
+    <thead><tr><th>Section</th><th>Content</th><th>Source</th><th>Tier</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Donna Front Page</strong></td><td>Daily quip, meetings today, deadlines, action required items</td><td>Donna PA + calendar data</td><td><span class="tag tag-amber">T2</span></td></tr>
+      <tr><td><strong>Weather</strong></td><td>Longyearbyen, Oslo, Limassol, Dublin — temp, wind, rain</td><td>Open-Meteo API</td><td><span class="tag tag-teal">T1</span></td></tr>
+      <tr><td><strong>Email</strong></td><td>Inbox stats, reply-needed items (amber boxes)</td><td>Microsoft 365 / M365 MCP</td><td><span class="tag tag-amber">T2</span></td></tr>
+      <tr><td><strong>My Tasks</strong></td><td>Chairman WOs (amber), overdue (red), agent tasks FYI (grey)</td><td>agent_tasks table</td><td><span class="tag tag-amber">T2</span></td></tr>
+      <tr><td><strong>Agent Work Products</strong></td><td>What agents produced overnight — teal boxes with summaries</td><td>qms_audit_log · agent_work_log</td><td><span class="tag tag-teal">T1</span></td></tr>
+      <tr><td><strong>Slack</strong></td><td>Activity across #proj-cortex and monitored channels</td><td>Slack API · KREW Leads bot</td><td><span class="tag tag-teal">T1</span></td></tr>
+      <tr><td><strong>Priorities Today</strong></td><td>Briefer synthesises top 3 actions for Chairman</td><td>Haiku synthesis</td><td><span class="tag tag-amber">T2</span></td></tr>
+      <tr><td><strong>QMS Flags</strong></td><td>Monica: deviations, overdue tasks, agent health</td><td>qms_audit_log · brief_log</td><td><span class="tag tag-teal">T1</span></td></tr>
+      <tr><td><strong>Team Status — Launch</strong></td><td>9 agents' 2-sentence status + countdown to 11.11</td><td>brief-team-status</td><td><span class="tag tag-teal">T1</span></td></tr>
+      <tr><td><strong>Overnight Activity</strong></td><td>Automations fired, emails sent, pipeline summary</td><td>email_log · qms_audit_log</td><td><span class="tag tag-teal">T1</span></td></tr>
+      <tr><td><strong>News</strong></td><td>Anthropic news, KREW mentions, industry items</td><td>brief-news · news_sources table</td><td><span class="tag tag-teal">T1</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-amber">
+    <div class="box-label amber">Visual Language — Consistent Throughout</div>
+    <p style="margin:0;font-size:13px;color:#333;"><strong style="color:#FF4D6D;">Red border</strong> = OVERDUE / MANDATORY — Chairman must act, deadline passed. &nbsp;<strong style="color:#C78000;">Amber border</strong> = YOUR ACTION — Chairman decision or action required. &nbsp;<strong style="color:#00B27D;">Teal border</strong> = AGENT WORK / INFO — produced by agents, FYI. &nbsp;<strong style="color:#bbb;">Grey text</strong> = agent in progress, no action needed.</p>
+  </div>
+</div>
+
+<!-- WORKFLOW 2: DECISION QUEUE -->
+<div class="page">
+  <h2>Workflow W-02 — The Decision Queue</h2>
+  <p>The Decision Queue is the primary product from the Chairman's 
+perspective. Every T2 action lands here — fully prepared by the relevant
+ agent, ready for a single approval or rejection. Nothing external 
+happens without a Chairman decision recorded in the audit log. This is 
+the interface between agent intelligence and human authority.</p>
+
+  <div class="wf-steps">
+    <div class="wf-step">
+      <div class="wf-step-num">1</div>
+      <div class="wf-step-content">
+        <h4>Event detected</h4>
+        <p><span class="wf-step-who">Trigger / Agent</span>An event 
+occurs that requires a Chairman action: an email needs a reply, a lead 
+arrives, a contract needs review, a board meeting requires confirmation,
+ a compliance item needs sign-off.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">2</div>
+      <div class="wf-step-content">
+        <h4>Agent prepares the complete action</h4>
+        <p><span class="wf-step-who">Donna / Relevant Agent</span>The 
+responsible agent researches context (BRREG, calendar, history, prior 
+correspondence), prepares the full recommended action — drafted reply, 
+calendar block, compliance note, financial model — and adds a rationale 
+note explaining why this action is recommended and what the consequence 
+of not acting is.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">3</div>
+      <div class="wf-step-content">
+        <h4>Suggestion delivered to Chairman</h4>
+        <p><span class="wf-step-who">Donna PA</span>Current mode: Donna 
+sends a WO Suggestion email to Chairman inbox containing the full draft,
+ calendar details, and a two-step action guide. Future mode (KREW TEAM):
+ appears as a card in the Decision Queue UI. One-tap Approve or Reject 
+with reason.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">4</div>
+      <div class="wf-step-content">
+        <h4>Chairman approves or rejects</h4>
+        <p><span class="wf-step-who">Chairman · T2 Decision</span>Chairman
+ reads the suggestion and taps Approve or Reject. Approval is logged 
+with timestamp and Chairman attribution. Rejection includes a reason 
+that feeds back to the agent for calibration. This decision record is 
+the HITL compliance artefact.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">5</div>
+      <div class="wf-step-content">
+        <h4>Agent executes the approved action</h4>
+        <p><span class="wf-step-who">Agent · Post-Approval</span>Only 
+after approval: the external action fires. Email is sent. Calendar event
+ is created. Document is published. The task card moves to Done. Monica 
+logs the outcome in the QMS. If rejected, the agent notes the feedback 
+and the task returns to backlog for rework.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mono">Decision Queue — Item Types</h3>
+  <table>
+    <thead><tr><th>Type</th><th>Agent Prepares</th><th>Chairman Action</th><th>If Approved</th></tr></thead>
+    <tbody>
+      <tr><td>WO — External reply</td><td>Donna: full draft, calendar check, context</td><td>Read, Approve/Reject</td><td>Email sent via Outlook</td></tr>
+      <tr><td>WO — Meeting attendance</td><td>Donna: calendar check, drive time, RSVP draft</td><td>Tap Approve</td><td>Calendar block + RSVP sent</td></tr>
+      <tr><td>Lead — First contact</td><td>Don: research prospect, draft intro, score lead</td><td>Review draft, Approve</td><td>Email sent via Resend/KREW</td></tr>
+      <tr><td>Contract — Client agreement</td><td>Louis: review terms, flag risks, recommend</td><td>Legal review decision</td><td>Scrive workflow initiated</td></tr>
+      <tr><td>Content — External post</td><td>Don/Carrie: draft post, brand check</td><td>Approve content</td><td>Published to LinkedIn/krew.cloud</td></tr>
+      <tr><td>Compliance — Action required</td><td>Louis: analysis, recommendation, draft response</td><td>Compliance decision</td><td>Action filed, QMS updated</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- WORKFLOW 3: INBOUND LEAD -->
+<div class="page">
+  <h2>Workflow W-03 — Inbound Lead to First Contact</h2>
+  <p>The moment a prospect interacts with KREW — fills in a form, 
+mentions KREW in Slack, clicks "Hire Your Team" — the workflow starts 
+automatically. No human needs to notice. The response lands before the 
+prospect has forgotten they reached out.</p>
+
+  <div class="flow">
+    <div class="flow-node fn-trigger">Trigger<br>Typeform / Slack mention / krew.cloud form</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent">krew-lead-monitor<br>extracts contact + intent</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent">Don (CMO)<br>researches prospect, drafts reply</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-queue">Decision Queue<br>Chairman reviews draft</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-output">Email sent<br>via Resend / hello@krew.cloud</div>
+  </div>
+
+  <div class="flow" style="margin-top:8px;">
+    <div class="flow-node fn-agent" style="font-size:11px;">Michael (CEO)<br>qualifies: B2B / B2C<br>logo or seat</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent" style="font-size:11px;">Petter (CSM)<br>books discovery call<br>via Calendly</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent" style="font-size:11px;">Donna<br>pre-meeting brief<br>prepared for Chairman</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-queue" style="font-size:11px;">Decision Queue<br>send Scrive offer?</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-output" style="font-size:11px;">Scrive offer sent<br>BankID signing</div>
+  </div>
+
+  <div class="box-teal" style="margin-top:20px;">
+    <div class="box-label teal">Slack Trigger — "When the app is mentioned"</div>
+    <p style="margin:0;font-size:13px;color:#333;">When @KREW or @KREW 
+Leads is mentioned in any Slack channel, krew-lead-monitor fires within 
+seconds. The agent reads the message, extracts the contact context, and 
+routes to the Decision Queue. This means every warm introduction in a 
+Slack workspace becomes an immediate lead response opportunity — without
+ anyone remembering to check.</p>
+  </div>
+
+  <h3 class="mono">Lead Qualification Matrix (Don + Michael)</h3>
+  <table>
+    <thead><tr><th>Signal</th><th>Type</th><th>Agent Route</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>Company domain + specific question</td><td>B2B logo prospect</td><td>Don drafts → CEO qualifies → Decision Queue</td><td><span class="tag tag-red">URGENT</span></td></tr>
+      <tr><td>Founder email + headcount mention</td><td>B2B SME</td><td>Don drafts → Decision Queue</td><td><span class="tag tag-amber">HIGH</span></td></tr>
+      <tr><td>PE firm or portfolio company</td><td>SAGA.APEX target</td><td>CEO routes to Chairman directly</td><td><span class="tag tag-red">URGENT</span></td></tr>
+      <tr><td>Individual + personal email</td><td>B2C self-serve</td><td>Don sends template → Petter monitors</td><td><span class="tag tag-grey">NORMAL</span></td></tr>
+      <tr><td>Press / media inquiry</td><td>PR opportunity</td><td>Michael + Chairman Decision Queue</td><td><span class="tag tag-amber">HIGH</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- WORKFLOW 4: AGENT TASK CYCLE -->
+<div class="page">
+  <h2>Workflow W-04 — The Agent Task Execution Cycle</h2>
+  <p>Every night at 01:10 CET, all nine agents run their autonomous work
+ cycle. Each reads their open task cards, decides what they can execute 
+within their authority, produces real output, and posts results to the 
+review queue. The Chairman reads the outputs in the brief. Nothing 
+requires a morning standup or status request.</p>
+
+  <div class="flow">
+    <div class="flow-node fn-trigger">01:10 CET<br>agent-executor<br>fires</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent">Each agent reads<br>this-week task cards<br>(max 4)</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent">Agent decides:<br>EXECUTE / FLAG<br>HOLD / DONE</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-queue">Output saved:<br>agent_tasks.result<br>task → review</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent">Monica QMS<br>verifies output<br>quality</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-output">In morning brief:<br>AGENT WORK<br>PRODUCTS section</div>
+  </div>
+
+  <h3 class="mono">Agent Authority Scopes</h3>
+  <table>
+    <thead><tr><th>Agent</th><th>Can Execute Autonomously (T1)</th><th>Requires Decision Queue (T2)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Michael · CEO</strong></td><td>Strategy memos, agent task assignment, partner context notes, internal decisions</td><td>External partner communications, offers, press statements</td></tr>
+      <tr><td><strong>Sheldon · CTO</strong></td><td>Technical specs, architecture docs, schema design, code review notes</td><td>Production deployments, infrastructure spend decisions</td></tr>
+      <tr><td><strong>Amanda · CPO</strong></td><td>Product specs, UX flows, scope documents, feature prioritisation</td><td>Scope changes affecting budget or timeline commitments</td></tr>
+      <tr><td><strong>Don · CMO</strong></td><td>Copy drafts, content calendar, positioning analysis, internal campaign plans</td><td>Publishing to LinkedIn, krew.cloud, or external channels</td></tr>
+      <tr><td><strong>Bud · CFO</strong></td><td>Financial models, pricing analysis, cost-benefit documents, projections</td><td>Any financial commitment or payment authorisation</td></tr>
+      <tr><td><strong>Louis · CLO</strong></td><td>Legal memos, compliance drafts, contract reviews, regulatory analysis</td><td>External legal representation, filing, contract signing</td></tr>
+      <tr><td><strong>Monica · QSM</strong></td><td>QMS entries, SOP updates, deviation filing, task status management</td><td>Policy changes affecting the whole organisation</td></tr>
+      <tr><td><strong>Bruce · Biz Dev</strong></td><td>Market research, product briefs, competitive analysis, partnership research</td><td>Any commitment or representation to external partners</td></tr>
+      <tr><td><strong>ALF · Agent Engineer</strong></td><td>Prompt design, eval reports, architecture proposals, agent calibration notes</td><td>Changes to live agent configurations, production prompt updates</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-teal">
+    <div class="box-label teal">Task Card Lifecycle</div>
+    <p style="margin:0;font-size:13px;color:#333;font-family:'IBM Plex Mono',monospace;">proposed → backlog → this-week → [agent-executor runs] → review → done</p>
+    <p style="margin:6px 0 0;font-size:12px;color:#555;">"Done" requires verification by CEO or QSM — not just the agent's own claim. Monica's quality check closes the loop.</p>
+  </div>
+</div>
+
+<!-- WORKFLOW 5: DONNA WO SUGGESTION -->
+<div class="page">
+  <h2>Workflow W-05 — The Donna WO Suggestion Pattern</h2>
+  <p>When a Chairman Work Order is identified, Donna does not flag it 
+and wait. She prepares the complete suggested action before the Chairman
+ knows it needs doing. By the time it appears in the brief or Decision 
+Queue, all the Chairman needs to do is read, approve, and the action 
+fires.</p>
+
+  <div class="wf-steps">
+    <div class="wf-step">
+      <div class="wf-step-num">1</div>
+      <div class="wf-step-content">
+        <h4>Identify the obligation type</h4>
+        <p><span class="wf-step-who">Donna PA</span>Classify: reply 
+required, attendance required, decision required, payment required, 
+signature required, approval required. Mandatory obligations (board 
+membership, legal deadlines, regulatory) are flagged as MANDATORY — not 
+discretionary.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">2</div>
+      <div class="wf-step-content">
+        <h4>Research context</h4>
+        <p><span class="wf-step-who">Donna PA</span>Check all available 
+sources: BRREG for board membership and legal obligations, calendar for 
+availability, prior correspondence for tone and relationship history, 
+QMS for related task cards, email log for relevant recent threads.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">3</div>
+      <div class="wf-step-content">
+        <h4>Prepare the specific action</h4>
+        <p><span class="wf-step-who">Donna PA</span>For a reply: draft 
+the complete email in the correct language and register. For a meeting: 
+calculate drive time, prepare calendar block with buffer. For a 
+decision: prepare a one-paragraph brief with recommendation and 
+consequence of inaction. The draft must be ready to send — not a 
+framework for writing one.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num">4</div>
+      <div class="wf-step-content">
+        <h4>Deliver to Decision Queue</h4>
+        <p><span class="wf-step-who">Donna PA → Chairman</span>Current: 
+WO Suggestion email to ao@spitsbergeninvest.com with full draft, 
+calendar block, and two-step action guide. Future (KREW TEAM + Graph 
+API): Donna creates the Outlook draft directly and adds the calendar 
+event. Chairman taps Approve once.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mono">Training Case — Christian Walter / FRIP (15.06.2026)</h3>
+  <table>
+    <thead><tr><th>Step</th><th>What Donna Did</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Identify</td><td>Board meeting invitation — classified as MANDATORY (aksjeloven § 6-19)</td><td>Red MANDATORY flag</td></tr>
+      <tr><td>Research</td><td>BRREG confirmed board membership. 
+Calendar: 18.06 clear. ea@daimyo.no = Espen (not Nicolas — Nicolas = 
+nlu@daimyo.no). Drive time: Høvik → Fredrikstad 1h20m.</td><td>Full context in one pass</td></tr>
+      <tr><td>Prepare</td><td>Norwegian reply drafted (board colleagues = Norwegian). Calendar block: depart 12:30, meeting 14:00–18:00, dinner, home ~22:00.</td><td>Ready to send</td></tr>
+      <tr><td>Deliver</td><td>WO Suggestion email sent to Chairman inbox
+ with amber action box, full draft, and calendar block. Visual 
+hierarchy: black header (Donna), red border (mandatory), amber table 
+(your action).</td><td>KREW-MSG-0045</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- WORKFLOW 6: CONTRACT TO ONBOARDING -->
+<div class="page">
+  <h2>Workflow W-06 — Contract Signed to Client Live</h2>
+  <p>The moment a client signs a KREW contract, three parallel 
+workstreams start simultaneously. No handoff. No "can you start the 
+onboarding." The signature is the trigger — Louis, Petter, and Bud all 
+start at the same time.</p>
+
+  <div class="flow">
+    <div class="flow-node fn-trigger">DocuSign / Scrive<br>signed trigger</div>
+    <div class="flow-arrow">›</div>
+    <div class="flow-node fn-agent" style="background:#F0FFF8;">Louis · CLO<br>verifies terms, files<br>contract in QMS</div>
+    <div class="flow-arrow" style="opacity:0;">›</div>
+    <div class="flow-node fn-agent" style="background:#F0FFF8;">Petter · CSM<br>onboarding task card<br>auto-created</div>
+    <div class="flow-arrow" style="opacity:0;">›</div>
+    <div class="flow-node fn-agent" style="background:#F0FFF8;">Bud · CFO<br>billing setup<br>Tripletex entry</div>
+  </div>
+
+  <div class="box-teal">
+    <div class="box-label teal">Parallel Not Sequential</div>
+    <p style="margin:0;font-size:13px;color:#333;">All three agents 
+receive the signed contract trigger simultaneously. Total time from 
+signature to all three starting work: under 60 seconds. Traditional 
+sequential handoff: 2–5 days. This is the four-day week in practice.</p>
+  </div>
+
+  <div class="wf-steps" style="margin-top:20px;">
+    <div class="wf-step">
+      <div class="wf-step-num" style="color:#FFB800;">2</div>
+      <div class="wf-step-content">
+        <h4>Onboarding wizard (KREW TEAM product)</h4>
+        <p><span class="wf-step-who">Amanda / CPO Scope</span>The client
+ receives a structured onboarding link. They complete: company profile, 
+team structure, existing tools, communication preferences. The 
+Enterprise Layer (L4) is populated from their answers. Agents become 
+company-aware before the first call.</p>
+      </div>
+    </div>
+    <hr class="wf-divider">
+    <div class="wf-step">
+      <div class="wf-step-num" style="color:#FFB800;">3</div>
+      <div class="wf-step-content">
+        <h4>Donna prepares first-week brief</h4>
+        <p><span class="wf-step-who">Donna PA</span>A customised version
+ of the Chairman Brief is prepared for the client's Chairman for their 
+first working day. It shows what has been set up, what is available, and
+ what three actions to take first. The client's first experience of KREW
+ is being briefed before they ask.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKFLOW 7: COMPLIANCE -->
+<div class="page">
+  <h2>Workflow W-07 — Quality &amp; Compliance (Monica · ISO 9001)</h2>
+  <p>Compliance in KREW is not a workstream. It is a byproduct of the 
+system running correctly. Every agent action writes to qms_audit_log. 
+Every Decision Queue item records a Chairman decision. Every task card 
+tracks from proposed to done with timestamps and attribution. Monica's 
+role is to verify this is happening, flag when it is not, and ensure the
+ audit trail is complete.</p>
+
+  <h3>ISO 9001:2015 Clause Mapping</h3>
+
+  <div class="iso-clause">
+    <div class="iso-clause-id">ISO 9001:2015 · Clause 7.5 — Documented Information</div>
+    <div class="iso-clause-title">All KREW process outputs are documented automatically</div>
+    <p>qms_audit_log provides the documented information record required
+ by 7.5. Every agent action, Decision Queue decision, and task state 
+change is recorded with creator, timestamp, and content. Monica 
+maintains the QMS document register (qms_documents table). No manual 
+filing required — the system files itself.</p>
+  </div>
+
+  <div class="iso-clause">
+    <div class="iso-clause-id">ISO 9001:2015 · Clause 8.5 — Production and Service Provision</div>
+    <div class="iso-clause-title">The three-tier HITL model ensures controlled conditions</div>
+    <p>Tier 1 (autonomous) actions are controlled by the agent's 
+authority scope — defined in KREW-OPS-015. Tier 2 (Decision Queue) adds a
+ Chairman approval gate. Tier 3 (Chairman initiates) adds an initiation 
+record. Together these constitute the "controlled conditions" required 
+by 8.5 for all service provision actions.</p>
+  </div>
+
+  <div class="iso-clause">
+    <div class="iso-clause-id">ISO 9001:2015 · Clause 9.1 — Monitoring, Measurement, Analysis</div>
+    <div class="iso-clause-title">ALF evaluations and Monica QMS reviews are the monitoring programme</div>
+    <p>ALF runs quarterly eval sweeps across all agents. Monica reviews 
+task card quality weekly. The KREW Learning Loop (KREW-PROD-014) 
+documents how shortfalls are identified, proposed, approved by CTO, and 
+executed. Calibration data feeds back into agent prompts on a documented
+ schedule.</p>
+  </div>
+
+  <div class="iso-clause">
+    <div class="iso-clause-id">ISO 9001:2015 · Clause 10.2 — Nonconformity and Corrective Action</div>
+    <div class="iso-clause-title">Deviations are registered, investigated, and resolved within the QMS</div>
+    <p>Monica registers nonconformities in qms_audit_log 
+(kind='deviation'). Each deviation has a root cause note, corrective 
+action proposed, and verification status. The agent executor's FLAG 
+outputs are the primary deviation signal — when an agent cannot proceed,
+ that is a potential process gap requiring investigation.</p>
+  </div>
+
+  <div class="box-amber">
+    <div class="box-label amber">EU AI Act — Article 14 (Human Oversight) Compliance</div>
+    <p style="margin:0;font-size:13px;color:#333;">The three-tier 
+authority model directly satisfies Article 14. T1: agent actions are 
+fully logged with agent identity. T2: Chairman approval is recorded 
+before external action. T3: Chairman initiation is recorded before any 
+action. Monica maintains the Article 14 compliance register as a 
+QMS-tracked document (KREW-GOV-003, in preparation).</p>
+  </div>
+</div>
+
+<!-- WORKFLOW 8: OVERNIGHT CYCLE -->
+<div class="page">
+  <h2>Workflow W-08 — The Overnight Autonomous Cycle</h2>
+  <p>Between 22:43 and 06:30 CET, KREW runs continuously with no human 
+involvement. This is the four-day week in operational terms: while the 
+Chairman is not working, the organisation is.</p>
+
+  <table>
+    <thead><tr><th>Time (CET)</th><th>Action</th><th>Agent / System</th><th>Output</th></tr></thead>
+    <tbody>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:43</td><td>Front page of brief prepared. Quip, meetings, fiscal deadlines.</td><td>Donna PA</td><td>donna_log in qms_audit_log</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:45</td><td>QMS review — overdue tasks, deviations, agent health</td><td>Monica QSM</td><td>brief_log in qms_audit_log</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:46</td><td>News fetch — Anthropic + KREW mentions across configured sources</td><td>brief-news</td><td>news_items table + news_log</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:47</td><td>Weather for 4 cities via Open-Meteo</td><td>brief-weather</td><td>weather_log</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:48</td><td>Slack channel activity — #proj-cortex + monitored channels</td><td>KREW Leads bot</td><td>slack_log</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:49</td><td>Team status — 9 agents' 2-sentence MVP launch status + countdown</td><td>brief-team-status</td><td>team_status_log</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">00:50</td><td>Full brief generated from all data sources</td><td>Night Owl Briefer v11</td><td>briefings table</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">01:00</td><td>Brief emailed to Chairman</td><td>brief-email</td><td>email_log · KREW-MSG-xxxx</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">01:10</td><td>All 9 agents check task cards, execute within authority</td><td>agent-executor</td><td>agent_work_log · task updates</td></tr>
+      <tr><td style="font-family:'IBM Plex Mono',monospace;font-weight:700;">08:00</td><td>Watchdog fires — generates and sends brief unconditionally</td><td>brief-watchdog</td><td>KREW-MSG-xxxx (guaranteed delivery)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-dark">
+    <div class="box-label light">The Guarantee</div>
+    <p style="color:#B8C8D8;font-size:13px;margin:0;">The Chairman 
+receives the brief at 08:00 every morning regardless of what happened 
+overnight. If the 01:00 pipeline ran perfectly, the 08:00 brief confirms
+ it. If the 01:00 pipeline failed for any reason, the 08:00 watchdog 
+re-runs the full pipeline and sends the brief anyway. Arrival of the 
+email at 08:00 is the system health signal. If it does not arrive by 
+08:15, something is wrong at the infrastructure level — not the 
+pipeline.</p>
+  </div>
+</div>
+
+<!-- INTEGRATIONS -->
+<div class="page">
+  <h2>Integration Architecture</h2>
+  <p>Integrations are how events in the world enter the Virtual Office 
+automatically. The goal is that every relevant event — a lead, a GitHub 
+issue, a signed contract, a booked meeting — fires an agent without 
+human initiation. The 64 Slack connectors available in 
+sagaworx.slack.com are the integration surface.</p>
+
+  <h3 class="mono">MVP Integrations — Live or In Build (11.11)</h3>
+  <div class="int-grid">
+    <div class="int-card">
+      <span class="int-priority p-mvp">MVP · LIVE</span>
+      <div class="int-card-source">Slack Native</div>
+      <div class="int-card-trigger">App mentioned trigger</div>
+      <div class="int-card-action">@KREW mentioned in any channel → 
+krew-lead-monitor fires → Don extracts contact and intent → Decision 
+Queue for Chairman. Under 60 seconds from mention to draft response 
+ready.</div>
+    </div>
+    <div class="int-card">
+      <span class="int-priority p-mvp">MVP · LIVE</span>
+      <div class="int-card-source">Slack Native</div>
+      <div class="int-card-trigger">Message metadata posted</div>
+      <div class="int-card-action">Structured KREW messages (agent 
+outputs, task updates) use metadata to enable routing workflows. 
+Foundation for the agent communication layer within the Virtual Office.</div>
+    </div>
+    <div class="int-card">
+      <span class="int-priority p-mvp">MVP · IN BUILD</span>
+      <div class="int-card-source">Microsoft Outlook (Slack connector)</div>
+      <div class="int-card-trigger">Donna calendar + email automation</div>
+      <div class="int-card-action">Donna creates Outlook calendar blocks
+ and drafts replies using Slack's Microsoft Outlook connectors. 
+Eliminates need for separate Azure Graph API registration for Donna's WO
+ suggestion workflow.</div>
+    </div>
+    <div class="int-card">
+      <span class="int-priority p-mvp">MVP · IN BUILD</span>
+      <div class="int-card-source">GitHub / GitLab</div>
+      <div class="int-card-trigger">Issue created / Issue closed</div>
+      <div class="int-card-action">GitHub issue opened → CTO task card 
+created in agent_tasks automatically → Sheldon starts within the next 
+agent-executor cycle. Issue closed → task card closed. Development work 
+enters KREW without anyone creating a card manually.</div>
+    </div>
+    <div class="int-card">
+      <span class="int-priority p-mvp">MVP · IN BUILD</span>
+      <div class="int-card-source">Typeform</div>
+      <div class="int-card-trigger">Form submitted (lead capture)</div>
+      <div class="int-card-action">Prospect submits krew.cloud contact 
+form → Don receives contact data instantly → drafts personalised 
+response within the agent-executor cycle → Decision Queue for Chairman 
+approval → sent via hello@krew.cloud within the session.</div>
+    </div>
+    <div class="int-card">
+      <span class="int-priority p-mvp">MVP · IN BUILD</span>
+      <div class="int-card-source">Linear</div>
+      <div class="int-card-trigger">Issue added / Status changed</div>
+      <div class="int-card-action">Linear sprint item created → 
+agent_tasks card generated → CTO or CPO picks up. Status change in 
+Linear → task card status synced. Engineering and product management in 
+one system.</div>
+    </div>
+  </div>
+
+  <h3 class="mono">Post-Launch Integrations (Priority Order)</h3>
+  <table>
+    <thead><tr><th>Connector</th><th>Trigger / Action</th><th>KREW Workflow</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Calendly</strong></td><td>Meeting booked</td><td>Donna prepares pre-meeting brief before the call. Chairman walks in already briefed, every time.</td></tr>
+      <tr><td><strong>DocuSign / Scrive</strong></td><td>Contract signed</td><td>W-06: Louis + Petter + Bud all start simultaneously. Onboarding, billing, and compliance in parallel.</td></tr>
+      <tr><td><strong>Asana</strong></td><td>Task created / completed</td><td>Client's Asana tasks feed into KREW task view. Client work and agent work in one place.</td></tr>
+      <tr><td><strong>Google Sheets / Excel</strong></td><td>Sheet updated</td><td>Bud's financial models update the brief automatically. Numbers always current without asking.</td></tr>
+      <tr><td><strong>Intercom / Zendesk</strong></td><td>Ticket created</td><td>Petter CSM task card auto-generated. Client support issue enters the agent system immediately.</td></tr>
+      <tr><td><strong>Salesforce</strong></td><td>Lead created / updated</td><td>Don receives CRM lead data, enriches with KREW context, routes to Decision Queue.</td></tr>
+      <tr><td><strong>PagerDuty</strong></td><td>Incident resolved</td><td>CTO receives resolution signal. Post-mortem task card auto-created for Sheldon.</td></tr>
+      <tr><td><strong>SurveyMonkey</strong></td><td>Response submitted</td><td>Monica receives feedback data. QMS improvement trigger if responses indicate issues.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ROADMAP -->
+<div class="page">
+  <h2>Roadmap to 11.11.2026</h2>
+
+  <h3 class="mono">Phase 1 — Now to 29.09 (Beta Ready)</h3>
+  <table>
+    <thead><tr><th>Item</th><th>Owner</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>Decision Queue UI — mobile-first, one-tap approve/reject</td><td>Amanda · CPO</td><td><span class="tag tag-red">URGENT</span></td></tr>
+      <tr><td>Donna calendar + email via Slack Outlook connectors</td><td>Sheldon · CTO</td><td><span class="tag tag-red">URGENT</span></td></tr>
+      <tr><td>Slack trigger → task card pipeline (GitHub + Typeform first)</td><td>Sheldon · CTO</td><td><span class="tag tag-amber">HIGH</span></td></tr>
+      <tr><td>Agent work products display in Virtual Office (not just brief)</td><td>Amanda · CPO</td><td><span class="tag tag-amber">HIGH</span></td></tr>
+      <tr><td>EU AI Act A-001 to A-012 full compliance register</td><td>Louis · CLO</td><td><span class="tag tag-red">URGENT</span></td></tr>
+      <tr><td>Beta client selection criteria approved by Chairman</td><td>Petter · CSM</td><td><span class="tag tag-amber">HIGH</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="mono">Phase 2 — 29.09 to 13.10 (Beta)</h3>
+  <p>Three beta clients onboard. Petter owns client success. Each client
+ receives the full Virtual Office: brief, task cards, Decision Queue, 
+nine agents. Weekly Chairman review call. Feedback feeds directly into 
+CPO within 48 hours. One principle: do not build new features during 
+beta. Listen. Fix what breaks. Tighten what works.</p>
+
+  <h3 class="mono">Phase 3 — 13.10 to 11.11 (Launch)</h3>
+  <p>The pitch is proven by three case studies. "Here is what happened 
+in their company in 14 days. Here is how many decisions the Chairman 
+made. Here is what agents handled automatically." The website is updated
+ the morning of 11.11 with the first real overnight report from the 
+night of 10.11. KREW was built by KREW. The proof is live.</p>
+
+  <h3 class="mono">Decisions Required from Chairman</h3>
+  <div class="box-amber">
+    <div class="box-label amber">Decision Queue — Chairman Action Required</div>
+    <p style="margin:0 0 8px;font-size:13px;color:#333;"><strong>1. Approve three-tier HITL architecture</strong> as canonical product model. Feeds into P-01 v2, EU AI Act documentation, all external communication.</p>
+    <p style="margin:0 0 8px;font-size:13px;color:#333;"><strong>2. Approve beta client selection criteria.</strong> Recommended: Norwegian founder or PE portfolio company, 5–50 employees, Chairman willing to share outcomes publicly after beta.</p>
+    <p style="margin:0;font-size:13px;color:#333;"><strong>3. Approve "KREW built by KREW" public narrative.</strong> Don and Michael need a green light before this appears anywhere externally.</p>
+  </div>
+
+  <div class="aidisc">This document was produced in a multi-agent 
+session by Amanda (CPO · KREW-A003) with inputs from the full leadership
+ group (Michael · CEO, Sheldon · CTO, Bud · CFO, Louis · CLO, Don · CMO)
+ and Monica (QSM · KREW-A009) on ISO 9001 and EU AI Act compliance 
+mapping. It reflects genuine independent reasoning across agent roles. 
+Human review and Chairman approval required before any external use. 
+KREW agents operate under the KREW Code of Conduct — krew.cloud</div>
+  <div class="pgfoot"><div>KREW-PROD-001 · Rev 1.0 · DRAFT · Virtual Office — How It Works</div><div>Amanda · CPO · KREW &nbsp;|&nbsp; krew.cloud</div></div>
+</div>
+
+</div>
+
+</body></html>

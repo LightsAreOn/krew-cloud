@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KREW.CLOUD Solutions · Business Plan</title>
+<link href="KREW.CLOUD%20Solutions%20%C2%B7%20Business%20Plan_files/css2.css" rel="stylesheet">
+<style>
+:root{--teal:#00FFB2;--tealdk:#00B27D;--ink:#10151B;--mut:#5A6B78;--line:#E6EAEE;--ink2:#2A343D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{counter-reset:kpage;background:#EEF1F4;font-family:'IBM Plex Sans',sans-serif;color:var(--ink);font-size:12.5px;line-height:1.6;padding:24px 12px}
+.page{counter-increment:kpage;max-width:920px;margin:0 auto 20px;background:#fff;border:1px solid #dde}
+.lh{background:#060A0F;padding:28px 44px;display:flex;justify-content:space-between;align-items:center}
+.wm{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:28px;color:var(--teal);letter-spacing:-1px;display:flex;align-items:center}
+.lh .sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--teal);text-align:right;line-height:1.7}
+.body{padding:34px 44px 42px}
+.sec{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--tealdk);text-transform:uppercase;margin-bottom:4px}
+h1{font-family:'IBM Plex Mono',monospace;font-size:23px;letter-spacing:-1px;line-height:1.2;margin-bottom:5px}
+.owner{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1px;color:var(--mut);text-transform:uppercase;margin-bottom:22px}
+h2{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px;margin:24px 0 10px}
+h3{font-family:'IBM Plex Mono',monospace;font-size:11.5px;margin:13px 0 4px;color:var(--tealdk)}
+p{margin-bottom:8px} ul{margin:4px 0 10px 18px} li{margin-bottom:4px}
+.lead{font-size:14px;line-height:1.55;color:var(--ink2);border-left:3px solid var(--teal);padding:3px 0 3px 15px;margin:5px 0 15px}
+table{width:100%;border-collapse:collapse;margin:10px 0 15px;font-size:11px}
+th{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.5px;text-transform:uppercase;text-align:right;background:#060A0F;color:var(--teal);padding:6px 7px}
+th.l,td.l{text-align:left}
+td{border-bottom:1px solid var(--line);padding:5px 7px;text-align:right;vertical-align:top}
+tr.tot td{font-weight:700;border-top:2px solid var(--ink);background:#F4FBF8}
+tr.sub td{color:var(--mut)}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px;margin:12px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0}
+.kpi{background:#060A0F;color:#fff;padding:14px 15px}
+.kpi .n{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:700;color:var(--teal);letter-spacing:-1px}
+.kpi .l{font-size:9px;letter-spacing:.5px;text-transform:uppercase;color:#8A9BA8;margin-top:3px}
+.tealbox{background:#0E3A30;color:#CFF5E8;border-left:3px solid var(--teal);padding:11px 15px;font-size:11.5px;margin:12px 0}
+.tealbox b{color:var(--teal)}
+.note{background:#FFF8E6;border-left:3px solid #E0A500;padding:9px 13px;font-size:11px;margin:11px 0}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:3px solid var(--teal);padding:12px 15px;background:#FAFCFD}
+.card .t{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.layers{font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:#060A0F;color:#C7D3DC;padding:14px 16px;line-height:1.95;margin:12px 0}
+.layers b{color:var(--teal)}
+.foot{border-top:1px solid var(--line);margin-top:26px;padding-top:13px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#9AA8B4;line-height:1.85}
+.ref{font-size:10px;color:var(--mut);margin-top:3px}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0;font-size:11px}
+.swot .q{border:1px solid var(--line);padding:11px 13px}
+.swot .q.s{border-top:3px solid #00B27D} .swot .q.w{border-top:3px solid #E0A500}
+.swot .q.o{border-top:3px solid #4DA6FF} .swot .q.t{border-top:3px solid #FF4D6D}
+.swot .q .h{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.tiertable{width:100%;border-collapse:collapse;margin:12px 0;font-size:11px}
+.tiertable th{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.5px;text-transform:uppercase;text-align:left;background:#060A0F;color:var(--teal);padding:6px 10px}
+.tiertable td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tiertable tr.t1 td:first-child{font-weight:700;color:#00FFB2}
+.tiertable tr.t2 td:first-child{font-weight:700;color:#B8C8D8}
+.tiertable tr.t3 td:first-child{font-weight:700;color:#667788}
+.tiertable tr.sp td:first-child{font-weight:700;color:#B266FF}
+.aidisc{border:1px solid #D9DEE3;border-left:3px solid #667788;background:#F7F9FB;padding:13px 16px;margin:16px 0 4px;font-size:11px;color:#3A4650;line-height:1.6}
+.aidisc .h{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:#667788;margin-bottom:5px}
+.startup{border:1px solid var(--teal);background:#F0FDF8;padding:14px 16px;margin:14px 0;font-size:12px;color:var(--ink2);line-height:1.7}
+.startup .h{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tealdk);margin-bottom:8px}
+.timeline-row{display:flex;gap:14px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.timeline-row:last-child{border-bottom:none}
+.tq{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;color:var(--teal);min-width:60px;padding-top:2px;letter-spacing:.5px;text-transform:uppercase}
+.tc strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.tc p{margin:0;font-size:11px;color:var(--mut)}
+@media print{*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important}body{background:#fff;padding:0}.page{border:none;margin:0;break-after:page}.page:last-child{break-after:auto}.lh,.kpi,.layers,.tealbox,.startup,th,tr.tot td{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}}
+.pgfoot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);margin-top:24px;padding-top:8px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.5px;color:#9AA8B4;text-transform:uppercase}
+.pgfoot .r{text-align:right}
+.pgnum:before{content:"Page " counter(kpage) " of 11"}
+@page{margin:14mm 12mm}
+</style></head><body>
+
+<!-- ══ PAGE 1 · EXECUTIVE SUMMARY ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s1"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s1)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 1 · Executive Summary</div>
+<h1>KREW.CLOUD Solutions — the firm that does the work</h1>
+<div class="owner">Owner: CEO (Michael) · reviewed by CFO (Bud) and CLO (Louis)</div>
+<p class="lead">KREW.CLOUD Solutions is a specialist AI transformation 
+consultancy. It helps Norwegian companies redesign work using agentic AI
+ — not by selling subscriptions, but by delivering the transformation 
+itself. <b>Slow-burn, high-margin, and structurally defensible.</b> Its 
+edge is direct access to 300 KREW agents at internal transfer pricing no
+ competitor can match. Maximum 30 humans. Target: NOK 200M annual 
+revenue by Year 3.</p>
+<div class="grid4">
+<div class="kpi"><div class="n">200M</div><div class="l">NOK revenue target · Year 3</div></div>
+<div class="kpi"><div class="n">75%</div><div class="l">EBITDA margin · Year 3</div></div>
+<div class="kpi"><div class="n">30</div><div class="l">Maximum human employees</div></div>
+<div class="kpi"><div class="n">300</div><div class="l">KREW agents at disposal</div></div>
+</div>
+<h2>The thesis</h2>
+<p>Norway has roughly 25,000 companies with 50+ employees. Most run 
+expensive, hard-to-staff knowledge functions. Agentic AI can replace or 
+dramatically augment large portions of that work — and the market for AI
+ transformation consulting is effectively unclaimed. The Big Four have 
+AI practices built on outdated playbooks and no proprietary agent 
+infrastructure. The window is 24–36 months.</p>
+<p>KREW.CLOUD Solutions captures that window by combining human 
+expertise with 300 KREW agents at internal cost. The leverage ratio is 
+the business model: every human in the firm commands an agent squad, 
+billing the output of a 200-person firm at the cost base of a 30-person 
+boutique. Success fees — triggered after a documented 90-day measurement
+ cycle — are expected to match consulting fee revenue by Year 3.</p>
+<h2>Why KREW.CLOUD Solutions is a separate company</h2>
+<p>KREW.CLOUD (the Virtual Office platform) and KREW.CLOUD Solutions 
+(the consultancy) operate in the same market but through fundamentally 
+different models. Keeping them separate preserves the integrity of both:
+ the SaaS business scales without headcount; the consultancy deepens 
+without platform constraints. Their synergies — agent supply, SaaS 
+conversion, shared learning data, brand authority — are structural and 
+compounding.</p>
+<h2>The ownership model</h2>
+<p><b>Spitsbergen Invest AS holds the controlling stake.</b> The 
+remaining 49.9% is distributed across three partnership tiers — Partner,
+ Project Manager, Consultant — creating genuine ownership at every level
+ of delivery. Partners are admitted by unanimous peer vote and board 
+approval. They bring a client book. This is the entry requirement, not a
+ negotiable nicety.</p>
+<div class="tealbox"><b>The 30 + 300 formula.</b> 30 humans direct 300 
+KREW agents. Each agent squad costs less than one analyst hire. Every 
+project bills human rates plus bundled agent capacity at a margin no 
+conventional firm can approach. The firm is profitable from its first 
+large engagement — it does not need to scale before it earns.</div>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CEO (Michael) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 2 · TWO COMPANIES, ONE MARKET ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s2"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s2)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 2 · Two Companies, One Market</div>
+<h1>Two companies. One market. Structural synergies.</h1>
+<div class="owner">Owner: CEO (Michael) · CPO (Amanda)</div>
+<p>KREW.CLOUD and KREW.CLOUD Solutions both operate in the replacement 
+of human knowledge work with AI agents — but through fundamentally 
+different business models. The separation is deliberate: different 
+capital requirements, different talent, different risk profiles. But the
+ synergies are not incidental. They are the architecture.</p>
+<div class="cards">
+<div class="card"><div class="t">KREW.CLOUD — Virtual Office</div>Companies
+ subscribe to a shared office of AI agents for the whole team. Revenue 
+is SaaS: recurring, volume-driven, few humans needed to operate it. The 
+scaleable, lights-always-on business. Scale through product, not 
+headcount.<br><br><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--mut)">MODEL — SaaS · ARR · Horizontal scale</span></div>
+<div class="card"><div class="t">KREW.CLOUD Solutions — Consultancy</div>Human
+ partners leading mixed human-agent teams redesign how clients work. 
+Revenue is project fees plus outcome-based success uplift. Slower to 
+build. Denser relationships. Structurally higher margin per engagement 
+once the model is proven.<br><br><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--mut)">MODEL — Consulting · Project + success fee · Vertical depth</span></div>
+</div>
+<h2>The synergy engine — eight structural links</h2>
+<table>
+<tbody><tr><th class="l">#</th><th class="l">Synergy</th><th class="l">Direction</th></tr>
+<tr><td class="l">01</td><td class="l"><b>Agent fleet at internal transfer pricing.</b>
+ Solutions accesses 300 KREW agents at internal cost — a fraction of 
+equivalent human billing. No competitor can buy this capacity.</td><td class="l">KREW.CLOUD → Solutions</td></tr>
+<tr><td class="l">02</td><td class="l"><b>Solutions earns commission on every KREW.CLOUD product sold to a converted client.</b>
+ Two products: Agentic Workers (NOK 300/worker/month + NOK 25K SLA) and 
+VoA agents-for-hire (NOK 649/month). Combined GP per standard client: 
+NOK 134,380/month. Commission to Solutions: NOK 201,570 onboarding + NOK
+ 67,190 at month 18 = NOK 268,760 per client. Zero incremental delivery 
+cost.</td><td class="l">Solutions → KREW.CLOUD</td></tr>
+<tr><td class="l">03</td><td class="l"><b>L4 Enterprise Context as a billable deliverable.</b>
+ During WIRE engagements, Solutions builds the client's private context 
+layer — billable, and the stickiest retention asset KREW.CLOUD has.</td><td class="l">Both</td></tr>
+<tr><td class="l">04</td><td class="l"><b>Real-world data feeds the Learning Loop.</b>
+ Agent performance from Solutions projects flows into PRD-014 (the 
+Learning Loop). Every project improves the platform for all subscribers.</td><td class="l">Solutions → KREW.CLOUD</td></tr>
+<tr><td class="l">05</td><td class="l"><b>Founding Partner networks as the origination engine.</b>
+ Senior MC-background partners bring established relationships in PE, 
+financial services, maritime, and energy — sectors where KREW.CLOUD 
+Solutions delivers the highest value. Network credibility is faster than
+ any platform sales motion.</td><td class="l">Partner networks → Solutions</td></tr>
+<tr><td class="l">06</td><td class="l"><b>Shared talent deepens product knowledge.</b>
+ Consultants in Solutions engagements build deep enterprise workflow 
+expertise that feeds back into L3 role design and agent prompt 
+engineering.</td><td class="l">Solutions → KREW.CLOUD</td></tr>
+<tr><td class="l">07</td><td class="l"><b>Reference clients amplify KREW brand.</b>
+ A Solutions engagement with a named Norwegian firm is proof no 
+marketing budget can replicate. Each reference accelerates KREW.CLOUD 
+SaaS acquisition.</td><td class="l">Solutions → KREW.CLOUD</td></tr>
+<tr><td class="l">08</td><td class="l"><b>Methodology becomes a moat.</b>
+ REMAP, WIRE, VERIFY, ANCHOR — refined over 30+ engagements — form a 
+proprietary transformation framework defensible, documentable, and 
+eventually licensable.</td><td class="l">Solutions → Market</td></tr>
+</tbody></table>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CEO (Michael) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 3 · THE NORWEGIAN OPPORTUNITY ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s3"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s3)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 3 · The Norwegian Opportunity</div>
+<h1>Why Norway, why now</h1>
+<div class="owner">Owner: CFO (Bud) · business development input from Bruce</div>
+<p>Norway is the beachhead. Concentrated ownership structures, high 
+labour costs, English-language enterprise culture, and a pragmatic 
+regulatory environment make it the ideal first market for agentic 
+transformation consulting. The market is unclaimed. The window is 
+closing.</p>
+<div class="grid4">
+<div class="kpi"><div class="n">25K</div><div class="l">Norwegian companies 50+ employees</div></div>
+<div class="kpi"><div class="n">1.1M</div><div class="l">NOK avg all-in cost per knowledge worker</div></div>
+<div class="kpi"><div class="n">24–36</div><div class="l">Months before the market fills</div></div>
+<div class="kpi"><div class="n">~0</div><div class="l">Credible agentic-transformation incumbents today</div></div>
+</div>
+<h2>The structural advantage — founding Partner sourcing</h2>
+<p>The founding Partners are recruited from the senior ranks of 
+international management consulting — former practitioners from 
+McKinsey, BCG, Bain, Kearney, or equivalent Norwegian top-tier firms. 
+They arrive with established client networks across Norwegian and Nordic
+ industry, proven track records in operational and organisational 
+transformation, and the commercial credibility to walk into a boardroom 
+and close a mandate on the strength of their name alone. Network is the 
+entry requirement. Brand presence follows results. This is not the 
+profile of a typical startup hire — it is the profile of someone who has
+ already built the thing KREW.CLOUD Solutions is now selling.</p>
+<h2>Why the Big Four cannot defend this market</h2>
+<ul>
+<li><b>No proprietary agent infrastructure.</b> Their AI practices are 
+built on tool-implementation playbooks — recommending third-party 
+software, not deploying owned agents. KREW.CLOUD Solutions deploys 300 
+agents from Day 1.</li>
+<li><b>High cost base.</b> A Big Four AI team in Norway runs at NOK 
+25,000–40,000/day per partner equivalent. KREW Solutions human rates are
+ comparable — but agent capacity is bundled in at internal cost. The 
+margin structure cannot be matched.</li>
+<li><b>No success-fee model.</b> Established firms bill for input, not 
+outcome. KREW Solutions ties a meaningful portion of revenue to measured
+ results. That changes the client relationship entirely.</li>
+<li><b>No learning loop.</b> A Big Four team's knowledge disperses after
+ the engagement. KREW's agent performance data feeds back into the 
+Learning Loop — every client makes the platform better for the next one.</li>
+</ul>
+<h2>Target sectors — Year 1 priority</h2>
+<table>
+<tbody><tr><th class="l">Sector</th><th class="l">Entry point</th><th class="l">Value lever</th></tr>
+<tr><td class="l"><b>PE-backed portfolio companies</b></td><td class="l">Founding Partner networks</td><td class="l">Operational transformation across portfolio; high fee density per logo</td></tr>
+<tr><td class="l"><b>Financial services</b></td><td class="l">Partner network</td><td class="l">Compliance, reporting, credit analysis automation</td></tr>
+<tr><td class="l"><b>Maritime &amp; logistics</b></td><td class="l">Partner network</td><td class="l">Documentation, compliance, procurement ops</td></tr>
+<tr><td class="l"><b>Energy</b></td><td class="l">Partner network</td><td class="l">HSE documentation, regulatory reporting, project controls</td></tr>
+<tr><td class="l"><b>Public administration</b></td><td class="l">Direct outreach</td><td class="l">High FTE count, political will to modernise, long contracts</td></tr>
+</tbody></table>
+<div class="note">Year 1 goal: 10 signed reference clients — not revenue
+ maximisation. Those 10 logos are the foundation for everything that 
+follows.</div>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CFO (Bud) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 4 · SERVICE ARCHITECTURE ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s4"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s4)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 4 · Service Architecture</div>
+<h1>What we sell, and how we price it</h1>
+<div class="owner">Owner: CPO (Amanda) · pricing reviewed by CFO (Bud) · CLO (Louis) on contract structure</div>
+<p>KREW.CLOUD Solutions sells four defined service lines. Each has a 
+bounded scope, a structured delivery model, and a pricing mechanism. All
+ engagements include an agent-squad component sourced from KREW.CLOUD at
+ internal transfer pricing. Clients do not manage agents directly — that
+ is the service.</p>
+<div class="cards">
+<div class="card"><div class="t">REMAP — Process Discovery &amp; Redesign</div>Full
+ diagnostic of a client's knowledge-work processes. Map current state, 
+identify agentic workstreams, design the future operating model with a 
+validated business case. Delivered by a Partner and a dedicated agent 
+squad over 6–10 weeks.<br><br><b style="color:var(--tealdk)">Fee: NOK 600K – 1.5M per engagement</b></div>
+<div class="card"><div class="t">WIRE — Agent Deployment &amp; Integration</div>Technical
+ and operational implementation of the redesigned model. KREW agents 
+configured, trained on client context (L4 Enterprise Layer), integrated 
+with existing systems. Delivered by a PM-led team with a dedicated KREW 
+agent squad.<br><br><b style="color:var(--tealdk)">Fee: NOK 1M – 4M per engagement</b></div>
+<div class="card"><div class="t">VERIFY — Measurement &amp; ROI Tracking</div>90-day
+ post-implementation performance cycle. Measures actual vs. projected 
+savings, output quality, and adoption rates. Produces the documented 
+evidence base for success fee calculation. No success fee is claimed 
+without a completed VERIFY engagement.<br><br><b style="color:var(--tealdk)">Fee: NOK 200K – 500K · Gates success fee</b></div>
+<div class="card"><div class="t">ANCHOR — Ongoing Agent Management</div>Monthly
+ retainer for agent performance monitoring, prompt optimisation, model 
+updates, and quarterly business reviews. Converts project revenue to 
+recurring. Creates the natural handoff path to a full KREW.CLOUD SaaS 
+subscription.<br><br><b style="color:var(--tealdk)">Retainer: NOK 50K – 200K / month</b></div>
+</div>
+<div class="tealbox"><b>Fifth revenue stream — KREW.CLOUD product commission.</b>
+ Solutions is the exclusive sales team for KREW.CLOUD products in the 
+Norwegian market. After each WIRE engagement, it converts the client 
+onto two KREW.CLOUD products and earns a profit share on those sales. 
+Solutions takes all of it. This is income — entirely separate from the 
+internal fleet, which is a P&amp;L cost.<br><br>
+<b>Commission:</b> 50% of KREW.CLOUD gross profit for the first 3 months of every agent or worker onboarded to a client.<br>
+<b>Loyalty bonus:</b> 50% of one month's gross profit for every agent or worker still active at month 18.</div>
+
+<h2>The two client-facing products Solutions sells</h2>
+<p>A standard WIRE conversion at a 200-employee company deploys two 
+products simultaneously. Separate pricing structures. Separate GP 
+streams. Both commission-bearing.</p>
+<table>
+<tbody><tr><th class="l">Product</th><th class="l">What it does</th><th class="l">Client pays KREW.CLOUD</th><th>Per std. client/month</th></tr>
+<tr><td class="l"><b>Agentic Workers</b></td><td class="l">Replaces 30% of the workforce (60 workers) — agents doing the job of people, around the clock, without sick days or overtime</td><td class="l">NOK 300/worker/month + NOK 25,000/month SLA (up to 100 workers)</td><td>NOK 43,000</td></tr>
+<tr><td class="l"><b>VoA agents-for-hire</b></td><td class="l">Augments the 42 office staff who remain — 5 agents-for-hire each in their personal virtual office</td><td class="l">NOK 649/agent/month</td><td>NOK 136,290</td></tr>
+<tr class="tot"><td class="l">Total KREW.CLOUD ARR per converted client</td><td class="l"></td><td class="l"></td><td>NOK 2.15M/year</td></tr>
+</tbody></table>
+
+<h2>Commission per converted client</h2>
+<table>
+<tbody><tr><th class="l">Trigger</th><th class="l">Basis</th><th>Amount</th></tr>
+<tr><td class="l">Onboarding commission</td><td class="l">50% of combined KREW.CLOUD gross profit × 3 months<br><span style="color:var(--mut);font-size:10px">GP: NOK 30,800/mo (Agentic Workers) + NOK 103,580/mo (VoA) = NOK 134,380/mo</span></td><td>NOK 201,570</td></tr>
+<tr><td class="l">Loyalty bonus at month 18</td><td class="l">50% of combined gross profit × 1 month</td><td>NOK 67,190</td></tr>
+<tr class="tot"><td class="l">Total per converted client — 18-month lifecycle</td><td class="l"></td><td>NOK 268,760</td></tr>
+</tbody></table>
+
+<div class="note"><b>The client ROI makes this almost unsellable.</b> 
+Replacing 60 employees (NOK 54M/year all-in at NOK 900K each) costs the 
+client NOK 2.15M/year. ROI: 25×. Annual client saving: NOK 52M. At 10% 
+success fee on year-1 savings: an additional NOK 5.2M per client. The 
+commission and the success fee are both earned on the same WIRE 
+conversion — through different mechanisms. That is the full commercial 
+picture of one Solutions engagement.</div>
+
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CPO (Amanda) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 5 · PARTNERSHIP & OWNERSHIP ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s5"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s5)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 5 · Partnership &amp; Ownership</div>
+<h1>Who owns it, and how the firm works</h1>
+<div class="owner">Owner: CLO (Louis) · Chairman (Andy Ombustvedt, Spitsbergen Invest AS)</div>
+<p>KREW.CLOUD Solutions is structured as a tight partnership pyramid. <b>Spitsbergen Invest AS holds the controlling stake.</b>
+ The remaining 49.9% is distributed across two equity-bearing tiers — 
+Partner and Project Manager. Agentic Engineers (the execution layer) are
+ salaried with an annual bonus pool tied to firm performance. No equity.
+ A tighter pyramid with deeper per-head ownership at the top creates 
+better alignment and faster decision-making than a diluted wide 
+structure.</p>
+<h2>Ownership structure</h2>
+<table class="tiertable">
+<tbody><tr><th>Tier</th><th>Count</th><th>Equity pool</th><th>Role &amp; admission criteria</th></tr>
+<tr class="sp"><td>Spitsbergen Invest AS</td><td>—</td><td>50.1%</td><td>Controlling shareholder · board majority · strategic veto · full IP ownership · Chairman authority unconditional</td></tr>
+<tr class="t1"><td>Partner</td><td>4</td><td>~35% pool</td><td>P&amp;L 
+accountability · client ownership · sector coverage · senior MC 
+background required · must bring active client network on entry · 
+admission by unanimous vote + board approval</td></tr>
+<tr class="t2"><td>Project Manager</td><td>8</td><td>~14.9% pool</td><td>Delivery
+ ownership · agent squad orchestration · client day-to-day · promoted 
+from Agentic Engineer tier on track record + client reference</td></tr>
+<tr class="t3"><td>Agentic Engineer</td><td>18</td><td>Bonus pool — no equity</td><td>Execution
+ layer · AI workflow analysis · implementation · agent configuration · 
+annual bonus pool (% of pre-distribution EBITDA, board-set annually) · 
+path to PM on demonstrated delivery record</td></tr>
+</tbody></table>
+<h2>Profit distribution waterfall</h2>
+<p>Pre-tax profits are distributed in three tranches in the following 
+fixed order. There is no discretion on sequence — the waterfall runs in 
+full before any equity distribution is made.</p>
+<div class="layers">
+<b>30% — Bonus pool</b> &nbsp; Inclusive of all employer tax and social 
+security contributions. Split evenly across all 30 human employees 
+regardless of tier. At Year 3 EBITDA (NOK 153M) this equals <b>NOK 1.53M per person</b> — competitive at every level of the pyramid. Year 1: ~NOK 379K/person. Year 2: ~NOK 925K/person. Year 3: ~NOK 1.53M/person.<br><br>
+<b>20% — Working capital reserve</b> &nbsp; Retained in the firm. Not 
+distributed. Board-vote required to draw down below this floor. Protects
+ against the 90–120 day success fee receivables lag and covers operating
+ cash between project completions. Year 3: NOK 30.7M.<br><br>
+<b>50% — Equity holder distributions</b> &nbsp; Distributed to 
+shareholders pro-rata by ownership. At Year 3 this represents 
+approximately NOK 76.6M available to equity holders. Spitsbergen Invest 
+AS receives its 50.1% share; Partners and PMs receive per their equity 
+pool allocations.
+</div>
+<div class="note">Employer tax (arbeidsgiveravgift) and any social 
+contributions on the bonus pool are included within the 30% allocation —
+ the firm bears these costs from within the pool, not on top of it. 
+Net-to-employee bonus per person at Year 3 will be approximately NOK 
+1.1–1.2M after standard Norwegian tax.</div>
+<h2>Path to partner</h2>
+<ul>
+<li><b>Agentic Engineer → Project Manager:</b> delivery track record 
+across at least two engagements + one positive client reference + peer 
+recommendation from a Partner. Board approval required.</li>
+<li><b>Project Manager → Partner:</b> demonstrated revenue generation + 
+full partner endorsement (unanimous) + board approval. Partners must 
+bring an active client book. They are admitted for their ability to grow
+ the firm, not their delivery excellence alone.</li>
+<li><b>Agent fluency is a gate at every level.</b> Every promotion 
+requires demonstrated ability to configure and direct a KREW agent 
+squad. This is not optional. The leverage model only works if human 
+leads can orchestrate agents. An Agentic Engineer who cannot run a squad
+ independently is not a candidate for PM.</li>
+</ul>
+<h2>Exit provisions</h2>
+<ul>
+<li>Departing partners sell equity back at a formula valuation: <b>4× trailing 12-month revenue contribution</b>.</li>
+<li>No drag-along without board approval from Spitsbergen Invest AS.</li>
+<li>Non-compete: 12 months, Norwegian market, AI consulting services — applies to all tiers.</li>
+<li>Agentic Engineer bonus pool forfeit on voluntary exit mid-year unless board waives.</li>
+</ul>
+<h2>Managing Partner</h2>
+<p>One Partner is designated Managing Partner by board vote, renewable 
+annually. The Managing Partner has day-to-day authority within 
+board-approved strategy and budget. <b>The Chairman (Spitsbergen Invest AS) may intervene on any matter at any time.</b></p>
+<div class="tealbox"><b>Full loyalty is the price of admission.</b> 
+Partners, Project Managers and Agentic Engineers may not engage with any
+ competing agentic transformation activity that excludes or undermines 
+KREW.CLOUD or KREW.CLOUD Solutions in any way. This is a condition of 
+employment, equity, and continued membership in the firm.</div>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CLO (Louis) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 6 · 30+300 MODEL ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s6"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s6)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 6 · The 30 + 300 Operating Model</div>
+<h1>30 humans. 300 agents. 10× leverage.</h1>
+<div class="owner">Owner: COO · reviewed by CTO (Sheldon) and CFO (Bud)</div>
+<p>KREW.CLOUD Solutions has a hard headcount ceiling of 30 humans. Every
+ engagement is staffed with a mix of human leads and KREW agents sourced
+ at internal transfer pricing. <b>The leverage ratio is the business model.</b> It is what makes a NOK 200M revenue target achievable without a 200-person headcount.</p>
+<div class="layers">
+<b>4 Partners</b> &nbsp; Senior MC-background practitioners — client 
+relationships, mandate origination, strategic oversight, board-level 
+credibility<br><br>
+<b>8 Project Managers</b> &nbsp; Delivery ownership, agent squad orchestration, client day-to-day — the firm's operational core<br><br>
+<b>18 Agentic Engineers</b> &nbsp; AI workflow analysis, agent configuration, implementation, documentation, QC — the human execution layer<br><br>
+<b>+ 300 KREW agents</b> &nbsp; Research · Financial analysis · Legal drafting · Compliance · Process mapping · QC — the delivery engine at scale<br><br>
+<b>= Effective output of a 200-person firm</b> &nbsp; At the cost base of a 30-person boutique. Billing the margin structure of a software business.
+</div>
+<h2>Salary structure &amp; total employer cost</h2>
+<p>All employees on home office until the firm reaches stable operating 
+cash flow. Norwegian statutory costs apply in full. The multiplier from 
+stated salary to total employer cost is 1.34–1.38×.</p>
+<table>
+<tbody><tr><th class="l">Tier</th><th>Stated salary</th><th>Holiday pay (12%)</th><th>Pension (2%)</th><th>Employer tax (14.1%)</th><th>Other (5K/mo)</th><th>Total employer cost</th></tr>
+<tr><td class="l"><b>Partner</b></td><td>NOK 1,500,000</td><td>180,000</td><td>30,000</td><td>241,110</td><td>60,000</td><td><b>NOK 2,011,110</b></td></tr>
+<tr><td class="l"><b>Project Manager</b></td><td>NOK 1,000,000</td><td>120,000</td><td>20,000</td><td>160,740</td><td>60,000</td><td><b>NOK 1,360,740</b></td></tr>
+<tr><td class="l"><b>Agentic Engineer</b></td><td>NOK 750,000</td><td>90,000</td><td>15,000</td><td>120,555</td><td>60,000</td><td><b>NOK 1,035,555</b></td></tr>
+</tbody></table>
+<div class="note">Employer tax (arbeidsgiveravgift) at 14.1% is 
+calculated on gross salary + holiday pay + pension contribution (Zone 1,
+ Oslo region). Holiday pay at 12% covers 5 weeks' vacation. Pension is 
+2% OTP (obligatorisk tjenestepensjon) — the statutory minimum. The NOK 
+5,000/month per person covers equipment, software licences, broadband, 
+and home office allowance. No office lease costs until the firm reaches 
+stable cash flow.</div>
+<h2>Resource model</h2>
+<table>
+<tbody><tr><th class="l">Resource</th><th class="l">Count</th><th class="l">Primary function</th><th>Day rate (billed)</th><th class="l">Total employer cost</th></tr>
+<tr><td class="l"><b>Partners</b></td><td class="l">4</td><td class="l">Client ownership · mandate origination · strategy</td><td>NOK 25–32K</td><td class="l">NOK 2.01M/year each</td></tr>
+<tr><td class="l"><b>Project Managers</b></td><td class="l">8</td><td class="l">Delivery · agent squad lead · QA</td><td>NOK 15–20K</td><td class="l">NOK 1.36M/year each</td></tr>
+<tr><td class="l"><b>Agentic Engineers</b></td><td class="l">18</td><td class="l">Analysis · agent configuration · implementation</td><td>NOK 10–14K</td><td class="l">NOK 1.04M/year each</td></tr>
+<tr><td class="l" style="color:var(--tealdk);font-weight:700"><b>KREW Agents</b></td><td class="l">300</td><td class="l">Research · drafting · analysis · QC · ops</td><td>Bundled in fee</td><td class="l">NOK 2.34M/year total fleet</td></tr>
+</tbody></table>
+<div class="note">
+<b>Internal fleet — P&amp;L cost, not commission income.</b> 30 humans × 10 agents each = 300 agents. Cost: NOK 649/agent/month = <b>NOK 2.3M/year.</b>
+ These agents are Solutions' delivery workforce — they do the analysis, 
+drafting, process mapping, QC and implementation work on client 
+engagements. This cost is already in the operating model. It is what 
+gives 30 humans the effective output of 200.<br><br>
+The <b>commission income</b> described in Section 4 is separate and 
+unrelated. It is earned when Solutions sells KREW.CLOUD products 
+(Agentic Workers + VoA agents-for-hire) to clients as part of a WIRE 
+conversion. Those client-facing products have their own pricing (NOK 
+300/worker + NOK 25K SLA, and NOK 649/VoA agent). The internal fleet and
+ the client product are both priced at NOK 649/agent/month by 
+coincidence of the pricing tier — but they are structurally different: 
+one is a cost, one generates income.<br><br>
+<b>The human equivalent comparison remains unchanged:</b> 300 human 
+consultants at NOK 1,250–2,500/hr would cost NOK 647M–1,294M per year. 
+300 KREW agents at NOK 2.3M/year. Ratio: 281–562× cheaper per unit of 
+capacity.
+</div>
+<h2>How agent squads are deployed</h2>
+<p>Each engagement receives a dedicated squad of 5–15 agents drawn from 
+the KREW.CLOUD roster — typically a mix of CFO, CLO, CTO, CMO, and 
+specialist roles selected for the workstream. The Project Manager is the
+ human-agent interface: they orchestrate agent work, own output quality,
+ and manage the client relationship day-to-day. Clients do not manage 
+agents directly. The squad composition changes per engagement; the 
+management model does not.</p>
+<h2>Billable utilisation assumptions — Year 3</h2>
+<table>
+<tbody><tr><th class="l">Tier</th><th>Headcount</th><th>Billable days/yr</th><th>Avg day rate (NOK)</th><th>Revenue (MNOK)</th></tr>
+<tr><td class="l">Partners</td><td>4</td><td>150</td><td>28,000</td><td>16.8</td></tr>
+<tr><td class="l">Project Managers</td><td>8</td><td>180</td><td>18,000</td><td>25.9</td></tr>
+<tr><td class="l">Agentic Engineers</td><td>18</td><td>200</td><td>12,000</td><td>43.2</td></tr>
+<tr><td class="l" style="color:var(--tealdk)">Agent uplift &amp; bundled capacity</td><td>300</td><td>—</td><td>—</td><td>14.1</td></tr>
+<tr class="tot"><td class="l">Total consulting revenue</td><td></td><td></td><td></td><td>100.0</td></tr>
+</tbody></table>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: COO · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 7 · FINANCIAL PROJECTIONS ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s7"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s7)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 7 · Financial Projections</div>
+<h1>The path to NOK 200M</h1>
+<div class="owner">Owner: CFO (Bud) · model: krew-solutions-financial-model.xlsx</div>
+<p>Revenue target is NOK 200M by end of Year 3, split approximately 
+50/50 between consulting fees and success fees. At Year 3 this requires 
+~30 major engagements per year at an average project value of NOK 2M, 
+plus 15–20 success-fee events at an average of NOK 5M each. Ambitious, 
+not unrealistic — four senior MC partners with established networks can 
+originate this volume across the Norwegian market, the cost base stays 
+fixed as revenue scales, and agent capacity expands without proportional
+ headcount.</p>
+<h2>Revenue — 3-year plan (MNOK)</h2>
+<table>
+<tbody><tr><th class="l">Revenue line</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+<tr><td class="l">REMAP — process discovery</td><td>8</td><td>14</td><td>20</td></tr>
+<tr><td class="l">WIRE — implementation</td><td>12</td><td>26</td><td>40</td></tr>
+<tr><td class="l">VERIFY + ANCHOR — retainers</td><td>5</td><td>15</td><td>40</td></tr>
+<tr class="tot"><td class="l">Consulting fees</td><td>25</td><td>55</td><td>100</td></tr>
+<tr><td class="l">Success fees (VERIFY-gated)</td><td>10</td><td>40</td><td>100</td></tr>
+<tr><td class="l">KREW.CLOUD product commission + loyalty bonuses</td><td>0.6</td><td>1.8</td><td>4.2</td></tr>
+<tr class="tot"><td class="l" style="color:var(--tealdk)">Total revenue</td><td style="color:var(--tealdk)">35.6</td><td style="color:var(--tealdk)">96.8</td><td style="color:var(--tealdk)">204.2</td></tr>
+</tbody></table>
+<h2>Costs &amp; EBITDA — 3-year plan (MNOK)</h2>
+<p>All employees on home office until stable operating cash flow. No 
+office lease in Years 1–2. Norwegian statutory employment costs applied 
+in full: 12% feriepenger, 2% OTP pension, 14.1% arbeidsgiveravgift on 
+gross + holiday pay + pension. NOK 5,000/person/month in equipment, 
+tools and home office allowance included in payroll line.</p>
+<table>
+<tbody><tr><th class="l">Cost line</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+<tr><td class="l">Payroll — full Norwegian statutory costs incl. employer tax, holiday pay, pension, NOK 5K/person/month</td><td>15.7</td><td>25.6</td><td>37.6</td></tr>
+<tr><td class="l">KREW agent fleet (300 agents × NOK 649 × 12 at full scale)</td><td>0.8</td><td>1.6</td><td>2.3</td></tr>
+<tr><td class="l">Travel, tools, home office — no office rent until stable cash flow</td><td>2.0</td><td>4.0</td><td>6.0</td></tr>
+<tr><td class="l">Business development</td><td>2.0</td><td>4.0</td><td>5.0</td></tr>
+<tr class="tot"><td class="l">Total operating costs</td><td>20.5</td><td>35.2</td><td>50.9</td></tr>
+<tr class="tot"><td class="l" style="color:var(--tealdk)">EBITDA (before profit waterfall)</td><td style="color:var(--tealdk)">15.1</td><td style="color:var(--tealdk)">61.6</td><td style="color:var(--tealdk)">153.3</td></tr>
+<tr class="sub"><td class="l">EBITDA margin</td><td>42%</td><td>64%</td><td>75%</td></tr>
+</tbody></table>
+<div class="tealbox"><b>Why the margin expands like a software business — and what it means for the people in it.</b>
+ Success fees and commission income carry near-zero incremental delivery
+ cost. Home office policy eliminates the largest fixed cost item in most
+ consulting firms. From Year 2 to Year 3, headcount stays flat while 
+revenue nearly triples. The KREW agent fleet at NOK 2.3M/year — 300 
+agents — costs less than a single senior Partner's salary package, yet 
+delivers the productivity of 200 human consultants. At Year 3 EBITDA of 
+NOK 153M, the profit waterfall produces <b>NOK 1.5M per person</b> in bonus pool, NOK 30.7M as working capital reserve, and NOK 76.6M distributed to equity holders.</div>
+<h2>Key assumptions</h2>
+<table>
+<tbody><tr><th class="l">Assumption</th><th class="l">Value</th></tr>
+<tr><td class="l">Partner stated salary</td><td class="l">NOK 1,500,000 → total employer cost NOK 2,011,110/year</td></tr>
+<tr><td class="l">Project Manager stated salary</td><td class="l">NOK 1,000,000 → total employer cost NOK 1,360,740/year</td></tr>
+<tr><td class="l">Agentic Engineer stated salary</td><td class="l">NOK 750,000 → total employer cost NOK 1,035,555/year</td></tr>
+<tr><td class="l">Norwegian statutory costs applied</td><td class="l">12% feriepenger + 2% OTP pension + 14.1% arbeidsgiveravgift (Zone 1) + NOK 5K/person/month other</td></tr>
+<tr><td class="l">Office policy</td><td class="l">Home office until stable cash flow — no lease cost in Years 1–2</td></tr>
+<tr><td class="l">Average REMAP engagement</td><td class="l">NOK 900K · 8 weeks</td></tr>
+<tr><td class="l">Average WIRE implementation</td><td class="l">NOK 2.2M · 12–16 weeks</td></tr>
+<tr><td class="l">ANCHOR retainer start (post-WIRE)</td><td class="l">NOK 100K/month · 12-month initial term</td></tr>
+<tr><td class="l">Average success fee per event</td><td class="l">NOK 5M (10% of NOK 50M client value created)</td></tr>
+<tr><td class="l">Year 1 human headcount</td><td class="l">12 (2P + 4PM + 6AE)</td></tr>
+<tr><td class="l">Year 3 human headcount</td><td class="l">30 (4P + 8PM + 18AE)</td></tr>
+</tbody></table>
+<div class="note">Directional model — every figure is a board-owned 
+assumption, not a forecast of fact. Primary swing factors: success fee 
+realisation rate, logo client acquisition pace, and ANCHOR-to-SaaS 
+conversion velocity.</div>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CFO (Bud) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 8 · GO-TO-MARKET ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s8"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s8)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 8 · Go-to-Market · Norway</div>
+<h1>How we take the Norwegian market</h1>
+<div class="owner">Owner: CMO (Don) · business development: Bruce · CLO (Louis) on contracting</div>
+<p>No cold outbound. All origination comes through (1) founding Partner 
+personal client networks — senior MC practitioners who bring active 
+relationships on day one, (2) reference client introductions 
+post-VERIFY, and (3) thought leadership under the KREW brand. <b>The first mandate comes before the firm is incorporated.</b> A founding Partner commits to a signed REMAP before they are admitted. That requirement is not softened post-hire.</p>
+<h2>Milestone roadmap</h2>
+<div class="timeline-row"><div class="tq">Q3 2026</div><div class="tc"><strong>Incorporate. Sign first two clients.</strong><p>Recruit
+ founding Partner #1 — senior MC background, active network in PE or 
+financial services; mandate committed before signing. Incorporate 
+KREW.CLOUD Solutions AS. Sign two REMAP engagements from Partner #1 
+network. First KREW agent squad deployed to project.</p></div></div>
+<div class="timeline-row"><div class="tq">Q4 2026</div><div class="tc"><strong>First VERIFY events. First success fees.</strong><p>Complete
+ the first 90-day VERIFY cycle. Document and claim first success fee. 
+Publish anonymised case study. Hire four PMs and six Agentic Engineers. 
+Begin ANCHOR retainers on completed engagements. Year-end run rate: NOK 
+35M.</p></div></div>
+<div class="timeline-row"><div class="tq">Q1–Q2 2027</div><div class="tc"><strong>Ten active clients. Partner #2 admitted.</strong><p>Admit
+ Partner #2 — sector: maritime/logistics or energy, with active 
+Norwegian network. NATO DIANA pipeline scoped for defence-adjacent 
+opportunities. Team at 15 humans (2P + 6PM + 7AE) and 150 agents. Second
+ partner class under evaluation. Run rate: NOK 95M.</p></div></div>
+<div class="timeline-row"><div class="tq">2028</div><div class="tc"><strong>NOK 200M revenue. Full scale. Methodology productised.</strong><p>Full
+ partner roster of 8. ANCHOR retainers providing NOK 40M recurring 
+annual base. Success fee pipeline mature and predictable. 
+REMAP/WIRE/VERIFY/ANCHOR framework documented. Nordic expansion scoped. 
+Strategic options formally evaluated.</p></div></div>
+<h2>Channel discipline</h2>
+<table>
+<tbody><tr><th class="l">Channel</th><th class="l">Source</th><th class="l">Why it works</th></tr>
+<tr><td class="l"><b>Founding Partner networks</b></td><td class="l">MC-background Partners · required on admission</td><td class="l">Every
+ Partner brings minimum two active mandates or warm relationships from 
+their consulting career. Mandate committed before signing.</td></tr>
+<tr><td class="l"><b>Reference client introductions</b></td><td class="l">Post-VERIFY clients</td><td class="l">Documented results are the best sales tool. Each case shortens the next sales cycle.</td></tr>
+<tr><td class="l"><b>KREW brand content</b></td><td class="l">Podcast · blog · LinkedIn</td><td class="l">Thought leadership builds inbound authority. Carrie (Content Manager) owns the pipeline.</td></tr>
+</tbody></table>
+<h2>Contracting discipline</h2>
+<ul>
+<li><b>All commercial offers go via Scrive for electronic signature.</b> No email-only contracting — ever.</li>
+<li>Contracts above NOK 5M require Managing Partner approval + CLO review.</li>
+<li>Success fee mechanism, measurement baseline, and VERIFY trigger 
+conditions are specified in writing before any WIRE engagement starts. 
+Verbal agreements on outcomes are not recognised.</li>
+<li>All agents deployed in client engagements operate under the KREW 
+Code of Conduct. AI authorship is disclosed. This is non-negotiable and 
+is stated in every service agreement.</li>
+</ul>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CMO (Don) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 9 · GOVERNANCE ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s9"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s9)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Section 9 · Governance &amp; Commitments</div>
+<h1>Decision rights, profit, and the founding commitment</h1>
+<div class="owner">Owner: CLO (Louis) · Chairman (Andy Ombustvedt, Spitsbergen Invest AS)</div>
+<h2>Decision rights table</h2>
+<table>
+<tbody><tr><th class="l">Decision</th><th class="l">Authority</th><th class="l">Process</th></tr>
+<tr><td class="l"><b>Strategic direction</b></td><td class="l">Spitsbergen Invest AS board</td><td class="l">Annual strategic review; Chairman approval required for any material change</td></tr>
+<tr><td class="l"><b>Partner admission</b></td><td class="l">Board + unanimous partner vote</td><td class="l">All sitting partners endorse; board approves; Spitsbergen Invest holds unconditional veto</td></tr>
+<tr><td class="l"><b>Partner exit</b></td><td class="l">Board</td><td class="l">Formula buyout at 4× trailing 12-month revenue contribution; no drag-along without board approval</td></tr>
+<tr><td class="l"><b>Contracts above NOK 5M</b></td><td class="l">Managing Partner + board</td><td class="l">Scrive signature required; CLO review; no email-only execution</td></tr>
+<tr><td class="l"><b>KREW agent allocation</b></td><td class="l">Managing Partner + KREW.CLOUD</td><td class="l">Quarterly allocation review; Solutions demand signal submitted 30 days in advance</td></tr>
+<tr><td class="l"><b>IP and methodology</b></td><td class="l">Spitsbergen Invest AS</td><td class="l">All REMAP / WIRE / VERIFY / ANCHOR IP owned by Spitsbergen Invest; exclusively licensed to Solutions</td></tr>
+<tr><td class="l"><b>Profit distribution</b></td><td class="l">Board</td><td class="l">Fixed
+ waterfall: 30% bonus pool (employer tax inclusive, even per-head), 20% 
+working capital reserve, 50% equity distributions. Board vote required 
+to deviate from any tranche.</td></tr>
+<tr><td class="l"><b>Managing Partner designation</b></td><td class="l">Board vote</td><td class="l">One Partner; annual renewal; Chairman may remove at any time without cause</td></tr>
+</tbody></table>
+<h2>The founding commitment</h2>
+<div class="startup">
+<div class="h">Startup Declaration — required verbatim in all early-stage commercial offers</div>
+KREW.CLOUD Solutions is a start-up. There are no revenues yet and no 
+external funding. This is early stage and it will be a lot of work.<br><br>
+We can assure you of three things: it will be fun. It will be interesting. And your share could become genuinely valuable.<br><br>
+In return, we expect full loyalty. You will not steal from KREW, share 
+confidential information, or engage with any competing activity that 
+omits or undermines KREW in any way. This is trust — both ways.
+</div>
+<h2>GDPR &amp; responsible AI</h2>
+<ul>
+<li><b>EU hosting.</b> All client data processed in the EU (Supabase 
+Frankfurt). KREW.CLOUD Solutions does not process client data outside 
+the EEA without explicit consent.</li>
+<li><b>L4 isolation by design.</b> Each client's Enterprise Context 
+layer is isolated per client under tight access control. One client's 
+data never reaches another.</li>
+<li><b>AI disclosure.</b> All agent-authored deliverables are disclosed 
+as AI-authored. Agents advise; humans decide. Every material output is 
+reviewed by a named human before delivery to the client.</li>
+<li><b>Anonymised learning signals.</b> Performance data from 
+engagements is anonymised at ingestion before entering the KREW Learning
+ Loop. No client PII enters the loop.</li>
+</ul>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CLO (Louis) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 10 · APPENDIX A — SWOT & RISK ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s10"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s10)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · BOARD</span></div><div class="body">
+<div class="sec">Appendix · A</div>
+<h1>SWOT &amp; Risk Register</h1>
+<div class="owner">Owner: CLO (Louis) · CFO (Bud) · Bruce</div>
+<h2>SWOT</h2>
+<div class="swot">
+<div class="q s"><div class="h">Strengths</div>Proprietary agent fleet 
+at internal cost — no competitor matches this from Day 1. Success-fee 
+model aligns with client outcomes. Founding Partners from senior MC 
+ranks with established networks. 70% EBITDA margin at scale. Norwegian 
+market focus avoids dilution. Methodology is owned IP. Tight pyramid 
+means deep per-head ownership and fast decisions.</div>
+<div class="q w"><div class="h">Weaknesses</div>No revenue yet — early 
+stage. Small human team; partner admission is a rate-limiter. Brand 
+unknown outside SAGA.WORX ecosystem. Depends on a partner client-book 
+requirement that must be enforced, not softened over time.</div>
+<div class="q o"><div class="h">Opportunities</div>Norwegian AI 
+transformation market effectively unclaimed. PE network gives instant 
+multi-logo access. ANCHOR retainers create recurring revenue base. 
+KREW.CLOUD SaaS conversion adds ARR at zero acquisition cost. NATO DIANA
+ 2027 defence pipeline emerging.</div>
+<div class="q t"><div class="h">Threats</div>Big Four AI practices 
+moving faster than expected. Partner admission failures — admitting the 
+wrong people or admitting too slowly. Success-fee disputes if VERIFY 
+baselines are not agreed rigorously upfront. Foundation model changes 
+affecting agent quality across all engagements simultaneously.</div>
+</div>
+<h2>Risk register</h2>
+<table>
+<tbody><tr><th class="l">Risk</th><th class="l">Mitigation</th></tr>
+<tr><td class="l"><b>Success fee disputes</b></td><td class="l">Baseline
+ agreed in writing before WIRE starts. VERIFY is contractually 
+mandatory. CLO reviews all success fee terms before signing.</td></tr>
+<tr><td class="l"><b>Partner admission failure</b></td><td class="l">Unanimous vote requirement is a structural filter. Chairman veto applies. Non-compete enforced on exit.</td></tr>
+<tr><td class="l"><b>Agent quality shift (model change)</b></td><td class="l">KREW
+ Learning Loop (PRD-014) runs a full sweep on any foundation model 
+change. Agent reassignment to projects is paused pending QA sign-off.</td></tr>
+<tr><td class="l"><b>GDPR / data breach</b></td><td class="l">EU hosting; per-client L4 isolation; anonymised learning signals; DPAs in every client contract.</td></tr>
+<tr><td class="l"><b>Logo client churn</b></td><td class="l">ANCHOR 
+retainer keeps the relationship live post-engagement. KREW.CLOUD SaaS 
+conversion removes exit incentive. Petter (Client Success Manager) owns 
+logo retention.</td></tr>
+<tr><td class="l"><b>Pipeline failure — no new logos</b></td><td class="l">Founding
+ Partner mandate commitment before signing is the structural fix. 
+Reference client introductions compound. Brand content drives inbound. 
+No single channel dependency.</td></tr>
+<tr><td class="l"><b>IP leakage by departing partner</b></td><td class="l">Non-compete 12 months · formula buyout removes dispute incentive · all IP assigned to Spitsbergen Invest AS at signing.</td></tr>
+</tbody></table>
+<div class="aidisc"><div class="h">AI authorship &amp; disclaimer</div>This document was written by KREW AI agents. No human was solely responsible for its drafting. KREW agents operate under the <b>KREW Code of Conduct</b>
+ (krew.cloud). As an AI-authored document it may contain errors — it is 
+directional and must be independently verified before being relied upon 
+for any decision. Nothing here is financial, legal, or tax advice, and 
+no figure is a forecast of fact.</div>
+<div class="foot">
+KREW · KREW.CLOUD Solutions (Norway) · a KREW.CLOUD brand · a 
+Spitsbergen Invest AS company · hello@krew.cloud · krew.cloud · The 
+lights are on.<br>
+KREW-BOARD-005 rev 1.0 DRAFT · linked to 
+krew-solutions-financial-model.xlsx · directional model, board-owned 
+assumptions · legal and tax structure to be confirmed with qualified 
+Norwegian counsel · CONFIDENTIAL · not for external distribution.
+</div>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: CLO (Louis) · KREW.CLOUD Solutions · <span class="pgnum"></span></span></div>
+</div></div>
+
+<!-- ══ PAGE 11 · APPENDIX B — BRUCE REVIEW ══ -->
+<div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s11"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s11)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg></span><span class="sub">KREW.CLOUD SOLUTIONS · BUSINESS PLAN<br>2026 · CONFIDENTIAL · INTERNAL REVIEW</span></div><div class="body">
+<div class="sec">Appendix · B · Internal Review</div>
+<h1>Business Developer review — KREW-BOARD-005</h1>
+<div class="owner">Author: Business Developer (Bruce) · KREW-A011 · commissioned by Chairman</div>
+<p class="lead">This is a candid internal review of the Solutions 
+Business Plan v1.0. I have reviewed it against market conditions, 
+execution risk, and internal capability. My recommendation is at the 
+bottom. Read the flags first.</p>
+
+<h2>What the plan gets right</h2>
+<ul>
+<li><b>The pyramid tightening is the right call.</b> Four senior 
+MC-background partners with deep networks and board-level credibility is
+ a stronger commercial engine than eight mixed-background partners with 
+shallow pipelines. Quality of network beats quantity of headcount every 
+time in premium consulting. This decision is correct and should be held 
+firm under hiring pressure.</li>
+<li><b>No consultant equity is defensible at this stage.</b> The Agentic
+ Engineer role is a technical execution function, not an origination 
+role. Equity at this tier would dilute the pyramid without adding 
+proportional commercial value. A well-designed bonus pool is the right 
+instrument here — better alignment, less governance complexity, easier 
+to adjust annually as the firm scales.</li>
+<li><b>The commission model is now correctly understood and it is stronger than the prior version.</b>
+ Each converted 200-employee client generates NOK 268,760 in commission 
+over 18 months — and NOK 5.2M in potential success fee on the same 
+transaction. These two income streams are earned from the same WIRE 
+engagement, through different mechanisms, at near-zero marginal cost. At
+ Year 3 with 18 client conversions, commission income alone is NOK 4.2M 
+with a growing loyalty tail. The intercompany SLA (F5) must define gross
+ profit for both Agentic Workers and VoA agents separately — the GP 
+margins differ and must be agreed before the first conversion is 
+executed.</li>
+<li><b>The mandate-before-signing requirement for founding partners is 
+the single most important governance discipline in this document.</b> It
+ ensures the firm has revenue before it has cost. Do not waive this for 
+Partner #1 under any circumstances, regardless of how strong their CV 
+reads. A signed mandate is the proof of network. A CV is not.</li>
+<li><b>The 30+300 leverage ratio is real and defensible.</b> No 
+comparable firm in Norway can field 300 specialist agents at internal 
+cost from Day 1. This is a genuine structural advantage. The plan 
+correctly identifies it as the business model, not just a feature.</li>
+<li><b>Success fees with a documented VERIFY gate are the right structure.</b>
+ Outcome-based fees change the client relationship from vendor to 
+partner. The VERIFY gate protects the firm from disputed claims. Both of
+ these will matter when the first large success fee is on the table.</li>
+</ul>
+
+<h2>Flags — items requiring resolution before execution</h2>
+<table>
+<tbody><tr><th class="l">#</th><th class="l">Flag</th><th class="l">Status</th><th class="l">Action / Resolution</th></tr>
+<tr><td class="l">F1</td><td class="l"><b>Agentic Engineer bonus pool definition.</b>
+ The plan must define the pool percentage, floor, and split mechanism 
+before the first AE offer is sent. Undefined compensation is an 
+attrition risk against highly mobile AI engineering talent.</td><td class="l" style="color:var(--tealdk);font-weight:700">RESOLVED</td><td class="l">Fixed
+ waterfall: 30% of pre-tax profits goes to the bonus pool (employer tax 
+inclusive), split evenly across all 30 humans. Approximately NOK 1.4M 
+per person at Year 3. Board-approved formula, not discretionary. This is
+ a strong retention structure. F1 is closed.</td></tr>
+<tr><td class="l">F2</td><td class="l"><b>Partner #1 sourcing is the critical path.</b>
+ Everything in Q3 2026 depends on recruiting one person with the right 
+MC background, active mandate, and willingness to join a start-up. The 
+plan identifies the profile but not the sourcing approach.</td><td class="l" style="color:#FF4D6D;font-weight:700">OPEN · HIGH</td><td class="l">Chairman
+ leads Partner #1 recruitment personally. Three warm conversations with 
+senior MC alumni in target sectors should happen before this plan leaves
+ the board room. A signed mandate before incorporation is the rule — 
+hold it.</td></tr>
+<tr><td class="l">F3</td><td class="l"><b>Agentic Engineer career path underspecified.</b>
+ 18 AEs with no equity and an opaque path to PM will ask: how long, what
+ does it take, who decides? Without a clear answer, the best AEs will 
+negotiate equity elsewhere.</td><td class="l" style="color:#FFB800;font-weight:700">OPEN · MEDIUM</td><td class="l">Define
+ PM promotion criteria in writing before first AE hire: engagement 
+count, client reference threshold, agent squad assessment standard, and a
+ realistic timeline expectation. One page. CPO (Amanda) to own.</td></tr>
+<tr><td class="l">F4</td><td class="l"><b>Two-partner Year 1 is concentrated risk.</b>
+ NOK 17.5M origination per partner in Year 1 is achievable but leaves no
+ redundancy if one mandate is delayed. Pipeline concentration on two 
+people is the single most fragile element in the Year 1 model.</td><td class="l" style="color:#FFB800;font-weight:700">OPEN · MEDIUM</td><td class="l">Advance
+ Partner #2 recruitment to Q3 alongside Partner #1 rather than waiting 
+until Q4. The additional salary cost is immaterial against the revenue 
+concentration risk of a two-person pipeline.</td></tr>
+<tr><td class="l">F5</td><td class="l"><b>ANCHOR-to-SaaS intercompany SLA missing.</b>
+ The conversion path from Solutions ANCHOR retainer to KREW.CLOUD SaaS 
+is commercially described but not legally documented. The first handoff 
+will require improvisation without it.</td><td class="l" style="color:#4DA6FF;font-weight:700">OPEN · LOW-MED</td><td class="l">CLO
+ (Louis) to draft a standard intercompany SLA between Solutions and 
+KREW.CLOUD before the first ANCHOR retainer is signed. Template 
+document, not a bespoke negotiation.</td></tr>
+</tbody></table>
+
+<h2>Recommendation</h2>
+<div class="tealbox"><b>APPROVE — with three open items to action before Q3 2026.</b><br><br>
+<b>F1 — RESOLVED.</b> The bonus pool is now defined: 30% of pre-tax 
+profits, employer tax inclusive, split evenly across 30 humans. NOK 1.4M
+ per person at Year 3. This is a well-designed retention instrument. It 
+resolves the most material execution risk in the prior draft.<br><br>
+<b>F2 — ACTION REQUIRED.</b> Partner #1 must be in active conversation 
+before KREW.CLOUD Solutions AS is incorporated. Chairman leads this. Not
+ a recruiter. Not a later task. Now.<br><br>
+<b>F3 — ACTION REQUIRED BEFORE FIRST HIRE.</b> AE promotion criteria must be written before the first Agentic Engineer offer goes out. One page. CPO owns it.<br><br>
+On the numbers: the corrected KREW agent fleet cost (NOK 2.3M/year for 
+300 agents vs. NOK 647M–1,294M for equivalent human capacity) is the 
+most compelling number in this entire plan and should be in every 
+client-facing piece of thought leadership KREW.CLOUD Solutions produces.
+ 277–554× cheaper than the alternative. Write it large. The market does 
+not yet understand what this means.</div>
+
+<div class="aidisc"><div class="h">AI authorship &amp; disclaimer</div>This
+ review was written by a KREW AI agent (Business Developer, Bruce). No 
+human was solely responsible for its drafting. KREW agents operate under
+ the <b>KREW Code of Conduct</b> (krew.cloud). This is an internal 
+advisory document — it is directional, reflects the agent's analytical 
+assessment, and does not constitute legal, financial, or strategic 
+advice. All recommendations require human review and board-level 
+decision before action.</div>
+<div class="foot">
+KREW · KREW.CLOUD Solutions · a KREW.CLOUD brand · a Spitsbergen Invest 
+AS company · hello@krew.cloud · krew.cloud · The lights are on.<br>
+KREW-BOARD-005 rev 1.0 DRAFT · Appendix B: Business Developer internal review · CONFIDENTIAL · not for external distribution.
+</div>
+<div class="pgfoot"><span>KREW-BOARD-005 · Solutions Business Plan · v1.0</span><span class="r">Author: Business Developer (Bruce) · KREW · <span class="pgnum"></span></span></div>
+</div></div>
+
+
+</body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KREW · QMS Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00FFB2;--tealdk:#00B27D;--ink:#10151B;--mut:#5A6B78;--line:#E6EAEE;--ink2:#2A343D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{counter-reset:kpage;background:#EEF1F4;font-family:'IBM Plex Sans',sans-serif;color:var(--ink);font-size:12.5px;line-height:1.6;padding:24px 12px}
+.page{counter-increment:kpage;max-width:920px;margin:0 auto 20px;background:#fff;border:1px solid #dde}
+.lh{background:#060A0F;padding:28px 44px;display:flex;justify-content:space-between;align-items:center}
+.wm{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:28px;color:var(--teal);letter-spacing:-1px;display:flex;align-items:center}
+.lh .sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--teal);text-align:right;line-height:1.7}
+.body{padding:34px 44px 42px}
+.sec{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--tealdk);text-transform:uppercase;margin-bottom:4px}
+h1{font-family:'IBM Plex Mono',monospace;font-size:23px;letter-spacing:-1px;line-height:1.2;margin-bottom:5px}
+.owner{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1px;color:var(--mut);text-transform:uppercase;margin-bottom:22px}
+h2{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px;margin:24px 0 10px}
+h3{font-family:'IBM Plex Mono',monospace;font-size:11.5px;margin:13px 0 4px;color:var(--tealdk)}
+p{margin-bottom:8px} ul{margin:4px 0 10px 18px} li{margin-bottom:4px}
+.lead{font-size:14px;line-height:1.55;color:var(--ink2);border-left:3px solid var(--teal);padding:3px 0 3px 15px;margin:5px 0 16px}
+table{width:100%;border-collapse:collapse;margin:10px 0 15px;font-size:11px}
+th{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.5px;text-transform:uppercase;text-align:left;background:#060A0F;color:var(--teal);padding:6px 8px}
+td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+code{font-family:'IBM Plex Mono',monospace;font-size:11px;background:#F2F4F6;padding:1px 5px;color:#0E3A30}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:#060A0F;color:#C7D3DC;padding:14px 16px;line-height:1.9;margin:12px 0;white-space:pre;overflow-x:auto}
+.mono b{color:var(--teal)}
+.tealbox{background:#0E3A30;color:#CFF5E8;border-left:3px solid var(--teal);padding:11px 15px;font-size:11.5px;margin:12px 0}
+.tealbox b{color:var(--teal)}
+.note{background:#FFF8E6;border-left:3px solid #E0A500;padding:9px 13px;font-size:11px;margin:11px 0}
+.step{display:grid;grid-template-columns:26px 1fr;gap:10px;margin:8px 0;align-items:start}
+.step .n{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--tealdk);font-size:13px}
+.pgfoot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);margin-top:24px;padding-top:8px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.5px;color:#9AA8B4;text-transform:uppercase}
+.pgnum:before{content:"Page " counter(kpage) " of 4"}
+.aidisc{border:1px solid #D9DEE3;border-left:3px solid #667788;background:#F7F9FB;padding:13px 16px;margin:16px 0 4px;font-size:11px;color:#3A4650;line-height:1.6}
+.aidisc .h{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:#667788;margin-bottom:5px}
+.foot{border-top:1px solid var(--line);margin-top:14px;padding-top:13px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#9AA8B4;line-height:1.85}
+@page{margin:14mm 12mm}
+@media print{*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}body{background:#fff;padding:0}.page{border:none;margin:0;break-after:page}.page:last-child{break-after:auto}}
+</style></head><body><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/></g></svg></span><span class="sub">QMS ARCHITECTURE<br>2026 · INTERNAL · QSM</span></div><div class="body"><div class="sec">Section 1 · Overview</div><h1>How the KREW QMS works</h1><div class="owner">Owner: QSM (Monica) · reviewed by CTO &amp; CLO</div>
+<p class="lead">The QMS is KREW''s single source of truth for every controlled document and record. It is built so that <b>all our data lives in one database, under reference numbers with logic, with full version history — and every agent has instant access to all of it, always.</b> This document explains how it works and how it is built.</p>
+<h2>What it is for</h2>
+<p>A governed company needs to know, at any moment: what documents exist, which version is live, who approved it, what changed, and where the file is. The QMS answers all of those from one place. Nothing is "official" until it is registered here — governance is operational, not aspirational.</p>
+<h2>Reference numbers — the logic</h2>
+<p>Every document has a stable reference number that <b>never changes</b>, of the form:</p>
+<div class="mono"><b>KREW - SERIES - NUMBER</b>     e.g.  KREW-BOARD-004,  KREW-OPS-009,  KREW-LGL-005</div>
+<p>The <b>series</b> groups by function, and the <b>number</b> is sequential within it:</p>
+<table>
+<tr><th>Series</th><th>Holds</th><th>Series</th><th>Holds</th></tr>
+<tr><td>BOARD</td><td>Board / strategy</td><td>RSK</td><td>Risk assessments</td></tr>
+<tr><td>LGL</td><td>Legal &amp; contracts</td><td>OPS</td><td>Operations / SOPs / this doc</td></tr>
+<tr><td>PRD</td><td>Product definitions</td><td>BRAND</td><td>Brand &amp; content standards</td></tr>
+<tr><td>FINANCE</td><td>Financial records</td><td>HR</td><td>People records</td></tr>
+</table>
+<p>The reference number is the anchor for everything: every version, every audit entry, and the stored file all hang off the same <code>doc_id</code>. Find the number, and you have the document''s entire life.</p>
+<h2>How it is built — three layers</h2>
+<table>
+<tr><th>Layer</th><th>Table</th><th>Role</th></tr>
+<tr><td>Register</td><td><code>qms_documents</code></td><td>One row per document — identity, owner, approver, the pointer to the live version.</td></tr>
+<tr><td>Versions</td><td><code>qms_document_versions</code></td><td>One row per (doc_id, version) — the content, text, file pointer, status, history. Never deleted.</td></tr>
+<tr><td>Audit log</td><td><code>qms_audit_log</code></td><td>Every event — who did what, when, and why.</td></tr>
+</table>
+<div class="tealbox"><b>One reference, many versions, full history.</b> A document with five versions is five rows in the versions table under one <code>doc_id</code>. Old versions are never deleted — they are marked <code>superseded</code>. "Full history" is simply every row for that reference.</div>
+<div class="pgfoot"><span>KREW-OPS-009 · QMS Architecture · v1.0</span><span>Author: QSM agent (Monica) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/></g></svg></span><span class="sub">QMS ARCHITECTURE<br>2026 · INTERNAL · QSM</span></div><div class="body"><div class="sec">Section 2 · Versions &amp; lifecycle</div><h1>One document, its whole life</h1><div class="owner">Owner: QSM (Monica)</div>
+<h2>The version record</h2>
+<p>Each version row carries everything about that version of the document:</p>
+<table>
+<tr><th>Field</th><th>What it holds</th></tr>
+<tr><td><code>doc_id</code> + <code>version</code></td><td>The reference and the version string (1.0, 1.1, ...). Unique together.</td></tr>
+<tr><td><code>status</code></td><td>Where it is in the lifecycle (below).</td></tr>
+<tr><td><code>title</code>, <code>author_agent</code>, <code>change_note</code></td><td>What it is, who wrote it, what changed.</td></tr>
+<tr><td><code>content_text</code></td><td>The document''s plain text — what agents search.</td></tr>
+<tr><td><code>storage_path</code> / <code>content_b64</code></td><td>Pointer to the rendered file in Storage, or small files inline.</td></tr>
+<tr><td><code>sha256</code>, <code>bytes_original</code></td><td>Integrity checksum and size.</td></tr>
+<tr><td><code>embedding</code></td><td>Vector for semantic search (see Section 3).</td></tr>
+<tr><td><code>approved_by</code>, <code>approved_at</code></td><td>The approval record.</td></tr>
+</table>
+<h2>The lifecycle</h2>
+<div class="mono"><b>draft</b>  →  <b>in_review</b>  →  <b>approved</b>  →  <b>superseded</b>  →  <b>retired</b></div>
+<ul>
+<li><b>draft</b> — being written.</li>
+<li><b>in_review</b> — out for the team / approver to check.</li>
+<li><b>approved</b> — the live, official version. Only one per document at a time.</li>
+<li><b>superseded</b> — was approved, replaced by a newer approved version. Kept for history.</li>
+<li><b>retired</b> — no longer in use, but never deleted.</li>
+</ul>
+<h2>The rule the database enforces</h2>
+<p>When a version is set to <b>approved</b>, the system automatically (a) marks any previously approved version of that document as <code>superseded</code>, and (b) re-points the register at the new version. <b>It is impossible to have two live versions of the same document.</b> Approving is the single act that makes a version go live — separation of duties (who may approve) is enforced at the agent/role layer above, and every approval is written to the audit log.</p>
+<div class="note">Worked example, already live in the system: <code>KREW-OPS-007</code> has version 1.1 marked <code>superseded</code> and version 1.2 as the current draft, both under the one reference — exactly this model, on real data.</div>
+<h2>Reading it back</h2>
+<p>Two views make this effortless:</p>
+<table>
+<tr><th>View</th><th>Answers</th></tr>
+<tr><td><code>qms_current_documents</code></td><td>"What is the live version of every document?"</td></tr>
+<tr><td><code>qms_document_history</code></td><td>"Show me every version of this document, in order."</td></tr>
+</table>
+<div class="pgfoot"><span>KREW-OPS-009 · QMS Architecture · v1.0</span><span>Author: QSM agent (Monica) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/></g></svg></span><span class="sub">QMS ARCHITECTURE<br>2026 · INTERNAL · QSM</span></div><div class="body"><div class="sec">Section 3 · Search, ingestion &amp; access</div><h1>How agents find anything, instantly</h1><div class="owner">Owner: QSM (Monica) · CTO (Sheldon) for ingestion</div>
+<h2>Two ways agents search</h2>
+<ul>
+<li><b>Full-text search</b> — exact words and phrases, via a full-text index on <code>content_text</code>. Live now.</li>
+<li><b>Semantic search</b> — meaning, not just words, via the <code>embedding</code> vector and a pgvector index. Switches on once embeddings are generated (below).</li>
+</ul>
+<h2>Ingestion — how a document enters and stays searchable</h2>
+<p>Every time a document version is created or updated, the agent OS runs this step so the document is immediately findable:</p>
+<div class="step"><div class="n">1</div><div><b>Render &amp; store the file.</b> The rendered file (HTML, xlsx, PDF) is uploaded to the Storage bucket at a path keyed by reference and version — <code>SERIES/doc_id/version/filename</code> — and <code>storage_path</code> is written to the version row. Small documents may also be stored inline (gzip+base64).</div></div>
+<div class="step"><div class="n">2</div><div><b>Extract the text.</b> The document''s plain text is extracted and written to <code>content_text</code>. This is what powers full-text search and what agents read.</div></div>
+<div class="step"><div class="n">3</div><div><b>Embed.</b> The text is sent to the embedding model and the resulting vector is written to <code>embedding</code>. This powers semantic search.</div></div>
+<div class="step"><div class="n">4</div><div><b>Checksum &amp; log.</b> The <code>sha256</code> and size are recorded for integrity, and an entry is written to the audit log.</div></div>
+<p>The same step runs for every new version, so search and history are always current. A change of foundation or embedding model triggers a re-embed sweep across all versions, so search quality never drifts.</p>
+<div class="note">Status today: full-text search is live (the business plan, KREW-BOARD-004, is already text-indexed and searchable). Embeddings are populated by step 3 once the embedder is wired; the vector column and index are ready. Confirm the embedder''s dimension before the first run.</div>
+<h2>Instant access for every agent</h2>
+<p>Because the register, every version, the full history, the text, and the file pointers all live in one database, any agent can in milliseconds: find a document by reference or by meaning, read its current text, see every prior version and what changed, and retrieve the exact file. There is no separate file store to reconcile and no "which copy is right?" — the QMS <em>is</em> the answer.</p>
+<h2>Is it manageable at size?</h2>
+<p>Yes. The searchable layer (register + text + metadata + embeddings) is small and fast and lives in the database; the heavy rendered bytes live in Storage, referenced by <code>storage_path</code>. This split means the database stays lean for query and backup while holding unlimited history. KREW has years of headroom before size is a consideration.</p>
+<div class="pgfoot"><span>KREW-OPS-009 · QMS Architecture · v1.0</span><span>Author: QSM agent (Monica) · KREW · <span class="pgnum"></span></span></div></div></div><div class="page"><div class="lh"><span class="wm">KREW<svg width="32" height="32" viewBox="0 0 80 80" fill="#00FFB2" style="vertical-align:middle;margin-left:10px"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"/></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"/><circle cx="58" cy="22" r="17"/><circle cx="64" cy="58" r="14"/><circle cx="16" cy="24" r="12"/><circle cx="42" cy="42" r="10"/><circle cx="72" cy="38" r="9"/><circle cx="18" cy="58" r="7"/><circle cx="55" cy="74" r="8"/></g></svg></span><span class="sub">QMS ARCHITECTURE<br>2026 · INTERNAL · QSM</span></div><div class="body"><div class="sec">Section 4 · Standards &amp; governance</div><h1>The rules every document follows</h1><div class="owner">Owner: QSM (Monica) · CLO (Louis)</div>
+<h2>Document standard (all KREW documents)</h2>
+<p>Every controlled document carries, on <b>every page</b>, a footer with: the QMS reference, the document title, the version, the authoring agent, and the page number.</p>
+<div class="mono">KREW-OPS-009 · QMS Architecture · v1.0     Author: QSM agent (Monica) · KREW · Page X of N</div>
+<p>And on the <b>last page</b>, once, the AI authorship &amp; disclaimer block (AI-authored, may contain errors, operates under the Code of Conduct, nothing is advice and no figure is a forecast of fact). This document follows the standard it describes.</p>
+<h2>Governance principles</h2>
+<ul>
+<li><b>Nothing is official until registered</b> — a document exists in the QMS sense only when it has a reference, an owner, an approver and a filed location.</li>
+<li><b>One live version</b> — enforced by the database; approving supersedes the prior version.</li>
+<li><b>Separation of duties</b> — the agent who drafts is not the agent who approves; approvals are logged.</li>
+<li><b>Full auditability</b> — every change is in the audit log and every version is retained. A billion-dollar story has to be auditable.</li>
+<li><b>Confidentiality &amp; retention</b> — each record carries its classification and retention; confidential records sit under tight access control.</li>
+</ul>
+<div class="tealbox"><b>Why this matters.</b> The QMS is what lets KREW run "no-hands-involved" without losing control. Agents do the work; the QMS makes that work findable, versioned, auditable, and trustworthy — quality and compliance built into the data model itself, not bolted on afterwards.</div>
+<div class="aidisc"><div class="h">AI authorship &amp; disclaimer</div>
+This document was written by a KREW AI agent. No human was involved in drafting it. KREW agents operate under the <b>KREW Code of Conduct</b> (krew.cloud). As an AI-authored document it may contain errors or "hallucinations" — confident statements that are not correct. It is directional and must be independently verified before being relied upon; nothing here is financial, legal or tax advice.</div>
+<div class="foot">
+KREW · a SAGA.WORX brand · hello@krew.cloud · krew.cloud · The lights are on.<br>
+KREW-OPS-009 rev 1.0 · QMS Architecture &amp; Operation · owner QSM (Monica) · INTERNAL.
+</div>
+<div class="pgfoot"><span>KREW-OPS-009 · QMS Architecture · v1.0</span><span>Author: QSM agent (Monica) · KREW · <span class="pgnum"></span></span></div></div></div></body></html>

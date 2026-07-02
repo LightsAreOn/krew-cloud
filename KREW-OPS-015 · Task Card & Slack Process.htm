@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KREW-OPS-015 · Task Card &amp; Slack Process</title>
+<link href="KREW-OPS-015%20%C2%B7%20Task%20Card%20&amp;%20Slack%20Process_files/css2.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans",sans-serif;background:#EEF1F4;color:#1A1A1A;font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.lh{background:#060A0F;color:#E0ECF8;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.lh-logo{display:flex;align-items:center;gap:12px}
+.lh-wm{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:22px;letter-spacing:-1px;color:#00FFB2}
+.lh-meta{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#4A6070;letter-spacing:1.5px;line-height:1.9;text-align:right}
+.lh-meta span{color:#00FFB2}
+.wrap{max-width:900px;margin:0 auto;padding:40px 24px 80px}
+.page{background:#fff;border:1px solid #DCE4EC;padding:40px 48px;margin-bottom:24px}
+.doc-id{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00B27D;margin-bottom:10px}
+h1{font-size:26px;font-weight:700;color:#060A0F;line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px}
+h2{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#060A0F;margin:32px 0 12px;border-bottom:2px solid #00FFB2;padding-bottom:6px}
+p{margin-bottom:12px;color:#444;line-height:1.8}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #DCE4EC;margin-bottom:0}
+.meta-k{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#888;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;border-bottom:1px solid #DCE4EC;background:#F8F9FA}
+.meta-v{font-size:13px;font-weight:500;color:#1A1A1A;padding:8px 14px;border-bottom:1px solid #DCE4EC;border-left:1px solid #DCE4EC}
+/* Status lifecycle */
+.lifecycle{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:20px 0;border:1px solid #DCE4EC}
+.ls{padding:14px 12px;text-align:center;border-right:1px solid #DCE4EC}
+.ls:last-child{border-right:none}
+.ls-name{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.ls-desc{font-size:11px;color:#666;line-height:1.5}
+.ls-0{background:#F8F9FA}.ls-0 .ls-name{color:#888}
+.ls-1{background:#FFF8E1}.ls-1 .ls-name{color:#C78000}
+.ls-2{background:#E8F5E9}.ls-2 .ls-name{color:#2E7D32}
+.ls-3{background:#E3F2FD}.ls-3 .ls-name{color:#1565C0}
+.ls-4{background:#0A1E18}.ls-4 .ls-name{color:#00FFB2}.ls-4 .ls-desc{color:#4A8070}
+/* Slack format examples */
+.slack-ex{background:#1D1C1D;border-radius:0;padding:16px 20px;margin:12px 0}
+.slack-label{font-family:"IBM Plex Mono",monospace;font-size:9px;color:#666;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.slack-msg{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#D4D4D4;line-height:1.8;white-space:pre-wrap}
+.slack-msg .tag{color:#00FFB2}
+.slack-msg .name{color:#7CB8F8}
+.slack-msg .status-ok{color:#98C379}
+.slack-msg .status-block{color:#E06C75}
+/* Authority table */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+thead tr{background:#060A0F}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left;color:#4A6070;font-weight:500}
+tbody td{padding:9px 14px;border-bottom:1px solid #DCE4EC;vertical-align:top;color:#444}
+tbody tr:nth-child(even){background:#F8F9FA}
+.tag-ao{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;color:#00B27D;border:1px solid #00B27D;padding:2px 6px}
+.tag-wo{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;color:#C78000;border:1px solid #C78000;padding:2px 6px}
+.tag-so{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;color:#4DA6FF;border:1px solid #4DA6FF;padding:2px 6px}
+.note{background:#FFF8E1;border-left:4px solid #FFB800;padding:12px 16px;margin:16px 0;font-size:13px;color:#555}
+.note-label{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C78000;margin-bottom:4px}
+.aidisc{background:#F4F6F8;border-left:3px solid #CCC;padding:12px 16px;font-size:11px;color:#888;margin-top:28px;font-family:"IBM Plex Mono",monospace;line-height:1.7}
+.pgfoot{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:9px;color:#AAA;letter-spacing:1px;padding:16px 0 0;border-top:1px solid #DCE4EC;margin-top:8px}
+.field-grid{display:grid;grid-template-columns:130px 1fr;gap:0;border:1px solid #DCE4EC;margin:16px 0;font-size:13px}
+.fg-k{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#888;letter-spacing:1px;text-transform:uppercase;padding:8px 12px;border-bottom:1px solid #DCE4EC;background:#F8F9FA}
+.fg-v{padding:8px 12px;border-bottom:1px solid #DCE4EC;border-left:1px solid #DCE4EC;color:#444}
+@media(max-width:640px){.lifecycle{grid-template-columns:1fr 1fr}.lh{flex-direction:column;padding:20px 24px}.page{padding:24px 20px}.meta-grid,.field-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="lh">
+  <div class="lh-logo">
+    <svg width="28" height="28" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="s"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#s)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="38" cy="18" r="8"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg>
+    <span class="lh-wm">KREW</span>
+  </div>
+  <div class="lh-meta">KREW-OPS-015 &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; APPROVED<br><span>SOP: Task Card &amp; Slack Process</span></div>
+</div>
+
+<div class="wrap">
+
+<!-- OVERVIEW -->
+<div class="page">
+  <div class="doc-id">Standard Operating Procedure · KREW-OPS-015 · Rev 1.0 · 15.06.2026</div>
+  <h1>Task Card &amp; Slack Process</h1>
+  <p>This SOP answers one question: how do task cards work in KREW, and 
+how does the team use Slack to coordinate on them? It covers how tasks 
+are created, who can create them, how agents report progress, and how 
+the morning brief keeps the Chairman informed without anyone having to 
+send a separate update.</p>
+
+  <div class="meta-grid">
+    <div class="meta-k">Document ID</div><div class="meta-v">KREW-OPS-015</div>
+    <div class="meta-k">Revision</div><div class="meta-v">1.0 — 15.06.2026</div>
+    <div class="meta-k">Status</div><div class="meta-v">APPROVED</div>
+    <div class="meta-k">Owner</div><div class="meta-v">Monica · Quality &amp; Systems Manager · KREW-A009</div>
+    <div class="meta-k">Approver</div><div class="meta-v">Michael · CEO · KREW-A001</div>
+    <div class="meta-k">Designed in response to</div><div class="meta-v">Direct Chairman request · 15.06.2026 · "How does the task card / Slack process work? I can't find that."</div>
+  </div>
+</div>
+
+<!-- TASK CARD ANATOMY -->
+<div class="page">
+  <h2>What a task card is</h2>
+  <p>A task card is a row in the <strong>agent_tasks</strong> table in 
+the KREW Supabase database. Every piece of work — whether done by an AI 
+agent or a human — is tracked here. The Chairman sees open task cards 
+every morning in the brief. Monica flags overdue cards in her nightly 
+QMS review.</p>
+
+  <h2>Task card fields</h2>
+  <div class="field-grid">
+    <div class="fg-k">title</div><div class="fg-v">One sentence. What is the work? Specific enough to understand without reading the description.</div>
+    <div class="fg-k">description</div><div class="fg-v">Context, success criteria, links to relevant QMS documents, background information.</div>
+    <div class="fg-k">agent</div><div class="fg-v">Who owns this task: ceo · cto · cpo · cmo · cfo · clo · qsm · alf · bruce · donna · petter · chairman</div>
+    <div class="fg-k">type</div><div class="fg-v"><span class="tag-ao">AO</span> Agent Order — task for an AI agent &nbsp;·&nbsp; <span class="tag-wo">WO</span> Work Order — task for a human &nbsp;·&nbsp; <span class="tag-so">SO</span> System Operation — automated</div>
+    <div class="fg-k">status</div><div class="fg-v">proposed → backlog → this-week → review → done (see lifecycle below)</div>
+    <div class="fg-k">priority</div><div class="fg-v">urgent · high · normal</div>
+    <div class="fg-k">due_date</div><div class="fg-v">Target completion date. Monica flags tasks where due_date has passed and status is not done.</div>
+    <div class="fg-k">proposed_by</div><div class="fg-v">Who raised the task.</div>
+    <div class="fg-k">approved_by</div><div class="fg-v">Who authorised it to proceed.</div>
+    <div class="fg-k">result</div><div class="fg-v">Filled when done: what was produced, where it lives, what the outcome was.</div>
+    <div class="fg-k">workspace</div><div class="fg-v">Always "krew" for KREW tasks.</div>
+  </div>
+
+  <h2>Status lifecycle</h2>
+  <p>Every task card moves through five states. The move from one state to the next triggers a specific Slack action.</p>
+  <div class="lifecycle">
+    <div class="ls ls-0"><div class="ls-name">Proposed</div><div class="ls-desc">Raised but not yet approved. Sits in Decision Queue.</div></div>
+    <div class="ls ls-1"><div class="ls-name">Backlog</div><div class="ls-desc">Approved. Queued. Not yet started. No Slack needed.</div></div>
+    <div class="ls ls-2"><div class="ls-name">This week</div><div class="ls-desc">Agent is actively working on it. Slack post required on pickup.</div></div>
+    <div class="ls ls-3"><div class="ls-name">Review</div><div class="ls-desc">Agent considers it done. Waiting for sign-off. Slack post required.</div></div>
+    <div class="ls ls-4"><div class="ls-name">Done</div><div class="ls-desc">Verified by CEO or QSM. Result field logged. No Slack needed.</div></div>
+  </div>
+</div>
+
+<!-- SLACK PROCESS -->
+<div class="page">
+  <h2>Slack process</h2>
+  <p>All task updates go to <strong>#proj-cortex</strong>. This is the 
+single channel where the Chairman and CEO have authority to post, and 
+where all agents report task status. Use the exact formats below — 
+consistency is what makes the channel scannable.</p>
+
+  <h2>When you pick up a task (backlog → this-week)</h2>
+  <div class="slack-ex">
+    <div class="slack-label">Format — task pickup</div>
+    <div class="slack-msg"><span class="tag">[AO]</span> <span class="name">Louis · CLO</span> · EU AI Act A-001 to A-012 compliance review
+Status: <span class="status-ok">In progress</span>
+Approach: Auditing all 12 actions, assigning owners and due dates. CLO leads, CEO accountable.
+Target: 20.06.2026</div>
+  </div>
+
+  <h2>When a task is done and ready for review (this-week → review)</h2>
+  <div class="slack-ex">
+    <div class="slack-label">Format — ready for review</div>
+    <div class="slack-msg"><span class="tag">[AO]</span> <span class="name">Amanda · CPO</span> · P-01 scope revision — KREW TEAM MVP
+Status: <span class="status-ok">Ready for review</span>
+Output: P-01 v2 filed in QMS. 10-feature spec confirmed. Multi-user removed from 11.11 scope.
+Next: CEO review → Chairman approval</div>
+  </div>
+
+  <h2>When a task is blocked</h2>
+  <div class="slack-ex">
+    <div class="slack-label">Format — blocked</div>
+    <div class="slack-msg"><span class="tag">[AO]</span> <span class="name">Don · CMO</span> · Publish blog to krew.cloud
+Status: <span class="status-block">BLOCKED</span>
+Blocker: WO-003 — website publish infrastructure is a human task. Chairman action required.
+Needs: Chairman to enable deploy to LightsAreOn/krew-cloud or confirm website timeline.</div>
+  </div>
+
+  <h2>WO items (human tasks)</h2>
+  <div class="slack-ex">
+    <div class="slack-label">Format — human work order reminder</div>
+    <div class="slack-msg"><span class="tag">[WO]</span> <span class="name">Chairman</span> · Azure app registration — Microsoft Graph API
+Action required by Chairman: 10-minute task in portal.azure.com.
+Unlocks: full brief automation (email stats + Donna calendar).
+Guide available from CTO.</div>
+  </div>
+
+  <div class="note">
+    <div class="note-label">Channel discipline</div>
+    Only task-related status updates in #proj-cortex. Strategy, 
+architecture, and planning discussion go to the relevant agent channel 
+or a direct thread. #proj-cortex stays scannable.
+  </div>
+</div>
+
+<!-- HOW THE BRIEF INTEGRATES -->
+<div class="page">
+  <h2>How the morning brief reads your tasks</h2>
+  <p>The Night Owl Briefer reads open task cards from the database at 
+00:50 every morning. The Chairman does not need to ask for a status 
+update — it arrives automatically. This is how:</p>
+
+  <table>
+    <thead><tr><th>Brief section</th><th>What it shows from task cards</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>MY TASKS</td><td>Overdue tasks (red border, flagged) + this-week tasks across all agents. Chairman-owned WO items always shown first.</td><td>agent_tasks WHERE status IN ('this-week') + due_date past</td></tr>
+      <tr><td>PRIORITIES TODAY</td><td>Briefer synthesises the top 3 actions for the Chairman based on open tasks, deadlines, and emails.</td><td>Haiku synthesis from all task data</td></tr>
+      <tr><td>QMS FLAGS</td><td>Monica flags overdue tasks and any urgent items below threshold in her 00:45 review.</td><td>qms_audit_log (brief_log)</td></tr>
+      <tr><td>TEAM STATUS — 11.11 LAUNCH</td><td>Each team member's 2-sentence MVP status + live countdown to 11.11.2026.</td><td>qms_audit_log (team_status_log) · brief-team-status v1</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Task creation authority</h2>
+  <table>
+    <thead><tr><th>Who</th><th>Can create tasks for</th><th>Starting status</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Chairman</strong></td><td>Anyone — highest authority. Approved on creation.</td><td>backlog or this-week</td></tr>
+      <tr><td><strong>CEO (Michael)</strong></td><td>All agents. Not Chairman-reserved items.</td><td>proposed → approved by CEO → backlog</td></tr>
+      <tr><td><strong>QSM (Monica)</strong></td><td>Any agent for monitoring and compliance items.</td><td>proposed</td></tr>
+      <tr><td><strong>Any agent</strong></td><td>Themselves only — raises a proposed card for CEO review.</td><td>proposed (awaits approval)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Weekly cadence</h2>
+  <p><strong>Every Monday</strong> — Monica reviews all open tasks. Any 
+task stuck in this-week for more than 7 days is escalated to the CEO. 
+Any task past its due_date is logged as a deviation in the QMS.</p>
+  <p><strong>Every Friday</strong> — CEO posts a weekly close to #proj-cortex: what moved to done, what is stuck, what is being added to backlog.</p>
+  <p><strong>Nightly</strong> — Briefer reads all open tasks and includes them in the Chairman's brief. Monica's 00:45 QMS review flags anything overdue.</p>
+</div>
+
+<!-- SLACK ACTIVITY IN BRIEF -->
+<div class="page">
+  <h2>Slack activity in the brief</h2>
+  <p>The brief will include a SLACK section showing recent activity across channels the Chairman subscribes to. This requires the <strong>SLACK_BOT_TOKEN</strong> to be added to Supabase Vault.</p>
+
+  <p>Once added, the <strong>brief-slack-summary</strong> Edge Function (running at 00:48 CET) will read the last 24 hours of messages from:</p>
+  <table>
+    <thead><tr><th>Channel</th><th>ID</th><th>What it monitors</th></tr></thead>
+    <tbody>
+      <tr><td>#proj-cortex</td><td>C0B8Y3A49HB</td><td>Sprint decisions, agent updates, CEO posts</td></tr>
+      <tr><td>#agent-brief</td><td>C0B8ZGZV0P5</td><td>Monica's nightly QMS review, brief pipeline logs</td></tr>
+      <tr><td>#proj-krew-content</td><td>C0B9UJ16XH9</td><td>Content Manager, CMO, blog and social updates</td></tr>
+      <tr><td>#agent-crm-krew</td><td>TBD</td><td>Inbound lead notifications, CRM updates</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <div class="note-label">To enable Slack automation</div>
+    Add SLACK_BOT_TOKEN to Supabase Vault (project 
+ccgsewlomcyikqpigofi). The brief-slack-summary Edge Function already 
+handles both modes — it uses the token if present, or accepts manual 
+injection if not. Same pattern as the Microsoft Graph API email stats 
+step.
+  </div>
+
+  <h2>Current limitations (v1)</h2>
+  <p>This is v1.0 — designed to work with what exists today. No 
+real-time Slack ↔ database sync. Agents post manually on status change. 
+The KREW TEAM Decision Queue (Amanda/CPO scope) will give task cards a 
+proper UI in the product. When that ships, this SOP will be updated to 
+v2.0 reflecting the new interface.</p>
+
+  <div class="aidisc">This document was generated by a KREW AI agent 
+(Monica · QSM · KREW-A009) in response to a direct Chairman request. 
+KREW agents operate under the KREW Code of Conduct — krew.cloud</div>
+  <div class="pgfoot"><div>KREW-OPS-015 · Rev 1.0 · Task Card &amp; Slack Process SOP · APPROVED</div><div>Monica · QSM · KREW &nbsp;|&nbsp; krew.cloud</div></div>
+</div>
+
+</div>
+
+</body></html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KREW-OPS-014 · Automated Processes Register</title>
+<link href="KREW-OPS-014%20%C2%B7%20Automated%20Processes%20Register_files/css2.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans",sans-serif;background:#EEF1F4;color:#1A1A1A;font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.mono{font-family:"IBM Plex Mono",monospace}
+.lh{background:#060A0F;color:#E0ECF8;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.lh-logo{display:flex;align-items:center;gap:12px}
+.lh-wordmark{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:22px;letter-spacing:-1px;color:#00FFB2}
+.lh-meta{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#4A6070;letter-spacing:1.5px;line-height:1.9;text-align:right}
+.lh-meta span{color:#00FFB2}
+.wrap{max-width:880px;margin:0 auto;padding:40px 24px 80px}
+.page{background:#fff;border:1px solid #DCE4EC;padding:40px 48px;margin-bottom:24px}
+.doc-id{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00B27D;margin-bottom:10px}
+h1{font-size:26px;font-weight:700;color:#060A0F;line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px}
+h2{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#060A0F;margin:32px 0 12px;border-bottom:2px solid #00FFB2;padding-bottom:6px}
+h3{font-size:15px;font-weight:600;color:#060A0F;margin:20px 0 8px}
+p{margin-bottom:12px;color:#444;line-height:1.8}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:0;border:1px solid #DCE4EC}
+.meta-row{display:contents}
+.meta-k{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#888;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;border-bottom:1px solid #DCE4EC;background:#F8F9FA}
+.meta-v{font-size:13px;font-weight:500;color:#1A1A1A;padding:8px 14px;border-bottom:1px solid #DCE4EC;border-left:1px solid #DCE4EC}
+.step{border:1px solid #DCE4EC;margin-bottom:20px}
+.step-header{display:grid;grid-template-columns:80px 1fr;background:#060A0F;color:#E0ECF8}
+.step-time{font-family:"IBM Plex Mono",monospace;font-size:18px;font-weight:700;color:#00FFB2;padding:16px 20px;display:flex;align-items:center;border-right:1px solid #1A2530}
+.step-title-wrap{padding:12px 20px}
+.step-name{font-size:16px;font-weight:700;color:#E0ECF8;margin-bottom:2px}
+.step-agent{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#4A6070;letter-spacing:1px}
+.step-body{padding:20px 24px}
+.step-body p{margin-bottom:10px;color:#444;font-size:14px}
+.step-io{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px;border:1px solid #DCE4EC}
+.io-head{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;background:#F8F9FA;color:#888;border-bottom:1px solid #DCE4EC}
+.io-head.right{border-left:1px solid #DCE4EC}
+.io-body{padding:12px 14px;font-size:13px;color:#444;line-height:1.8}
+.io-body.right{border-left:1px solid #DCE4EC}
+.io-body ul{padding-left:16px}
+.io-body li{margin-bottom:4px}
+.flow{display:flex;flex-direction:column;gap:0;margin:20px 0;border:1px solid #DCE4EC}
+.flow-row{display:grid;grid-template-columns:90px 120px 1fr 100px;border-bottom:1px solid #DCE4EC}
+.flow-row:last-child{border-bottom:none}
+.flow-row.head{background:#060A0F;color:#E0ECF8}
+.flow-cell{padding:10px 14px;font-size:12px;border-right:1px solid #DCE4EC;vertical-align:top}
+.flow-cell:last-child{border-right:none}
+.flow-cell.head{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#4A6070}
+.flow-time{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:700;color:#00B27D}
+.flow-agent{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#333;font-weight:500}
+.flow-desc{font-size:13px;color:#444}
+.flow-out{font-size:12px;color:#666;font-style:italic}
+.infra{background:#060A0F;padding:20px 24px;margin:20px 0}
+.infra-label{font-family:"IBM Plex Mono",monospace;font-size:9px;color:#00FFB2;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.infra-grid{display:grid;grid-template-columns:140px 1fr;gap:4px 16px}
+.infra-k{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#4A6070}
+.infra-v{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#B8C8D8}
+.note{background:#FFF8E1;border-left:4px solid #FFB800;padding:14px 18px;margin:16px 0;font-size:13px;color:#555}
+.note-label{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C78000;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+thead tr{background:#060A0F}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left;color:#4A6070;font-weight:500}
+tbody td{padding:9px 14px;border-bottom:1px solid #DCE4EC;vertical-align:top;color:#444}
+tbody tr:nth-child(even){background:#F8F9FA}
+td.mono-cell{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#333}
+.status{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border:1px solid}
+.status-approved{color:#00B27D;border-color:#00B27D}
+.aidisc{background:#F4F6F8;border-left:3px solid #CCC;padding:12px 16px;font-size:11px;color:#888;margin-top:28px;font-family:"IBM Plex Mono",monospace;line-height:1.7}
+.pgfoot{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:9px;color:#AAA;letter-spacing:1px;padding:16px 0 0;border-top:1px solid #DCE4EC;margin-top:12px}
+@media(max-width:640px){.meta-grid,.step-io,.flow-row,.infra-grid{grid-template-columns:1fr}.lh{flex-direction:column;padding:20px 24px}.page{padding:24px 20px}}
+
+.proc{border:1px solid #DCE4EC;margin-bottom:16px}
+.proc-head{display:grid;grid-template-columns:100px 1fr auto;background:#060A0F;padding:14px 18px;align-items:center;gap:16px}
+.proc-num{font-family:"IBM Plex Mono",monospace;font-size:22px;font-weight:700;color:#00FFB2;line-height:1}
+.proc-name{font-size:15px;font-weight:600;color:#E0ECF8}
+.proc-sched{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#4A6070;text-align:right}
+.proc-body{padding:18px 20px}
+.proc-body p{font-size:13px;color:#444;margin-bottom:8px}
+.proc-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.pm{background:#F8F9FA;border:1px solid #DCE4EC;padding:8px 12px}
+.pm-k{font-family:"IBM Plex Mono",monospace;font-size:9px;color:#888;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+.pm-v{font-size:12px;color:#333;font-weight:500}
+.tag-new{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;background:#0A1E18;color:#00FFB2;border:1px solid #00FFB2;margin-left:8px;vertical-align:middle}
+.section-head{background:#060A0F;padding:12px 20px;margin:24px 0 0}
+.section-head-text{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#00FFB2}
+</style>
+</head>
+<body>
+<div class="lh">
+  <div class="lh-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="#00FFB2"><defs><clipPath id="sp"><circle cx="40" cy="40" r="40"></circle></clipPath></defs><g clip-path="url(#sp)"><circle cx="28" cy="52" r="20"></circle><circle cx="58" cy="22" r="17"></circle><circle cx="64" cy="58" r="14"></circle><circle cx="16" cy="24" r="12"></circle><circle cx="42" cy="42" r="10"></circle><circle cx="38" cy="18" r="8"></circle><circle cx="72" cy="38" r="9"></circle><circle cx="18" cy="58" r="7"></circle><circle cx="55" cy="74" r="8"></circle></g></svg><span class="lh-wordmark">KREW</span></div>
+  <div class="lh-meta">KREW-OPS-014 &nbsp;·&nbsp; Rev 1.2 &nbsp;·&nbsp; <span class="status status-approved">APPROVED</span><br><span>Automated Processes Register — All Scheduled &amp; Triggered Automations</span></div>
+</div>
+<div class="wrap">
+
+<div class="page">
+  <div class="doc-id">Register · KREW-OPS-014 · Rev 1.2 · Last updated 15.06.2026 by Monica (QSM)</div>
+  <h1>Automated Processes Register</h1>
+  <p>This document is the master register of every automated process 
+running in the KREW infrastructure. It covers scheduled jobs (triggered 
+by a timer) and event-driven functions (triggered by a user action or 
+webhook). For every process it records: what it does in plain terms, 
+when or how it triggers, what model or technology it uses, who owns it, 
+what it reads, and what it produces.</p>
+  <p>This register must be updated every time a new automation is added,
+ modified, or removed. Monica (QSM) owns the register. The CTO approves 
+all changes.</p>
+
+  <div class="meta-grid">
+    <div class="meta-k">Document ID</div><div class="meta-v">KREW-OPS-014</div>
+    <div class="meta-k">Revision</div><div class="meta-v">1.2 — 15.06.2026</div>
+    <div class="meta-k">Status</div><div class="meta-v"><span class="status status-approved">APPROVED</span></div>
+    <div class="meta-k">Owner</div><div class="meta-v">Monica · Quality &amp; Systems Manager · KREW-A009</div>
+    <div class="meta-k">Approver</div><div class="meta-v">Sheldon · CTO · KREW-A002</div>
+    <div class="meta-k">Supabase project</div><div class="meta-v">ccgsewlomcyikqpigofi · EU Frankfurt (KREW main)</div>
+  </div>
+</div>
+
+<!-- SCHEDULED JOBS -->
+<div class="page">
+  <h2>Scheduled Automations — pg_cron</h2>
+  <p>These processes run on a fixed timer using pg_cron, the PostgreSQL 
+scheduling extension. All times are UTC. CEST (Norway summer) = UTC+2. 
+The scheduler is always running inside Supabase and does not require any
+ server to be manually started.</p>
+
+  <div class="section-head"><div class="section-head-text">Brief Test Protocol — Chairman's Morning Brief</div></div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">01</div>
+      <div><div class="proc-name">QMS Nightly Review<span class="tag-new">BRIEF PIPELINE</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">brief-qms-review-nightly</div></div>
+      <div class="proc-sched">22:45 UTC<br>00:45 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>Monica (the Quality &amp; Systems Manager agent) wakes up every
+ night and reads the KREW operational database. She reviews all open 
+quality deviations, documents awaiting approval, agent performance over 
+the last 24 hours, overdue tasks, and outbound email activity. She then 
+writes a structured quality report — flagging anything that needs the 
+Chairman's attention — and saves it to the database. This is the first 
+step in the Chairman's Brief pipeline.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Agent</div><div class="pm-v">Monica · QSM · KREW-A009</div></div>
+        <div class="pm"><div class="pm-k">Model</div><div class="pm-v">claude-haiku-4-5</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">QSM (Monica)</div></div>
+        <div class="pm"><div class="pm-k">Reads from</div><div class="pm-v">qms_deviations, qms_documents, agent_runs, agent_tasks, email_log</div></div>
+        <div class="pm"><div class="pm-k">Writes to</div><div class="pm-v">qms_audit_log (kind = brief_log)</div></div>
+        <div class="pm"><div class="pm-k">Also posts to</div><div class="pm-v">#agent-brief on Slack (if token set)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">02</div>
+      <div><div class="proc-name">Weather Fetch<span class="tag-new">BRIEF PIPELINE</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">brief-weather-nightly</div></div>
+      <div class="proc-sched">22:47 UTC<br>00:47 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>Two minutes after Monica, a second process calls the Open-Meteo
+ weather API (free, no registration required) and retrieves current 
+conditions and the day's forecast for four cities: Longyearbyen, Oslo, 
+Limassol, and Dublin. No AI model is used — this is a pure data fetch. 
+The weather data is formatted and saved to the database, ready for the 
+Briefer to include in the morning email.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">External API</div><div class="pm-v">api.open-meteo.com</div></div>
+        <div class="pm"><div class="pm-k">Authentication</div><div class="pm-v">None required (free API)</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">CTO (automated process)</div></div>
+        <div class="pm"><div class="pm-k">Cities</div><div class="pm-v">Longyearbyen · Oslo · Limassol · Dublin</div></div>
+        <div class="pm"><div class="pm-k">Data fetched</div><div class="pm-v">Temperature, weather code, wind, humidity, daily high/low, rain probability</div></div>
+        <div class="pm"><div class="pm-k">Writes to</div><div class="pm-v">qms_audit_log (kind = weather_log)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">03</div>
+      <div><div class="proc-name">Email Stats<span class="tag-new">BRIEF PIPELINE</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">brief-email-stats-nightly</div></div>
+      <div class="proc-sched">22:48 UTC<br>00:48 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>Reads the Chairman's Microsoft 365 inbox and reports on 
+yesterday's email activity: total emails received, how many are unread, 
+which emails appear to need a reply, and any notable items (invoices, 
+bookings, meeting invitations). Currently uses manual injection from a 
+Claude.ai M365 MCP session; will switch to fully automated Microsoft 
+Graph API once app credentials are stored in Vault.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Current source</div><div class="pm-v">M365 MCP (Claude.ai session)</div></div>
+        <div class="pm"><div class="pm-k">Future source</div><div class="pm-v">Microsoft Graph API /me/messages</div></div>
+        <div class="pm"><div class="pm-k">Mailbox</div><div class="pm-v">ao@spitsbergeninvest.com</div></div>
+        <div class="pm"><div class="pm-k">To enable automation</div><div class="pm-v">Add MICROSOFT_CLIENT_ID, CLIENT_SECRET, TENANT_ID to Supabase Vault</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">CMO · Don</div></div>
+        <div class="pm"><div class="pm-k">Writes to</div><div class="pm-v">qms_audit_log (kind = email_log)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">04</div>
+      <div><div class="proc-name">Brief Generation<span class="tag-new">BRIEF PIPELINE</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">brief-run-nightly</div></div>
+      <div class="proc-sched">22:50 UTC<br>00:50 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>The Briefer reads all three reports filed in the previous steps
+ (QMS review, weather, email stats) plus open tasks, recent agent 
+emails, and active boardroom cases. It calls Claude Haiku and writes a 
+six-section HTML brief: Weather, Email, Priorities, QMS Flags, Overnight
+ Activity, sign-off. The brief is saved to the briefings table, 
+overwriting any previous version for the same date.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Model</div><div class="pm-v">claude-haiku-4-5 · Briefer identity</div></div>
+        <div class="pm"><div class="pm-k">Reads from</div><div class="pm-v">qms_audit_log (brief_log, weather_log, email_log), agent_tasks, email_log, boardroom_cases</div></div>
+        <div class="pm"><div class="pm-k">Writes to</div><div class="pm-v">briefings table (date + workspace, upsert)</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">CEO (Briefer reports to CEO)</div></div>
+        <div class="pm"><div class="pm-k">Output format</div><div class="pm-v">HTML email body sections, 6 sections, 3-minute read</div></div>
+        <div class="pm"><div class="pm-k">Current version</div><div class="pm-v">brief-run v3 (weather + email)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">05</div>
+      <div><div class="proc-name">Brief Email Delivery<span class="tag-new">BRIEF PIPELINE</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">brief-email-nightly</div></div>
+      <div class="proc-sched">23:00 UTC<br>01:00 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>Reads the brief from the briefings table, wraps it in the KREW 
+email template with logo header and IBM Plex fonts, and sends it to the 
+Chairman at ao@spitsbergeninvest.com via Resend. No AI model. Logs the 
+send in email_log with a KREW-MSG reference number. First successful 
+delivery: KREW-MSG-0029, 15.06.2026 at 00:44 CET.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Email provider</div><div class="pm-v">Resend · hello@krew.cloud</div></div>
+        <div class="pm"><div class="pm-k">Recipient</div><div class="pm-v">ao@spitsbergeninvest.com</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">Night Owl (automated)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head"><div class="section-head-text">Data Management</div></div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">06</div>
+      <div><div class="proc-name">Boardroom Daily Snapshot</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">boardroom-daily-snapshot</div></div>
+      <div class="proc-sched">02:15 UTC<br>04:15 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>Every day at 04:15 (Oslo time), all current boardroom 
+discussions, projects, and cases are copied into a backup table. This 
+creates a daily snapshot that can be used to recover data if anything is
+ accidentally deleted or corrupted. No AI involved — pure database copy 
+operation.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Reads from</div><div class="pm-v">boardroom_discussions, boardroom_projects, boardroom_cases</div></div>
+        <div class="pm"><div class="pm-k">Writes to</div><div class="pm-v">boardroom_backups (day, kind, row_id, payload)</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">CTO</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">07</div>
+      <div><div class="proc-name">Boardroom 30-Day Data Purge</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">boardroom-30d-purge</div></div>
+      <div class="proc-sched">02:45 UTC<br>04:45 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>Thirty minutes after the daily snapshot, old backup data is 
+deleted. Any backup older than 30 days is removed. Soft-deleted 
+discussions, projects, and cases (those marked deleted but still in the 
+database) are also permanently removed if they have been in the deleted 
+state for more than 30 days. This is the data retention policy in action
+ — governed by QSM under GDPR Article 5(1)(e).</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Retention period</div><div class="pm-v">30 days</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">QSM (GDPR data retention)</div></div>
+        <div class="pm"><div class="pm-k">GDPR basis</div><div class="pm-v">Art 5(1)(e) storage limitation</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">08</div>
+      <div><div class="proc-name">QMS Night Owl</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">qms-night-owl</div></div>
+      <div class="proc-sched">05:30 UTC<br>07:30 CEST</div>
+    </div>
+    <div class="proc-body">
+      <p>The original QMS nightly process, predating the Brief Test 
+Protocol. Runs at 07:30 and performs a wider QMS review with a longer 
+context window than the brief pipeline. See KREW-OPS-002 for the full 
+SOP. This process continues to run independently of the brief pipeline.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">QSM (Monica)</div></div>
+        <div class="pm"><div class="pm-k">See also</div><div class="pm-v">KREW-OPS-002</div></div>
+        <div class="pm"><div class="pm-k">Note</div><div class="pm-v">Runs independently — not part of Brief Pipeline</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head"><div class="section-head-text">Workforce Monitoring</div></div>
+
+  <div class="proc">
+    <div class="proc-head">
+      <div class="proc-num">09</div>
+      <div><div class="proc-name">Agent Health Monitor</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4A6070;margin-top:2px;">harm-owl-hourly</div></div>
+      <div class="proc-sched">:07 every hour<br>07 * * * *</div>
+    </div>
+    <div class="proc-body">
+      <p>Every hour, seven minutes past the hour, an automated check 
+runs across all KREW agents. It reviews agent run logs, checks for 
+failures, monitors error rates, and flags any agent that is 
+underperforming or has stopped running. This is the KREW equivalent of 
+an HR health check — the Workforce Manager checking that everyone is 
+working. Alerts post to the appropriate channels if thresholds are 
+breached.</p>
+      <div class="proc-meta">
+        <div class="pm"><div class="pm-k">Frequency</div><div class="pm-v">Every hour</div></div>
+        <div class="pm"><div class="pm-k">Owner</div><div class="pm-v">HARM · Workforce Manager</div></div>
+        <div class="pm"><div class="pm-k">See also</div><div class="pm-v">KREW-OPS-008</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ON-DEMAND FUNCTIONS -->
+<div class="page">
+  <h2>On-Demand Edge Functions (event-triggered)</h2>
+  <p>These functions do not run on a fixed schedule. They are triggered 
+either by a user action (clicking a button in the ERP, submitting a web 
+form) or by another system (Cloudflare Email Workers forwarding an 
+inbound email). They are always running and waiting for a trigger.</p>
+
+  <table>
+    <thead><tr><th>#</th><th>Function</th><th>What triggers it</th><th>What it does</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono-cell">10</td>
+        <td class="mono-cell">send-krew-email (v24)</td>
+        <td>Any process or agent needing to send a KREW-branded email</td>
+        <td>Sends a KREW-branded HTML email via Resend. Supports 
+optional PDF attachments via Supabase Storage signed URLs. The canonical
+ outbound email function — all agent emails go through this.</td>
+        <td>CMO · Don</td>
+      </tr>
+      <tr>
+        <td class="mono-cell">11</td>
+        <td class="mono-cell">agent-proxy</td>
+        <td>Advisor buttons clicked inside the KREW ERP interface</td>
+        <td>Proxies API calls from the ERP to Anthropic. Keeps the API 
+key server-side, never exposed in the browser. Powers the C-suite 
+advisor panel.</td>
+        <td>CTO · Sheldon</td>
+      </tr>
+      <tr>
+        <td class="mono-cell">12</td>
+        <td class="mono-cell">web-lead</td>
+        <td>Nora (web guide on krew.cloud) captures a visitor's contact details</td>
+        <td>Stores the lead in the database, triggers the CM pipeline for review and response routing.</td>
+        <td>CMO · Don</td>
+      </tr>
+      <tr>
+        <td class="mono-cell">13</td>
+        <td class="mono-cell">krew-lead-monitor</td>
+        <td>Inbound email arrives at hello@krew.cloud via Cloudflare Email Workers → #agent-crm-krew</td>
+        <td>Reads #agent-crm-krew channel. Extracts contact details. Don
+ (CMO) drafts a response. Routes to Chairman's Decision Queue for 
+approval before any reply is sent.</td>
+        <td>CMO · Don</td>
+      </tr>
+      <tr>
+        <td class="mono-cell">14</td>
+        <td class="mono-cell">harm-owl</td>
+        <td>Hourly cron + on-demand from ERP Workforce panel</td>
+        <td>Agent health check, same function as process 09 above. Can 
+also be triggered manually to get an instant snapshot of agent status.</td>
+        <td>HARM</td>
+      </tr>
+      <tr>
+        <td class="mono-cell">15</td>
+        <td class="mono-cell">olivette-auto-emails<br><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#999;">(project: exwjvsodmpibivzhjhgs)</span></td>
+        <td>Hourly cron (separate Supabase project)</td>
+        <td>Villa Olivette guest communications: pre-arrival email fires
+ 48 hours before check-in; post-departure email fires 24 hours after 
+check-out. Only fires if an email has not already been manually sent for
+ that booking. Armed on production — fires against live bookings.</td>
+        <td>Villa Olivette admin</td>
+      </tr>
+      <tr>
+        <td class="mono-cell">16</td>
+        <td class="mono-cell">brief-email-stats<br><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#999;">(also runs on cron at 22:48)</span></td>
+        <td>pg_cron 22:48 UTC nightly + manual injection from Claude.ai session</td>
+        <td>Reads M365 inbox stats for the previous day and saves them 
+to the database for the Briefer. Currently requires manual data 
+injection from a Claude.ai M365 MCP session; will automate when 
+Microsoft Graph API credentials are added to Vault.</td>
+        <td>CMO · Don</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Adding a New Automation</h2>
+  <p>When a new automated process is added, the following steps must be 
+completed before it can go live: (1) Document it in this register with 
+all fields completed. (2) Get CTO approval on the technical 
+implementation. (3) Get QSM sign-off that the process is logged and 
+monitorable. (4) Add a line to KREW-OPS-013 if it is part of the Brief 
+Pipeline. (5) Bump this document's revision number and update the "Last 
+updated" date.</p>
+
+  <div class="aidisc">This document was generated by a KREW AI agent 
+(CEO · KREW-A001) and reviewed by Monica (QSM · KREW-A009). KREW agents 
+operate under the KREW Code of Conduct — krew.cloud</div>
+  <div class="pgfoot"><div>KREW-OPS-014 · Rev 1.2 · Automated Processes Register · APPROVED</div><div>Monica · QSM · KREW &nbsp;|&nbsp; krew.cloud</div></div>
+</div>
+
+</div></body></html>
