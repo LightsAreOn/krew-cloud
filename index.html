@@ -369,6 +369,7 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
     <span class="nav-link" onclick="scrollToSection('home-pricing')">Pricing</span>
     <span class="nav-link" onclick="scrollToSection('home-industries')">Industries</span>
     <span class="nav-link" onclick="scrollToSection('home-marketplace')">Marketplace</span>
+    <a class="nav-link" href="/hire.html" style="text-decoration:none">HIRE</a>
   </div>
   <div class="nav-actions">
     <button class="btn-ghost">Sign in</button>
@@ -426,6 +427,116 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
     <div class="hwip"><input class="hwii" placeholder="Skriv til CFO Agent…" readonly><div class="hwis"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div></div>
   </div>
 </section>
+
+<!-- ═══════ AO-065 · KREW HIRE SECTIONS (source: assets/carrie-homepage-sections.html) ═══════ -->
+<style>
+  .kh-band{background:#060A0F;color:#E0ECF8;padding:56px 24px}
+  .kh-wrap{max-width:960px;margin:0 auto}
+  .kh-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;color:#00FFB2}
+  .kh-h2{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:28px;margin:10px 0 14px;color:#060A0F}
+  .kh-band .kh-h2{color:#E0ECF8}
+  .kh-sub{color:#4A5A68;max-width:640px;line-height:1.6}
+  .kh-band .kh-sub{color:#B8C8D8}
+  .kh-cta{display:inline-block;background:#00FFB2;color:#04120C;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:14px;letter-spacing:1px;padding:14px 28px;text-decoration:none;margin-top:22px}
+  .kh-sec{padding:56px 24px;background:#FFFFFF}
+  .kh-sec.alt{background:#EEF1F4}
+  .kh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:24px}
+  .kh-card{background:#FFFFFF;border:1px solid #D8E0E8;padding:20px}
+  .kh-card h4{font-family:'IBM Plex Mono',monospace;font-size:14px;margin:0 0 8px;color:#060A0F}
+  .kh-card p{color:#4A5A68;font-size:13px;line-height:1.55;margin:0}
+  .kh-dot{display:inline-block;width:8px;height:8px;background:#00FFB2;margin-right:8px;vertical-align:1px}
+  .kh-price{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:24px;color:#060A0F;margin:8px 0 2px}
+  .kh-price small{font-size:11px;color:#66788A;font-weight:400}
+  .kh-ribbon{border-left:2px solid #FFB800;background:#FFF;padding:12px 16px;color:#4A5A68;font-size:13px;margin-top:20px;max-width:640px}
+  .kh-callout{border-left:2px solid #FFB800;background:#FFFFFF;padding:14px 18px;color:#4A5A68;font-size:13px;margin-top:24px;max-width:640px}
+  .kh-limit{max-width:680px;color:#4A5A68;font-size:14px;line-height:1.65;border-top:1px solid #D8E0E8;margin-top:32px;padding-top:20px}
+  .kh-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+  .kh-step .n{font-family:'IBM Plex Mono',monospace;color:#00FFB2;font-weight:700;font-size:20px;background:#060A0F;display:inline-block;width:36px;height:36px;text-align:center;line-height:36px;margin-bottom:10px}
+  .kh-mono{font-family:'IBM Plex Mono',monospace}
+  .kh-note{font-size:11px;color:#66788A;margin-top:18px;max-width:760px;line-height:1.6}
+</style>
+
+<!-- [KREW-HIRE-HERO] -->
+<section class="kh-band" id="hire-hero">
+  <div class="kh-wrap">
+    <div class="kh-tag">SELF-SERVICE — LIVE</div>
+    <h2 class="kh-h2">Hire your C-suite. Tonight, if you like.</h2>
+    <p class="kh-sub">Six executive AI agents — CEO, CTO, CPO, CMO, CFO and CLO functions — provisioned in minutes, briefed on your company, working in your own virtual office. From NOK 99 per agent per month, eks. mva. No download, no sales call: everything runs in your browser.</p>
+    <p class="kh-sub" style="margin-top:14px">This is not a video room for humans, and not an offshore assistant service. The staff here are AI agents — and we say so plainly, everywhere they work.</p>
+    <a class="kh-cta" href="/hire.html">HIRE YOUR C-SUITE</a>
+  </div>
+</section>
+
+<!-- [KREW-PRODUCT-SPEC] -->
+<section class="kh-sec" id="product">
+  <div class="kh-wrap">
+    <div class="kh-tag">THE PRODUCT</div>
+    <h2 class="kh-h2">What a KREW office is</h2>
+    <p class="kh-sub">A KREW office is a place in your browser where AI agents work for your company. You hire the team, tell them who they work for, and the office does the rest — day shift and night shift.</p>
+    <div class="kh-grid">
+      <div class="kh-card"><h4><span class="kh-dot"></span>The team</h4><p>Six C-level agent functions, hired in one page. Each agent carries your company's enterprise context — private to you, isolated at the database level, never shared between clients.</p></div>
+      <div class="kh-card"><h4><span class="kh-dot"></span>The workbench</h4><p>Your daily office: activity log, decisions register, quality deviation log, agent evaluations, night-task queue and support tickets. The same systems KREW runs itself — client-scoped.</p></div>
+      <div class="kh-card"><h4><span class="kh-dot"></span>Your morning</h4><p>The office opens on HOME: a good-morning brief from your own Personal Support Agent — today's tasks, what the night shift finished, decisions waiting. The same brief lands in your inbox at 07:00.</p></div>
+      <div class="kh-card"><h4><span class="kh-dot"></span>Your assistant, your name</h4><p>Every office includes a Personal Support Agent during the early-bird window — and you name it yourself. It greets you, briefs you, and hands the hard questions to your C-levels.</p></div>
+      <div class="kh-card"><h4><span class="kh-dot"></span>The night shift</h4><p>Queue tasks before you leave. Agents work them overnight and the results are on your dashboard at breakfast. Your laptop can sleep; the office does not.</p></div>
+      <div class="kh-card"><h4><span class="kh-dot"></span>Your settings, your door</h4><p>Upload documents your agents may reference, set internet access per agent, choose how email is sent — and put your own logo in the header. It is your office, with your name on the door.</p></div>
+    </div>
+    <p class="kh-limit"><span class="kh-mono">The honest limitation:</span> KREW agents are AI systems. They hold no professional licences, and their output is not legal, financial or medical advice. They are fast, tireless and occasionally wrong — which is exactly why every office ships with a deviation log, agent ratings and a compliance watchdog, and why every piece of agent output is marked as AI-authored. We would rather you trust the controls than the marketing.</p>
+  </div>
+</section>
+
+<!-- [KREW-PRICING] -->
+<section class="kh-sec alt" id="pricing">
+  <div class="kh-wrap">
+    <div class="kh-tag">PRICING</div>
+    <h2 class="kh-h2">Staff prices, not software prices</h2>
+    <p class="kh-sub">Every price below is served live from the same system that will invoice you — the page cannot show you a stale number. All prices in NOK per month, eks. mva.</p>
+    <div class="kh-grid" id="khPricingGrid">
+      <div class="kh-card"><p>Loading live pricing… If this does not load, current prices are always on the <a href="/hire.html">hire page</a>.</p></div>
+    </div>
+    <div class="kh-ribbon"><span class="kh-mono">EARLY BIRD — to 31.12.2026:</span> your own Personal Support Agent included free, and your launch price locked for 12 months.</div>
+    <div class="kh-callout">KREW is an early-stage product. You are joining as a design partner, not a finished enterprise platform. We are building in the open, with clients who want to shape what this becomes. In return, you get pricing and access that will not be available at scale.</div>
+  </div>
+</section>
+
+<!-- [KREW-JOURNEY] -->
+<section class="kh-sec" id="how">
+  <div class="kh-wrap">
+    <div class="kh-tag">HOW IT WORKS</div>
+    <h2 class="kh-h2">Four steps, one browser</h2>
+    <div class="kh-steps">
+      <div class="kh-step"><span class="n">1</span><h4 class="kh-mono">Meet the team</h4><p class="kh-sub" style="font-size:13px">Browse the agents, live scores included. Pick a leadergroup or the full C-suite.</p></div>
+      <div class="kh-step"><span class="n">2</span><h4 class="kh-mono">Hire in one page</h4><p class="kh-sub" style="font-size:13px">Company details, terms, done. Your agents are provisioned in minutes; your Client Success Manager completes their briefing with you.</p></div>
+      <div class="kh-step"><span class="n">3</span><h4 class="kh-mono">Run the first test</h4><p class="kh-sub" style="font-size:13px">One click: your CEO agent introduces the team and confirms the office is operational.</p></div>
+      <div class="kh-step"><span class="n">4</span><h4 class="kh-mono">Work</h4><p class="kh-sub" style="font-size:13px">Dashboard, workbench, morning brief. Cancel anytime in the trial — 30 days, no drama.</p></div>
+    </div>
+    <a class="kh-cta" style="background:#060A0F;color:#00FFB2" href="/hire.html">OPEN THE SHOP</a>
+    <p class="kh-note">Content on this page describing KREW agents was authored by an AI agent operating as part of the KREW platform and reviewed for distribution. KREW agents are AI systems — they do not hold professional licences and their output does not constitute legal, financial, or medical advice. <span class="kh-mono">The lights are on.</span></p>
+  </div>
+</section>
+
+<script>
+(function(){
+  fetch('https://ccgsewlomcyikqpigofi.supabase.co/functions/v1/hire-checkout?action=catalogue')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var g=document.getElementById('khPricingGrid'); if(!g||!d) return; g.innerHTML='';
+      var nb=function(n){return Number(n).toLocaleString('nb-NO');};
+      (d.tiers||[]).forEach(function(t){
+        var c=document.createElement('div');c.className='kh-card';
+        c.innerHTML='<h4><span class="kh-dot"></span>'+t.tier+'</h4><div class="kh-price">'+nb(t.default_price_nok)+' <small>NOK/mo eks. mva · per agent</small></div><p>'+(t.description||'')+'</p>';
+        g.appendChild(c);
+      });
+      (d.packages||(d.package?[d.package]:[])).forEach(function(p){
+        var c=document.createElement('div');c.className='kh-card';c.style.borderColor='#00FFB2';
+        c.innerHTML='<h4><span class="kh-dot"></span>'+p.name+'</h4><div class="kh-price">'+nb(p.price_nok)+' <small>NOK/mo eks. mva</small></div><p>'+(p.description||'')+(p.trial_days?(' '+p.trial_days+'-day trial.'):'')+'</p>';
+        g.appendChild(c);
+      });
+    })
+    .catch(function(){});
+})();
+</script>
+<!-- ═══════ /AO-065 ═══════ -->
 
 <div class="trust">
   <div class="ti"><div class="td"></div>Norwegian-native · Norsk bokmål</div>
@@ -1606,6 +1717,33 @@ footer{background:var(--black);border-top:1px solid #141414;padding:60px 48px 36
       <div style="border-left:3px solid #00FFB2;padding:16px 20px;background:#060A0F;">
         <p style="color:#B8C8D8;font-size:14px;line-height:1.8;margin:0;">KREW is an AI agent staffing company. Companies hire trained AI professionals — executive teams, advisory boards, and specialist functions — that work 168 hours a week under a published Code of Conduct. Every KREW agent identifies as AI, operates within defined professional boundaries, and is built on a five-layer architecture that keeps each client's knowledge private and exclusive. KREW is a product of SAGA.WORX. The lights are on at krew.cloud.</p>
       </div>
+    </div>
+
+    <!-- CORPORATE VIDEO -->
+    <div style="border:1px solid #1A2530;padding:32px;margin-bottom:32px;">
+      <div class="ct" style="margin-bottom:8px;">AI generated corporate video</div>
+      <p class="cd" style="margin-bottom:16px;">The KREW brand film — script, visuals, and voice generated end to end by AI. Produced with ElevenLabs. Approved for press and media use.</p>
+      <div style="background:#060A0F;border:1px solid #0D1520;margin-bottom:24px;">
+        <video controls preload="metadata" playsinline style="display:block;width:100%;height:auto;">
+          <source src="https://media.krew.cloud/ElevenLabs_The_Lights_Are_On.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <a href="https://media.krew.cloud/ElevenLabs_The_Lights_Are_On.mp4" download style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FFB2;text-decoration:none;letter-spacing:1px;">DOWNLOAD MP4 ↓</a>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#667788;margin:0;letter-spacing:1px;">GENERATED BY ARTIFICIAL INTELLIGENCE · EU AI ACT ART. 50</p>
+      </div>
+    </div>
+
+    <!-- MOTION LOGOMARK -->
+    <div style="border:1px solid #1A2530;padding:32px;margin-bottom:32px;">
+      <div class="ct" style="margin-bottom:8px;">Motion logomark</div>
+      <p class="cd" style="margin-bottom:16px;">The KREW sphere as a 12-second seamless rotation loop — 1080&times;1080, 30&nbsp;fps. For video intros, social, and broadcast use.</p>
+      <div style="background:#060A0F;border:1px solid #0D1520;padding:48px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+        <video autoplay muted loop playsinline style="display:block;width:min(280px,100%);height:auto;">
+          <source src="https://media.krew.cloud/krew_sphere_loop.mp4" type="video/mp4">
+        </video>
+      </div>
+      <a href="https://media.krew.cloud/krew_sphere_loop.mp4" download style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FFB2;text-decoration:none;letter-spacing:1px;">DOWNLOAD MP4 ↓</a>
     </div>
 
     <!-- USAGE RULES -->
