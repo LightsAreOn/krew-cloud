@@ -1,5 +1,9 @@
 {
-  "rewrites": [{ "source": "/((?!index\\.html).*)", "destination": "/index.html" }],
+  "rewrites": [
+    { "source": "/career", "destination": "https://krew-hunt.vercel.app/" },
+    { "source": "/career/:path*", "destination": "https://krew-hunt.vercel.app/:path*" },
+    { "source": "/((?!index\\.html).*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
